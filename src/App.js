@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
@@ -9,10 +9,34 @@ import VerdadOMitoPage from './pages/VerdadOMitoPage';
 import NoticiasPage from './pages/NoticiasPage';
 import ConocimientoPage from './pages/ConocimientoPage';
 import GaleriaPage from './pages/GaleriaPage';
+import { initGA, logPageView, logClick } from './utils/analytics';
 
 function AppContent() {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+
+  useEffect(() => {
+    logPageView(location.pathname + location.search);
+  }, [location]);
+
+  useEffect(() => {
+    const handleClick = (event) => {
+      const target = event.target;
+      const clickedElement = target.tagName.toLowerCase();
+      const elementText = target.textContent?.trim().substring(0, 50) || '';
+      const elementId = target.id || '';
+      const elementClass = target.className || '';
+
+      let elementDescription = clickedElement;
+      if (elementId) elementDescription += `#${elementId}`;
+      if (elementText) elementDescription += `: ${elementText}`;
+
+      logClick(elementDescription, location.pathname);
+    };
+
+    document.addEventListener('click', handleClick);
+    return () => document.removeEventListener('click', handleClick);
+  }, [location]);
 
   return (
     <>
@@ -32,6 +56,11 @@ function AppContent() {
 }
 
 function App() {
+  useEffect(() => {
+    // Replace 'G-XXXXXXXXXX' with your actual Google Analytics 4 Measurement ID
+    initGA('G-XTX7WD3NVC');
+  }, []);
+
   return (
     <BrowserRouter>
       <AppContent />

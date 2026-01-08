@@ -270,7 +270,7 @@ body {
 .voting-instructions {
     position: absolute;
     bottom: 30px;
-    right: 140px;
+    right: 185px;
     background: var(--blanco);
     border-radius: 16px;
     padding: 10px 50px;
@@ -1014,13 +1014,14 @@ article.caso-card .caso-enlace:hover {
 
 .mitos-hero .hero-image {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Cambiar de cover a contain para que se vea completa */
-    object-position: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: auto;
+    object-fit: contain;
     z-index: 0;
+    opacity: 0.9;
 }
 
 .mitos-hero::after {
@@ -2018,6 +2019,63 @@ article.caso-card .caso-enlace:hover {
     object-fit: contain;
     object-position: bottom;
     position: relative;
+}
+
+/* Desktop: Three separate images */
+.hero-images-desktop {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100%;
+    max-height: 648px;
+    position: relative;
+    width: 700px;
+}
+
+.hero-image-part {
+    height: auto;
+    max-height: 648px;
+    object-fit: contain;
+    object-position: bottom;
+    position: absolute;
+    bottom: 0;
+}
+
+.hero-image-person {
+    max-width: 900px;
+    z-index: 3;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hero-image-helmet {
+    max-width: 400px;
+    z-index: 1;
+    left: 330px;
+    bottom: 200px;
+    transition: transform 0.4s ease;
+}
+
+.hero-image-number {
+    max-width: 400px;
+    z-index: 2;
+    right: 250px;
+    bottom: 95px;
+    transition: transform 0.4s ease;
+}
+
+/* Hover effects on voting boxes affecting background images */
+.hero-image-container:has(.voting-box:first-child:hover) .hero-image-helmet {
+    transform: scale(1.15) rotate(-8deg);
+}
+
+.hero-image-container:has(.voting-box:last-child:hover) .hero-image-number {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* Hide mobile image on desktop */
+.hero-image-mobile {
+    display: none;
 }
 
 /* Asegurar que no hay espacios en la página de prueba */

@@ -102,7 +102,12 @@ function HomePage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <img src="/images/inicio/hero-main.png" alt="Harvey Colchado" className="hero-image" />
+              <div className="hero-images-desktop">
+                <img src="/images/inicio/HC_SOLO.png" alt="Harvey Colchado" className="hero-image-part hero-image-person" />
+                <img src="/images/inicio/CASCO.png" alt="Casco" className="hero-image-part hero-image-helmet" />
+                <img src="/images/inicio/NÚMERO 1.png" alt="Número 1" className="hero-image-part hero-image-number" />
+              </div>
+              <img src="/images/inicio/hero-main.png" alt="Harvey Colchado" className="hero-image hero-image-mobile" />
 
               {/* Voting Instructions - Desktop Only */}
               <motion.div
