@@ -1,0 +1,54 @@
+{
+  "noticias": [
+    {
+      "id": 1,
+      "fecha": "Diciembre 03, 2025",
+      "fuente": "RPP NOTICIAS",
+      "titulo": "Harvey Colchado rechaza supuesta vinculación con fiscal defenido: \"Si hizo un acto de corrupción, que pague\"",
+      "resumen": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
+      "enlace": "#",
+      "imagen": "images/noticia-1.jpg",
+      "tipoFondo": "blanco"
+    },
+    {
+      "id": 2,
+      "fecha": "Diciembre 01, 2025",
+      "fuente": "RPP NOTICIAS",
+      "titulo": "Harvey Colchado rechaza supuesta vinculación con fiscal defenido: \"Si hizo un acto de corrupción, que pague\"",
+      "resumen": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
+      "enlace": "#",
+      "imagen": "images/noticia-2.jpg",
+      "tipoFondo": "azul"
+    },
+    {
+      "id": 3,
+      "fecha": "Diciembre 03, 2025",
+      "fuente": "RPP NOTICIAS",
+      "titulo": "Harvey Colchado rechaza supuesta vinculación con fiscal defenido: \"Si hizo un acto de corrupción, que pague\"",
+      "resumen": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
+      "enlace": "#",
+      "imagen": "images/noticia-3.jpg",
+      "tipoFondo": "blanco"
+    },
+    {
+      "id": 4,
+      "fecha": "Diciembre 01, 2025",
+      "fuente": "RPP NOTICIAS",
+      "titulo": "Harvey Colchado rechaza supuesta vinculación con fiscal defenido: \"Si hizo un acto de corrupción, que pague\"",
+      "resumen": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
+      "enlace": "#",
+      "imagen": "images/noticia-4.jpg",
+      "tipoFondo": "azul"
+    },
+    {
+      "id": 5,
+      "fecha": "Diciembre 02, 2025",
+      "fuente": "RPP NOTICIAS",
+      "titulo": "Harvey Colchado rechaza supuesta vinculación con fiscal defenido: \"Si hizo un acto de corrupción, que pague\"",
+      "resumen": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
+      "enlace": "#",
+      "imagen": "images/noticia-5.jpg",
+      "tipoFondo": "blanco"
+    }
+  ]
+}
