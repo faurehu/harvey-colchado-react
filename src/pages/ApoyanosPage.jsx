@@ -4,6 +4,7 @@ import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recapt
 function ApoyanosForm() {
   const [expandedPropuesta, setExpandedPropuesta] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const propuestas = [
@@ -82,7 +83,7 @@ function ApoyanosForm() {
       const data = await response.json();
 
       if (response.ok) {
-        alert('¡Gracias por tu interés en ser voluntario! Nos pondremos en contacto contigo pronto.');
+        setSubmitSuccess(true);
         e.target.reset();
       } else {
         console.error('Server error response:', data);
@@ -145,93 +146,107 @@ function ApoyanosForm() {
               ))}
             </div>
 
-            <form className="apoyo-form" onSubmit={handleVoluntarioSubmit}>
-              <div className="form-row">
-                <input
-                  type="text"
-                  placeholder="NOMBRES COMPLETOS"
-                  required
-                  onInvalid={(e) => e.target.setCustomValidity('Por favor, completa este campo.')}
-                  onInput={(e) => e.target.setCustomValidity('')}
-                />
+            {submitSuccess ? (
+              <div className="success-message" style={{
+                backgroundColor: '#4CAF50',
+                color: 'white',
+                padding: '30px',
+                borderRadius: '8px',
+                textAlign: 'center',
+                margin: '20px 0'
+              }}>
+                <h3 style={{ marginBottom: '15px', fontSize: '24px' }}>¡Gracias por tu interés en ser voluntario!</h3>
+                <p style={{ fontSize: '18px', lineHeight: '1.6' }}>Nos pondremos en contacto contigo pronto.</p>
               </div>
-              <div className="form-row">
-                <input
-                  type="text"
-                  placeholder="APELLIDOS COMPLETOS"
-                  required
-                  onInvalid={(e) => e.target.setCustomValidity('Por favor, completa este campo.')}
-                  onInput={(e) => e.target.setCustomValidity('')}
-                />
-              </div>
-              <div className="form-row form-row-half">
-                <input
-                  type="text"
-                  placeholder="DNI"
-                  pattern="[0-9]{8}"
-                  maxLength="8"
-                  required
-                  onInvalid={(e) => {
-                    if (e.target.validity.valueMissing) {
-                      e.target.setCustomValidity('Por favor, completa este campo.');
-                    } else if (e.target.validity.patternMismatch) {
-                      e.target.setCustomValidity('El DNI debe tener exactamente 8 dígitos numéricos.');
-                    }
+            ) : (
+              <form className="apoyo-form" onSubmit={handleVoluntarioSubmit}>
+                <div className="form-row">
+                  <input
+                    type="text"
+                    placeholder="NOMBRES COMPLETOS"
+                    required
+                    onInvalid={(e) => e.target.setCustomValidity('Por favor, completa este campo.')}
+                    onInput={(e) => e.target.setCustomValidity('')}
+                  />
+                </div>
+                <div className="form-row">
+                  <input
+                    type="text"
+                    placeholder="APELLIDOS COMPLETOS"
+                    required
+                    onInvalid={(e) => e.target.setCustomValidity('Por favor, completa este campo.')}
+                    onInput={(e) => e.target.setCustomValidity('')}
+                  />
+                </div>
+                <div className="form-row form-row-half">
+                  <input
+                    type="text"
+                    placeholder="DNI"
+                    pattern="[0-9]{8}"
+                    maxLength="8"
+                    required
+                    onInvalid={(e) => {
+                      if (e.target.validity.valueMissing) {
+                        e.target.setCustomValidity('Por favor, completa este campo.');
+                      } else if (e.target.validity.patternMismatch) {
+                        e.target.setCustomValidity('El DNI debe tener exactamente 8 dígitos numéricos.');
+                      }
+                    }}
+                    onInput={(e) => {
+                      e.target.value = e.target.value.replace(/[^0-9]/g, '');
+                      e.target.setCustomValidity('');
+                    }}
+                  />
+                  <input
+                    type="text"
+                    placeholder="NÚMERO CELULAR"
+                    pattern="[0-9]{9}"
+                    maxLength="9"
+                    required
+                    onInvalid={(e) => {
+                      if (e.target.validity.valueMissing) {
+                        e.target.setCustomValidity('Por favor, completa este campo.');
+                      } else if (e.target.validity.patternMismatch) {
+                        e.target.setCustomValidity('El número celular debe tener 9 dígitos numéricos.');
+                      }
+                    }}
+                    onInput={(e) => {
+                      e.target.value = e.target.value.replace(/[^0-9]/g, '');
+                      e.target.setCustomValidity('');
+                    }}
+                  />
+                </div>
+                <div className="form-row">
+                  <input
+                    type="email"
+                    placeholder="CORREO ELECTRÓNICO"
+                    required
+                    onInvalid={(e) => e.target.setCustomValidity('Por favor, ingresa un correo electrónico válido.')}
+                    onInput={(e) => e.target.setCustomValidity('')}
+                  />
+                </div>
+                <div className="form-row">
+                  <textarea
+                    placeholder="¿EN QUÉ PUEDES AYUDAR?"
+                    rows="4"
+                    required
+                    onInvalid={(e) => e.target.setCustomValidity('Por favor, completa este campo.')}
+                    onInput={(e) => e.target.setCustomValidity('')}
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  className="form-submit"
+                  disabled={isSubmitting}
+                  style={{
+                    opacity: isSubmitting ? 0.5 : 1,
+                    cursor: isSubmitting ? 'not-allowed' : 'pointer'
                   }}
-                  onInput={(e) => {
-                    e.target.value = e.target.value.replace(/[^0-9]/g, '');
-                    e.target.setCustomValidity('');
-                  }}
-                />
-                <input
-                  type="text"
-                  placeholder="NÚMERO CELULAR"
-                  pattern="[0-9]{9}"
-                  maxLength="9"
-                  required
-                  onInvalid={(e) => {
-                    if (e.target.validity.valueMissing) {
-                      e.target.setCustomValidity('Por favor, completa este campo.');
-                    } else if (e.target.validity.patternMismatch) {
-                      e.target.setCustomValidity('El número celular debe tener 9 dígitos numéricos.');
-                    }
-                  }}
-                  onInput={(e) => {
-                    e.target.value = e.target.value.replace(/[^0-9]/g, '');
-                    e.target.setCustomValidity('');
-                  }}
-                />
-              </div>
-              <div className="form-row">
-                <input
-                  type="email"
-                  placeholder="CORREO ELECTRÓNICO"
-                  required
-                  onInvalid={(e) => e.target.setCustomValidity('Por favor, ingresa un correo electrónico válido.')}
-                  onInput={(e) => e.target.setCustomValidity('')}
-                />
-              </div>
-              <div className="form-row">
-                <textarea
-                  placeholder="¿EN QUÉ PUEDES AYUDAR?"
-                  rows="4"
-                  required
-                  onInvalid={(e) => e.target.setCustomValidity('Por favor, completa este campo.')}
-                  onInput={(e) => e.target.setCustomValidity('')}
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="form-submit"
-                disabled={isSubmitting}
-                style={{
-                  opacity: isSubmitting ? 0.5 : 1,
-                  cursor: isSubmitting ? 'not-allowed' : 'pointer'
-                }}
-              >
-                {isSubmitting ? 'ENVIANDO...' : 'ME APUNTO'}
-              </button>
-            </form>
+                >
+                  {isSubmitting ? 'ENVIANDO...' : 'ME APUNTO'}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </section>
