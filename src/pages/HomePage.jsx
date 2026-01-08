@@ -7,7 +7,7 @@ import CasoCard from '../components/shared/CasoCard';
 function HomePage() {
   const [showX, setShowX] = useState(false);
   const [showDesktopX, setShowDesktopX] = useState(false);
-  const [showNumber, setShowNumber] = useState(false);
+  const [numberKey, setNumberKey] = useState(0);
 
   useEffect(() => {
     const container = document.getElementById('juicer-container');
@@ -149,57 +149,55 @@ function HomePage() {
                   </div>
                   <p className="voting-label">MARCA</p>
                 </div>
-                <div className="voting-box" onClick={() => setShowNumber(true)} style={{ cursor: 'pointer' }}>
+                <div className="voting-box" onClick={() => setNumberKey(prev => prev + 1)} style={{ cursor: 'pointer' }}>
                   <div className="voting-square voting-number">
-                    {showNumber && (
-                      <svg className="voting-number-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
-                        {/* Diagonal top stroke */}
-                        <motion.path
-                          d="M 30,30 L 50,15"
-                          stroke="var(--gris-oscuro)"
-                          strokeWidth="18"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          animate={{ pathLength: 1, opacity: 1 }}
-                          transition={{
-                            pathLength: { duration: 0.3, ease: "easeInOut" },
-                            opacity: { duration: 0 }
-                          }}
-                        />
-                        {/* Vertical main line */}
-                        <motion.path
-                          d="M 50,15 L 50,105"
-                          stroke="var(--gris-oscuro)"
-                          strokeWidth="18"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          animate={{ pathLength: 1, opacity: 1 }}
-                          transition={{
-                            pathLength: { duration: 0.5, ease: "easeInOut", delay: 0.3 },
-                            opacity: { duration: 0, delay: 0.3 }
-                          }}
-                        />
-                        {/* Horizontal base line */}
-                        <motion.path
-                          d="M 20,105 L 80,105"
-                          stroke="var(--gris-oscuro)"
-                          strokeWidth="18"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          animate={{ pathLength: 1, opacity: 1 }}
-                          transition={{
-                            pathLength: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
-                            opacity: { duration: 0, delay: 0.8 }
-                          }}
-                        />
-                      </svg>
-                    )}
+                    <svg key={numberKey} className="voting-number-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                      {/* Diagonal top stroke */}
+                      <motion.path
+                        d="M 30,30 L 50,15"
+                        stroke="var(--gris-oscuro)"
+                        strokeWidth="18"
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        animate={{ pathLength: 1, opacity: 1 }}
+                        transition={{
+                          pathLength: { duration: 0.3, ease: "easeInOut", delay: numberKey === 0 ? 1.2 : 0 },
+                          opacity: { duration: 0, delay: numberKey === 0 ? 1.2 : 0 }
+                        }}
+                      />
+                      {/* Vertical main line */}
+                      <motion.path
+                        d="M 50,15 L 50,105"
+                        stroke="var(--gris-oscuro)"
+                        strokeWidth="18"
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        animate={{ pathLength: 1, opacity: 1 }}
+                        transition={{
+                          pathLength: { duration: 0.5, ease: "easeInOut", delay: numberKey === 0 ? 1.5 : 0.3 },
+                          opacity: { duration: 0, delay: numberKey === 0 ? 1.5 : 0.3 }
+                        }}
+                      />
+                      {/* Horizontal base line */}
+                      <motion.path
+                        d="M 20,105 L 80,105"
+                        stroke="var(--gris-oscuro)"
+                        strokeWidth="18"
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        animate={{ pathLength: 1, opacity: 1 }}
+                        transition={{
+                          pathLength: { duration: 0.4, ease: "easeInOut", delay: numberKey === 0 ? 2.0 : 0.8 },
+                          opacity: { duration: 0, delay: numberKey === 0 ? 2.0 : 0.8 }
+                        }}
+                      />
+                    </svg>
                   </div>
                   <p className="voting-label">ESCRIBE</p>
                 </div>
