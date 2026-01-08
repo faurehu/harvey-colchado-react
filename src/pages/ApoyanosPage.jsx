@@ -51,12 +51,23 @@ function ApoyanosForm() {
   const handleVoluntarioSubmit = async (e) => {
     e.preventDefault();
 
-    if (!executeRecaptcha) {
-      alert('reCAPTCHA no está listo. Por favor, recarga la página.');
+    setIsSubmitting(true);
+
+    // In development mode, always show success
+    if (process.env.NODE_ENV === 'development') {
+      setTimeout(() => {
+        setSubmitSuccess(true);
+        e.target.reset();
+        setIsSubmitting(false);
+      }, 1000); // Simulate network delay
       return;
     }
 
-    setIsSubmitting(true);
+    if (!executeRecaptcha) {
+      alert('reCAPTCHA no está listo. Por favor, recarga la página.');
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       // Execute reCAPTCHA v3
