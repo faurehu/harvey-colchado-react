@@ -47,8 +47,16 @@ export default async function handler(req, res) {
 
     console.log('reCAPTCHA score:', verifyData.score);
 
+    // Check DATABASE_URL environment variable
+    if (!process.env.DATABASE_URL) {
+      console.error('DATABASE_URL is not configured');
+      return res.status(500).json({ error: 'Error de configuración del servidor' });
+    }
+
     // Save to Neon database
     const sql = neon(process.env.DATABASE_URL);
+
+    console.log('Attempting to insert into database...');
 
     await sql`
       INSERT INTO volunteers (nombres, apellidos, dni, celular, email, ayuda, created_at)
@@ -70,6 +78,14 @@ export default async function handler(req, res) {
 
   } catch (error) {
     console.error('Error processing form:', error);
-    return res.status(500).json({ error: 'Error al procesar el formulario' });
+    console.error('Error details:', {
+      message: error.message,
+      stack: error.stack,
+      name: error.name
+    });
+    return res.status(500).json({
+      error: 'Error al procesar el formulario',
+      details: process.env.NODE_ENV === 'development' ? error.message : undefined
+    });
   }
 }

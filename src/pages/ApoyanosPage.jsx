@@ -85,7 +85,9 @@ function ApoyanosForm() {
         alert('¡Gracias por tu interés en ser voluntario! Nos pondremos en contacto contigo pronto.');
         e.target.reset();
       } else {
-        alert('Hubo un error al enviar el formulario. Por favor, intenta nuevamente.');
+        console.error('Server error response:', data);
+        const errorMsg = data.details ? `Error: ${data.error}\nDetalles: ${data.details}` : `Error: ${data.error}`;
+        alert(errorMsg);
       }
     } catch (error) {
       console.error('Error submitting form:', error);
