@@ -167,7 +167,7 @@ function ApoyanosForm() {
                 margin: '20px 0'
               }}>
                 <h3 style={{ marginBottom: '15px', fontSize: '24px' }}>¡Gracias por tu interés en ser voluntario!</h3>
-                <p style={{ fontSize: '18px', lineHeight: '1.6' }}>Nos pondremos en contacto contigo pronto.</p>
+                <p style={{ fontSize: '18px', lineHeight: '1.6', color: 'white', textAlign: 'center' }}>Nos pondremos en contacto contigo pronto.</p>
               </div>
             ) : (
               <form className="apoyo-form" onSubmit={handleVoluntarioSubmit}>
