@@ -47,14 +47,14 @@ export default async function handler(req, res) {
 
     console.log('reCAPTCHA score:', verifyData.score);
 
-    // Check DATABASE_URL environment variable
-    if (!process.env.DATABASE_URL) {
-      console.error('DATABASE_URL is not configured');
+    // Check storage_DATABASE_URL environment variable
+    if (!process.env.storage_DATABASE_URL) {
+      console.error('storage_DATABASE_URL is not configured');
       return res.status(500).json({ error: 'Error de configuración del servidor' });
     }
 
     // Save to Neon database
-    const sql = neon(process.env.DATABASE_URL);
+    const sql = neon(process.env.storage_DATABASE_URL);
 
     console.log('Attempting to insert into database...');
 
