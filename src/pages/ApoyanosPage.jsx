@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
-function ApoyanosPage() {
+function ApoyanosForm() {
   const [expandedPropuesta, setExpandedPropuesta] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const propuestas = [
     {
@@ -44,10 +47,52 @@ function ApoyanosPage() {
     setExpandedPropuesta(expandedPropuesta === index ? null : index);
   };
 
-  const handleVoluntarioSubmit = (e) => {
+  const handleVoluntarioSubmit = async (e) => {
     e.preventDefault();
-    alert('¡Gracias por tu interés en ser voluntario! Nos pondremos en contacto contigo pronto.');
-    e.target.reset();
+
+    if (!executeRecaptcha) {
+      alert('reCAPTCHA no está listo. Por favor, recarga la página.');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Execute reCAPTCHA v3
+      const captchaToken = await executeRecaptcha('submit_volunteer');
+
+      const formData = {
+        captchaToken,
+        nombres: e.target[0].value,
+        apellidos: e.target[1].value,
+        dni: e.target[2].value,
+        celular: e.target[3].value,
+        email: e.target[4].value,
+        ayuda: e.target[5].value
+      };
+
+      const response = await fetch('/api/submit-volunteer', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert('¡Gracias por tu interés en ser voluntario! Nos pondremos en contacto contigo pronto.');
+        e.target.reset();
+      } else {
+        alert('Hubo un error al enviar el formulario. Por favor, intenta nuevamente.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Hubo un error al enviar el formulario. Por favor, intenta nuevamente.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -100,27 +145,103 @@ function ApoyanosPage() {
 
             <form className="apoyo-form" onSubmit={handleVoluntarioSubmit}>
               <div className="form-row">
-                <input type="text" placeholder="NOMBRES COMPLETOS" required />
+                <input
+                  type="text"
+                  placeholder="NOMBRES COMPLETOS"
+                  required
+                  onInvalid={(e) => e.target.setCustomValidity('Por favor, completa este campo.')}
+                  onInput={(e) => e.target.setCustomValidity('')}
+                />
               </div>
               <div className="form-row">
-                <input type="text" placeholder="APELLIDOS COMPLETOS" required />
+                <input
+                  type="text"
+                  placeholder="APELLIDOS COMPLETOS"
+                  required
+                  onInvalid={(e) => e.target.setCustomValidity('Por favor, completa este campo.')}
+                  onInput={(e) => e.target.setCustomValidity('')}
+                />
               </div>
               <div className="form-row form-row-half">
-                <input type="text" placeholder="DNI" required />
-                <input type="text" placeholder="NÚMERO CELULAR" required />
+                <input
+                  type="text"
+                  placeholder="DNI"
+                  pattern="[0-9]{8}"
+                  maxLength="8"
+                  required
+                  onInvalid={(e) => {
+                    if (e.target.validity.valueMissing) {
+                      e.target.setCustomValidity('Por favor, completa este campo.');
+                    } else if (e.target.validity.patternMismatch) {
+                      e.target.setCustomValidity('El DNI debe tener exactamente 8 dígitos numéricos.');
+                    }
+                  }}
+                  onInput={(e) => {
+                    e.target.value = e.target.value.replace(/[^0-9]/g, '');
+                    e.target.setCustomValidity('');
+                  }}
+                />
+                <input
+                  type="text"
+                  placeholder="NÚMERO CELULAR"
+                  pattern="[0-9]{9}"
+                  maxLength="9"
+                  required
+                  onInvalid={(e) => {
+                    if (e.target.validity.valueMissing) {
+                      e.target.setCustomValidity('Por favor, completa este campo.');
+                    } else if (e.target.validity.patternMismatch) {
+                      e.target.setCustomValidity('El número celular debe tener 9 dígitos numéricos.');
+                    }
+                  }}
+                  onInput={(e) => {
+                    e.target.value = e.target.value.replace(/[^0-9]/g, '');
+                    e.target.setCustomValidity('');
+                  }}
+                />
               </div>
               <div className="form-row">
-                <input type="email" placeholder="CORREO ELECTRÓNICO" required />
+                <input
+                  type="email"
+                  placeholder="CORREO ELECTRÓNICO"
+                  required
+                  onInvalid={(e) => e.target.setCustomValidity('Por favor, ingresa un correo electrónico válido.')}
+                  onInput={(e) => e.target.setCustomValidity('')}
+                />
               </div>
               <div className="form-row">
-                <textarea placeholder="¿EN QUÉ PUEDES AYUDAR?" rows="4" required></textarea>
+                <textarea
+                  placeholder="¿EN QUÉ PUEDES AYUDAR?"
+                  rows="4"
+                  required
+                  onInvalid={(e) => e.target.setCustomValidity('Por favor, completa este campo.')}
+                  onInput={(e) => e.target.setCustomValidity('')}
+                ></textarea>
               </div>
-              <button type="submit" className="form-submit">ME APUNTO</button>
+              <button
+                type="submit"
+                className="form-submit"
+                disabled={isSubmitting}
+                style={{
+                  opacity: isSubmitting ? 0.5 : 1,
+                  cursor: isSubmitting ? 'not-allowed' : 'pointer'
+                }}
+              >
+                {isSubmitting ? 'ENVIANDO...' : 'ME APUNTO'}
+              </button>
             </form>
           </div>
         </div>
       </section>
     </>
+  );
+}
+
+function ApoyanosPage() {
+  return (
+    <GoogleReCaptchaProvider reCaptchaKey={process.env.REACT_APP_RECAPTCHA_SITE_KEY || "YOUR_RECAPTCHA_SITE_KEY"}>
+      <ApoyanosForm />
+    </GoogleReCaptchaProvider>
   );
 }
 

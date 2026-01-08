@@ -1,5 +1,4 @@
 import React from 'react';
-import Mascot from '../components/shared/Mascot';
 
 function GaleriaPage() {
   return (
@@ -31,9 +30,6 @@ function GaleriaPage() {
           </div>
         </div>
       </section>
-
-      {/* Mascot Component */}
-      <Mascot />
     </>
   );
 }

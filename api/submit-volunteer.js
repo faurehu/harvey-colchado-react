@@ -1,0 +1,75 @@
+import { neon } from "@neondatabase/serverless";
+
+// Vercel Serverless Function to handle volunteer form submission
+export default async function handler(req, res) {
+  // Only allow POST requests
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Método no permitido' });
+  }
+
+  const { captchaToken, nombres, apellidos, dni, celular, email, ayuda } = req.body;
+
+  // Verify reCAPTCHA token with Google
+  const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+
+  if (!recaptchaSecret) {
+    return res.status(500).json({ error: 'Error de configuración del servidor' });
+  }
+
+  try {
+    // Verify the captcha token with reCAPTCHA v3
+    const verifyResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `secret=${recaptchaSecret}&response=${captchaToken}`,
+    });
+
+    const verifyData = await verifyResponse.json();
+
+    if (!verifyData.success) {
+      return res.status(400).json({
+        error: 'Verificación de captcha fallida',
+        details: verifyData['error-codes']
+      });
+    }
+
+    // reCAPTCHA v3 returns a score (0.0 - 1.0)
+    // Higher score = more likely human, lower = more likely bot
+    // Recommended threshold: 0.5
+    if (verifyData.score < 0.5) {
+      console.log('Low reCAPTCHA score:', verifyData.score);
+      return res.status(400).json({
+        error: 'Actividad sospechosa detectada. Por favor, intenta nuevamente.'
+      });
+    }
+
+    console.log('reCAPTCHA score:', verifyData.score);
+
+    // Save to Neon database
+    const sql = neon(process.env.DATABASE_URL);
+
+    await sql`
+      INSERT INTO volunteers (nombres, apellidos, dni, celular, email, ayuda, created_at)
+      VALUES (${nombres}, ${apellidos}, ${dni}, ${celular}, ${email}, ${ayuda}, NOW())
+    `;
+
+    console.log('Volunteer form submission saved to database:', {
+      nombres,
+      apellidos,
+      dni,
+      celular,
+      email
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: 'Formulario enviado correctamente'
+    });
+
+  } catch (error) {
+    console.error('Error processing form:', error);
+    return res.status(500).json({ error: 'Error al procesar el formulario' });
+  }
+}

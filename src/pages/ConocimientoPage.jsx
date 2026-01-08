@@ -1,5 +1,4 @@
 import React from 'react';
-import Mascot from '../components/shared/Mascot';
 
 function ConocimientoPage() {
   return (
@@ -32,9 +31,6 @@ function ConocimientoPage() {
           </div>
         </div>
       </section>
-
-      {/* Mascot Component */}
-      <Mascot />
     </>
   );
 }
