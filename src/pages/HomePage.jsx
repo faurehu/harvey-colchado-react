@@ -50,7 +50,7 @@ function HomePage() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          <div className="hero-logo hero-logo-mobile" onClick={() => setShowX(true)} style={{ cursor: 'pointer' }}>
+          <div className={`hero-logo hero-logo-mobile ${!showX ? 'pulse-attention' : ''}`} onClick={() => setShowX(true)} style={{ cursor: 'pointer' }}>
             <img src="/images/inicio/logo-campanha.svg" alt="Logo Campaña Harvey Colchado" className="logo-campanha logo-desktop" />
             <img src="/images/inicio/LOGO-AHORA-NACIÓN.png" alt="Logo Ahora Nación" className="logo-campanha logo-mobile" />
             {showX && (
@@ -91,7 +91,7 @@ function HomePage() {
               <div className="hero-logo hero-logo-desktop">
                 <img src="/images/inicio/logo-campanha.svg" alt="Logo Campaña Harvey Colchado" className="logo-campanha" />
               </div>
-              <p>Con tu voto tumbamos la corrupción!</p>
+              <p>Con tu voto tumbamos el crimen y la corrupción!</p>
               <div className="cta-container">
                 <Link to="/propuestas" className="cta-button">EL MÉTODO COLCHADO</Link>
               </div>
@@ -117,7 +117,7 @@ function HomePage() {
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
                 <div className="voting-box" onClick={() => setShowDesktopX(true)} style={{ cursor: 'pointer' }}>
-                  <div className="voting-square">
+                  <div className={`voting-square ${!showDesktopX ? 'pulse-attention' : ''}`}>
                     <img src="/images/inicio/LOGO-AHORA-NACIÓN.png" alt="Logo Ahora Nación" className="voting-logo" />
                     {showDesktopX && (
                       <svg className="voting-x-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -218,16 +218,9 @@ function HomePage() {
             <img src="/images/inicio/harvey-portrait.jpg" alt="Harvey Colchado Portrait" className="portrait" />
             <div className="quien-soy-text">
               <h3>Si hay crimen y corrupción, ¡la tumbamos!</h3>
-              <p>Harvey Colchado nació el 11 de abril de 1974 en Lima. Su madre, una mujer arequipeña, trabajaba en una fábrica y fue dirigente sindical; su padre, un hombre ancashino, se desempeñó como efectivo de la Guardia Republicana del Perú. En el distrito de Comas, donde ha vivido la mayor parte de su vida, creció junto a tres de sus cinco hermanos. Fue un estudiante destacado en diversas instituciones educativas, y sus asignaturas preferidas fueron siempre historia nacional e historia universal. Fuera del ámbito académico, practicó boxeo como aficionado y compitió en ligas de fútbol distritales de Comas, Los Olivos, Chorrillos y Chaclacayo.</p>
-              <p>En el año 1993, Harvey Colchado ingresó a la Escuela de Oficiales de la Policía Nacional del Perú, donde destacó académicamente y mostró una marcada preferencia por los cursos de investigación criminal. Participó activamente en actividades de fútbol y boxeo. Egresó en el tercer puesto entre los 194 cadetes de su promoción.</p>
-              <p>En el año 1997, mientras la residencia del embajador de Japón permanecía tomada por miembros de la organización terrorista MRTA, Harvey Colchado se graduó como oficial y fue asignado a la Dirección Contra el Terrorismo (DIRCOTE) donde su primera tarea consistió en realizar escuchas a los micrófonos que habían sido infiltrados en la residencia ocupada. Así se inició su intensa carrera policial.</p>
-              <p>A lo largo de los años, Harvey Colchado ha sido asignado a diversas misiones especializadas. Además de la DIRCOTE, integró también la DIVINESP en la Dirección Antidrogas (DIRANDRO) y la Dirección de Investigación Criminal (DIRINCRI). También formó parte de la Dirección de Policía del Ministerio Público. En el marco de estas funciones, realizó investigaciones en todos los departamentos del Perú menos Pasco.</p>
-              <p>De manera paralela a su labor policial, cursó estudios de Derecho en horario nocturno en la Universidad Nacional Federico Villarreal. Asimismo, fue seleccionado para viajar a Washington D.C. y recibir capacitación de la Drug Enforcement Administration (DEA) de los Estados Unidos en materias vinculadas a la investigación criminal. En otras oportunidades, asistió a seminarios en la International Law Enforcement Academy (ILEA) en Nuevo México y El Salvador. Como exponente, participó en conferencias en materia de investigación criminal en diversos países como Brasil, Colombia, Ecuador, Bolivia, España, Angola, Austria, etc.</p>
-              <p>Estas experiencias en la primera etapa de su carrera policial, centradas en la investigación de casos de terrorismo, narcotráfico y sicariato en diversas regiones del Perú, le dieron la base necesaria para asumir su primer gran objetivo. En 2006 se le asignó la misión de desmantelar la actividad narcoterrorista en el Alto Huallaga. Tras siete años de trabajo sostenido, Harvey Colchado se enfrentó a las facciones remanentes del grupo terrorista maoísta Sendero Luminoso, logrando finalmente la captura de su dirigente Florindo Eleuterio Flores, conocido como camarada Artemio.</p>
-              <p>El amplio reconocimiento a la labor de Harvey Colchado motivó su selección, en 2016, como oficial fundador de la División de Investigación de Alta Complejidad (DIVIAC), creada con la misión de combatir la criminalidad organizada en sus diversas modalidades: corrupción de funcionarios, lavado de activos, tráfico de terrenos, sicariato, trata de personas, robo agravado, extorsión, minería y tala ilegal.</p>
-              <p>Desde esa posición, participó en operaciones clave para la desarticulación de organizaciones criminales como los Cuellos Blancos del Puerto, el caso Odebrecht, los Piratas del Norte, el clan Orellana y los Malditos de Santa Rosa, entre otros. Asimismo, colaboró en investigaciones que involucraron al partido Fuerza Popular y a su lideresa Keiko Fujimori, al político José Luna Galvez, así como a la exalcaldesa Susana Villarán, los expresidentes Alan García, Pedro Pablo Kuczynski, Pedro Castillo, y Dina Boluarte y a la exfiscal de la Nación Patricia Benavides.</p>
-              <p>En 2024, la DIVIAC fue desactivada por el Ministerio del Interior durante la gestión de Juan José Santiváñez, bajo el gobierno de Dina Boluarte. El coronel Harvey Colchado fue reasignado al Observatorio de la Policía y en ocasión a labores de patrullaje. Poco tiempo después, fue pasado al retiro por disposición del mismo ministerio, poniendo fin a una trayectoria de 28 años de servicio en la Policía Nacional del Perú.</p>
-              <p>Hoy, a los 51 años, el pase anticipado al retiro llevó a Harvey Colchado a incursionar en la política como una vía para continuar su lucha contra el crimen y la corrupción. Ha dejado la práctica del boxeo, pero sigue aprovechando cada oportunidad para jugar fútbol.</p>
+              <p>Harvey Colchado nació el 11 de abril de 1974 en Lima y desde joven mostró una vocación de servicio público. En 1993 ingresó a la Escuela de Oficiales de la Policía Nacional del Perú, graduándose en el tercer puesto de su promoción. Su carrera policial comenzó en 1997 en la Dirección Contra el Terrorismo (DIRCOTE), y a lo largo de los años ha sido asignado a misiones especializadas en investigación criminal, combatiendo el terrorismo, narcotráfico y crimen organizado en todo el país. Paralelamente, cursó estudios de Derecho y recibió capacitación de la DEA en Estados Unidos, participando como exponente en conferencias internacionales sobre investigación criminal.</p>
+              <p>En 2016, fue seleccionado como oficial fundador de la División de Investigación de Alta Complejidad (DIVIAC), liderando operaciones clave como la captura del camarada Artemio y la desarticulación de organizaciones criminales como los Cuellos Blancos del Puerto, el caso Odebrecht, y casos de corrupción de alto nivel que involucraron a políticos y funcionarios de todos los sectores. En 2024, tras la desactivación de la DIVIAC, fue pasado al retiro después de 28 años de servicio. Hoy, a los 51 años, incursiona en la política para continuar su lucha contra el crimen y la corrupción desde una nueva trinchera.</p>
+              <Link to="/conocimiento/biografia" className="biografia-button">Lee mi biografía</Link>
             </div>
           </div>
         </div>

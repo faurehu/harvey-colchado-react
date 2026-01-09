@@ -112,7 +112,7 @@ function ApoyanosForm() {
   return (
     <>
       {/* Video Hero Section - Únete a la campaña */}
-      <div style={{ position: 'relative', overflow: 'hidden', minHeight: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ position: 'relative', overflow: 'hidden', minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         {/* Background Video */}
         <video
           autoPlay
@@ -126,10 +126,11 @@ function ApoyanosForm() {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
+            objectPosition: 'center 45%',
             zIndex: 0
           }}
         >
-          <source src="/images/apoyanos/harvey-jovenes.mp4" type="video/mp4" />
+          <source src="/images/apoyanos/harvey-short.mp4" type="video/mp4" />
         </video>
         {/* Dark Overlay */}
         <div style={{

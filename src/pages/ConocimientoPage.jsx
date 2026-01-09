@@ -1,37 +1,59 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function ConocimientoPage() {
+  const blogPosts = [
+    {
+      id: 1,
+      title: 'Leyes Pro Crimen',
+      description: 'Análisis de las leyes que favorecen la impunidad y el crimen organizado en el Perú.',
+      url: '/conocimiento/leyes-pro-crimen'
+    },
+    {
+      id: 2,
+      title: 'Biografía',
+      description: 'La historia y trayectoria del Coronel Harvey Colchado en su lucha contra la corrupción.',
+      url: '/conocimiento/biografia'
+    },
+    {
+      id: 3,
+      title: 'Tésis Maestría',
+      description: 'Investigación académica sobre seguridad nacional y lucha contra el crimen organizado.',
+      url: '/conocimiento/tesis-maestria'
+    }
+  ];
+
   return (
-    <>
-      {/* Sección Principal de Conocimiento */}
+    <div className="conocimiento-page">
+      {/* Hero Section */}
       <section className="apoyo-section apoyo-amarillo">
         <div className="container">
           <h2>Conocimiento</h2>
           <div className="apoyo-content">
             <p>
-              Esta sección está dedicada a compartir información, recursos y conocimientos
-              que consideramos importantes para el desarrollo de nuestra comunidad. Aquí
-              encontrarás contenido educativo, análisis y materiales que te ayudarán a
-              entender mejor los temas que nos importan.
+              Artículos, documentos y análisis sobre temas importantes para nuestra nación.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Sección de Recursos */}
+      {/* Blog Posts List */}
       <section className="apoyo-section apoyo-azul">
         <div className="container">
-          <h2>Recursos Disponibles</h2>
-          <div className="apoyo-content">
-            <p>
-              Próximamente estaremos compartiendo artículos, documentos y materiales
-              educativos que te permitirán profundizar en los temas que nos ocupan.
-              Mantente atento a las actualizaciones.
-            </p>
+          <div className="blog-posts-grid">
+            {blogPosts.map((post) => (
+              <article key={post.id} className="blog-post-card">
+                <h3>{post.title}</h3>
+                <p className="blog-post-description">{post.description}</p>
+                <div className="blog-post-meta">
+                  <Link to={post.url} className="blog-post-link">Leer más →</Link>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 
