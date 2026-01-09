@@ -2710,3 +2710,261 @@ html {
         flex-direction: column;
     }
 }
+
+/* Laws Accordion */
+.laws-accordion {
+    margin-top: 30px;
+}
+
+.law-item {
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.law-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.law-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    cursor: pointer;
+    background: var(--azul-principal);
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.law-header:hover {
+    background: var(--azul-medianoche);
+}
+
+.law-header h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    flex: 1;
+}
+
+.law-toggle {
+    font-size: 28px;
+    font-weight: 300;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.law-content {
+    padding: 25px;
+    background: white;
+    animation: slideDown 0.3s ease;
+}
+
+.law-content p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+.law-content p:last-child {
+    margin-bottom: 0;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 1000px;
+    }
+}
+
+/* Voting Carousel */
+.voting-carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0 30px 0;
+    padding: 20px 0;
+}
+
+.carousel-slide {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 600px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.carousel-slide img:hover {
+    transform: scale(1.02);
+}
+
+.carousel-caption {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--azul-principal);
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(5, 26, 57, 0.7);
+    color: white;
+    border: none;
+    font-size: 36px;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-arrow:hover {
+    background: rgba(5, 26, 57, 0.9);
+}
+
+.carousel-arrow-left {
+    left: 0;
+}
+
+.carousel-arrow-right {
+    right: 0;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-dot:hover {
+    transform: scale(1.2);
+}
+
+.carousel-dot.active {
+    background: var(--azul-principal);
+    transform: scale(1.3);
+}
+
+.modal-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90%;
+    max-height: 90vh;
+}
+
+.modal-matrix-name {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .law-header h4 {
+        font-size: 14px;
+    }
+
+    .law-header {
+        padding: 15px 20px;
+    }
+
+    .law-content {
+        padding: 20px;
+    }
+
+    .carousel-arrow {
+        font-size: 24px;
+        padding: 10px 15px;
+    }
+
+    .carousel-slide img {
+        height: 400px;
+    }
+
+    .carousel-caption {
+        font-size: 16px;
+    }
+
+    .modal-matrix-name {
+        font-size: 16px;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .law-header h4 {
+        font-size: 13px;
+    }
+
+    .law-header {
+        padding: 12px 15px;
+    }
+
+    .law-content {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    .carousel-arrow {
+        font-size: 20px;
+        padding: 8px 12px;
+    }
+
+    .carousel-slide {
+        padding: 0 50px;
+    }
+
+    .carousel-slide img {
+        height: 300px;
+    }
+
+    .carousel-caption {
+        display: none;
+    }
+
+    .carousel-dots {
+        margin-top: 10px;
+    }
+
+    .voting-carousel {
+        margin-bottom: 40px;
+    }
+
+    /* Add top margin to conclusion section on mobile */
+    .apoyo-section.apoyo-amarillo {
+        margin-top: 40px;
+    }
+}
