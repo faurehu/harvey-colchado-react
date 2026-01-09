@@ -111,10 +111,46 @@ function ApoyanosForm() {
 
   return (
     <>
-      {/* Sección Únete a la campaña */}
+      {/* Video Hero Section - Únete a la campaña */}
+      <div style={{ position: 'relative', overflow: 'hidden', minHeight: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        {/* Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: 0
+          }}
+        >
+          <source src="/images/apoyanos/harvey-jovenes.mp4" type="video/mp4" />
+        </video>
+        {/* Dark Overlay */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          zIndex: 1
+        }}></div>
+        {/* Title */}
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          <h2 style={{ color: 'white', textAlign: 'center', fontSize: '48px', margin: 0 }}>Únete a la campaña</h2>
+        </div>
+      </div>
+
+      {/* Form Section */}
       <section className="apoyo-section apoyo-azul">
         <div className="container">
-          <h2>Únete a la campaña</h2>
+          <h2>Involúcrate en lograr este cambio</h2>
           <div className="apoyo-content">
             <p>El cambio no se construye en soledad, se construye con personas comprometidas por un Perú más seguro. Si quieres participar activamente, aportar tu tiempo y tu talento, y ser parte de esta campaña, déjanos tus datos y cuéntanos en qué te gustaría colaborar: muy pronto nos pondremos en contacto contigo.</p>
             <p>Aquí te contamos en qué perfiles puedes sumarte:</p>
