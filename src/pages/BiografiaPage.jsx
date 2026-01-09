@@ -21,7 +21,7 @@ function BiografiaPage() {
             <p className="intro-text">
               Si hay crimen y corrupción, ¡la tumbamos! Harvey Colchado es un coronel de la Policía Nacional del Perú
               que ha dedicado su vida a la lucha contra el crimen organizado y la corrupción. Su trayectoria de 28 años
-              de servicio lo ha llevado a desarticular algunas de las organizaciones criminales más poderosas del país.
+              de servicio lo ha llevado a desarticular a las organizaciones criminales más poderosas del país.
             </p>
           </div>
 
@@ -35,7 +35,7 @@ function BiografiaPage() {
                 fábrica y fue dirigente sindical; su padre, un hombre ancashino, se desempeñó como efectivo de la Guardia
                 Republicana del Perú. En el distrito de Comas, donde ha vivido la mayor parte de su vida, creció junto a
                 tres de sus cinco hermanos. Fue un estudiante destacado en diversas instituciones educativas, y sus
-                asignaturas preferidas fueron siempre historia nacional e historia universal. Fuera del ámbito académico,
+                asignaturas preferidas fueron siempre historia del Perú e historia universal. Fuera del ámbito académico,
                 practicó boxeo como aficionado y compitió en ligas de fútbol distritales de Comas, Los Olivos, Chorrillos
                 y Chaclacayo.
               </p>
@@ -50,7 +50,7 @@ function BiografiaPage() {
               <p>
                 En el año 1993, Harvey Colchado ingresó a la Escuela de Oficiales de la Policía Nacional del Perú, donde
                 destacó académicamente y mostró una marcada preferencia por los cursos de investigación criminal. Participó
-                activamente en actividades de fútbol y boxeo. Egresó en el tercer puesto entre los 194 cadetes de su
+                activamente en actividades de fútbol, atletismo y boxeo. Egresó en el tercer puesto entre los 194 cadetes de su
                 promoción.
               </p>
             </div>
@@ -62,7 +62,7 @@ function BiografiaPage() {
             <p>
               En el año 1997, mientras la residencia del embajador de Japón permanecía tomada por miembros de la
               organización terrorista MRTA, Harvey Colchado se graduó como oficial y fue asignado a la Dirección
-              Contra el Terrorismo (DIRCOTE) donde su primera tarea consistió en realizar escuchas a los micrófonos
+              Contra el Terrorismo (DIRCOTE) donde su primera tarea consistió en realizar análisis de las escuchas a los micrófonos
               que habían sido infiltrados en la residencia ocupada. Así se inició su intensa carrera policial.
             </p>
             <p>
@@ -95,14 +95,14 @@ function BiografiaPage() {
           <div className="biografia-section">
             <h3>La Captura de Camarada Artemio</h3>
             <div className="biografia-section-content image-right">
-              <img src="/images/biografia/bio2.png" alt="Operativo contra el terrorismo" className="biografia-image" />
+              <img src="/images/biografia/bio7.jpg" alt="Operativo contra el terrorismo" className="biografia-image" />
               <p>
                 Estas experiencias en la primera etapa de su carrera policial, centradas en la investigación de casos de
                 terrorismo, narcotráfico y sicariato en diversas regiones del Perú, le dieron la base necesaria para asumir
                 su primer gran objetivo. En 2006 se le asignó la misión de desmantelar la actividad narcoterrorista en el
                 Alto Huallaga. Tras siete años de trabajo sostenido, Harvey Colchado se enfrentó a las facciones remanentes
                 del grupo terrorista maoísta Sendero Luminoso, logrando finalmente la captura de su dirigente Florindo
-                Eleuterio Flores, conocido como camarada Artemio.
+                Eleuterio Flores alias camarada Artemio.
               </p>
             </div>
           </div>
@@ -111,7 +111,7 @@ function BiografiaPage() {
           <div className="biografia-section">
             <h3>Fundación de la DIVIAC</h3>
             <div className="biografia-section-content">
-              <img src="/images/biografia/bio6.jpg" alt="Harvey Colchado en la DIVIAC" className="biografia-image" />
+              <img src="/images/biografia/bio8.jpg" alt="Harvey Colchado en la DIVIAC" className="biografia-image" />
               <div>
                 <p>
                   El amplio reconocimiento a la labor de Harvey Colchado motivó su selección, en 2016, como oficial fundador

@@ -11,7 +11,7 @@ function ApoyanosForm() {
     {
       id: 1,
       icon: '/images/propuestas/icons/liderazgo.svg',
-      titulo: 'VOLUNTARIO/A EN ESTRATEGIA Y CONTENIDOS DIGITALES',
+      titulo: 'VOLUNTARIO/A EN CONTENIDOS DIGITALES',
       detalles: [
         {
           subtitulo: '¿De qué se trata este voluntariado?',
@@ -19,15 +19,32 @@ function ApoyanosForm() {
         },
         {
           subtitulo: '¿Qué harás?',
-          contenido: '• Editar y adaptar clips cortos para Reels, TikTok y otras plataformas digitales.\n• Escribir copys y descripciones que conecten, enganchen e inviten a interactuar.\n• Apoyar en la planificación y organización de contenidos para redes sociales.\n• Monitorear mensajes, comentarios e interacciones en redes sociales, alertando sobre tendencias, consultas o riesgos comunicacionales.\n• Coordinar con el equipo de comunicación para mejorar continuamente los contenidos.'
+          contenido: [
+            'Editar y adaptar clips cortos para Reels, TikTok y otras plataformas digitales.',
+            'Escribir copys y descripciones que conecten, enganchen e inviten a interactuar.',
+            'Apoyar en la planificación y organización de contenidos para redes sociales.',
+            'Monitorear mensajes, comentarios e interacciones en redes sociales, alertando sobre tendencias, consultas o riesgos comunicacionales.',
+            'Coordinar con el equipo de comunicación para mejorar continuamente los contenidos.'
+          ]
         },
         {
           subtitulo: '¿Qué buscamos en ti?',
-          contenido: '• Conocimientos básicos o intermedios en edición de video (CapCut, Premiere u otros).\n• Interés por la comunicación, la política y el impacto social.\n• Ganas de aprender, proponer ideas y trabajar en equipo.\n• Buena redacción y sensibilidad para contar historias en formatos digitales.\n• Experiencia previa en creación de contenidos (deseable, no excluyente).\n• Conocimientos en marketing digital o redes sociales (deseable).'
+          contenido: [
+            'Conocimientos básicos o intermedios en edición de video (CapCut, Premiere u otros).',
+            'Interés por la comunicación, la política y el impacto social.',
+            'Ganas de aprender, proponer ideas y trabajar en equipo.',
+            'Buena redacción y sensibilidad para contar historias en formatos digitales.',
+            'Experiencia previa en creación de contenidos (deseable, no excluyente).',
+            'Conocimientos en marketing digital o redes sociales (deseable).'
+          ]
         },
         {
           subtitulo: '¿Qué ofrecemos?',
-          contenido: '• La oportunidad de ser parte activa de una campaña política real y de impacto nacional.\n• Aprendizaje práctico en comunicación política y estrategia digital.\n• Un espacio para proponer, crear y crecer.'
+          contenido: [
+            'La oportunidad de ser parte activa de una campaña política real y de impacto nacional.',
+            'Aprendizaje práctico en comunicación política y estrategia digital.',
+            'Un espacio para proponer, crear y crecer.'
+          ]
         }
       ]
     },
@@ -37,8 +54,39 @@ function ApoyanosForm() {
       titulo: 'VOLUNTARIO/A ENCUESTADOR/A',
       detalles: [
         {
-          subtitulo: 'Subtítulo 2',
-          contenido: 'Contenido de la segunda propuesta.'
+          subtitulo: '¿De qué se trata este voluntariado?',
+          contenido: 'Buscamos personas comprometidas con la democracia y el cambio que quieran ser parte fundamental de nuestra campaña, saliendo a las calles para conocer de primera mano qué piensan los ciudadanos, qué necesitan y qué esperan de un líder como Harvey Colchado. Como encuestador/a voluntario/a, serás los ojos y oídos de la campaña en el territorio.'
+        },
+        {
+          subtitulo: '¿Qué harás?',
+          contenido: [
+            'Aplicar encuestas presenciales a ciudadanos en diferentes distritos y sectores.',
+            'Recoger de forma objetiva las opiniones, preocupaciones y expectativas de la población.',
+            'Registrar los datos de manera clara y ordenada para su posterior análisis.',
+            'Coordinarte con el equipo de campo para cumplir los objetivos semanales de encuestas.',
+            'Representar los valores de la campaña con respeto, ética y profesionalismo.'
+          ]
+        },
+        {
+          subtitulo: '¿Qué buscamos en ti?',
+          contenido: [
+            'Actitud proactiva, responsable y respetuosa en el trato con las personas.',
+            'Disponibilidad para salir a terreno (fines de semana y/o entre semana).',
+            'Capacidad para escuchar sin prejuicios y registrar información con precisión.',
+            'Compromiso con los valores democráticos y el trabajo en equipo.',
+            'Uso básico de celular o tablet para registro de datos (deseable).',
+            'Experiencia previa en encuestas o trabajo de campo (deseable, no excluyente).'
+          ]
+        },
+        {
+          subtitulo: '¿Qué ofrecemos?',
+          contenido: [
+            'Formación previa sobre técnicas de encuesta y manejo de la herramienta.',
+            'La oportunidad de ser parte del proceso real de toma de decisiones de una campaña política.',
+            'Contacto directo con la ciudadanía y experiencia práctica en investigación de campo.',
+            'Certificado de participación como voluntario/a en la campaña Harvey Colchado 2026.',
+            'Un espacio de aprendizaje, crecimiento personal y compromiso cívico.'
+          ]
         }
       ]
     }
@@ -186,7 +234,15 @@ function ApoyanosForm() {
                     {propuesta.detalles.map((detalle, detalleIndex) => (
                       <div key={detalleIndex}>
                         <h4>+ {detalle.subtitulo}</h4>
-                        <p>{detalle.contenido}</p>
+                        {Array.isArray(detalle.contenido) ? (
+                          <ul>
+                            {detalle.contenido.map((item, itemIndex) => (
+                              <li key={itemIndex}>{item}</li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p>{detalle.contenido}</p>
+                        )}
                       </div>
                     ))}
                   </div>

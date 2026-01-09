@@ -51,7 +51,7 @@ function Carousel({ slides }) {
           <p>
             Este método combina mi experiencia en lucha contra la criminalidad y corrupción
             con el Método de Investigación Prospectiva Compleja para desarticular organizaciones
-            criminales. Con esto he desarrollado 5 propuestas clave para terminar con la corrupción
+            criminales. Con esto he desarrollado 4 propuestas clave para terminar con la corrupción
             en el poder.
           </p>
         </div>

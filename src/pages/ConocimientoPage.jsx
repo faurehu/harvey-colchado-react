@@ -5,7 +5,7 @@ function ConocimientoPage() {
   const blogPosts = [
     {
       id: 1,
-      title: 'Leyes Pro Crimen',
+      title: 'Las Leyes Pro Crimen',
       description: 'Análisis de las leyes que favorecen la impunidad y el crimen organizado en el Perú.',
       url: '/conocimiento/leyes-pro-crimen'
     },
@@ -17,7 +17,7 @@ function ConocimientoPage() {
     },
     {
       id: 3,
-      title: 'Tésis Maestría',
+      title: 'Tésis de Maestría en Gobierno y Políticas Públicas',
       description: 'Investigación académica sobre seguridad nacional y lucha contra el crimen organizado.',
       url: '/conocimiento/tesis-maestria'
     }

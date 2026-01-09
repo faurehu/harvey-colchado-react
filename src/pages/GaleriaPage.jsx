@@ -76,18 +76,16 @@ function GaleriaPage() {
           <h2>Galería</h2>
           <div className="apoyo-content">
             <p>
-              Bienvenido a nuestra galería de imágenes. Aquí compartimos momentos importantes,
-              eventos de campaña, actividades comunitarias y todo lo que refleja nuestro
-              trabajo y compromiso con la comunidad.
+              Una muestra aleatoria de apariciones en medios de comunicación que destacan
+              el trabajo de Harvey Colchado y su compromiso con la justicia y la transparencia.
             </p>
           </div>
         </div>
       </section>
 
       {/* Sección de Imágenes */}
-      <section className="apoyo-section apoyo-azul">
+      <section className="apoyo-section apoyo-azul gallery-section-tight">
         <div className="container">
-          <h2>Menciones en medios</h2>
           <div className="gallery-grid">
             {images.map((image, index) => (
               <div

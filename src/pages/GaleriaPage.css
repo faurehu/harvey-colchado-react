@@ -1,3 +1,13 @@
+/* Reduce top padding for gallery section */
+.gallery-section-tight {
+  padding-top: 2rem !important;
+}
+
+/* Remove bottom padding from apoyo-section in galeria */
+.apoyo-section {
+  padding-bottom: 0 !important;
+}
+
 /* Gallery Grid */
 .gallery-grid {
   display: grid;

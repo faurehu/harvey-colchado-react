@@ -52,285 +52,214 @@ function LeyesProCrimenPage() {
       content: (
         <>
           <p>
-            <strong>Contenido:</strong> Modifica el proceso especial por colaboración eficaz introduciendo mayores exigencias
-            procedimentales como la grabación audiovisual obligatoria de las declaraciones del aspirante a colaborador, y
-            establece plazos de 8 meses (prorrogables por 4 u 8 meses adicionales si es crimen organizado) para la fase de
-            corroboración.
+            <strong>¿Qué hace esta ley?</strong> Exige que toda declaración de aspirantes a colaborador eficaz sea grabada
+            en video obligatoriamente y establece plazos estrictos de 8 meses (máximo 16 meses) para completar el proceso
+            de corroboración.
           </p>
           <p>
-            <strong>Beneficiados:</strong> Principalmente organizaciones criminales, redes de corrupción y altos funcionarios
-            que dependen del silencio y la intimidación para sostener su impunidad. Afecta investigaciones relacionadas a
-            Odebrecht, Cuellos Blancos del Puerto y Los Intocables de la Corrupción, que involucran a políticos como Fuerza Popular.
+            <strong>¿Por qué es pro-crimen?</strong> La grabación audiovisual obligatoria desincentiva la cooperación de
+            quienes poseen información crucial sobre redes criminales o corrupción, por temor real a exposición, filtración,
+            identificación y venganza criminal. Este requisito formal, que pudo parecer garantista, se ha convertido en un
+            instrumento de intimidación psicológica que inhibe la delación voluntaria. Potenciales colaboradores de bandas
+            dedicadas a extorsión, sicariato o corrupción prefieren guardar silencio antes que ser grabados.
           </p>
           <p>
-            <strong>Afectados:</strong> El Ministerio Público y el sistema de justicia, al limitar una herramienta eficaz para
-            desarticular el crimen organizado. Perjudica a la ciudadanía, debilitando la capacidad del Estado para investigar
-            delitos de corrupción, extorsión y sicariato.
+            <strong>Impacto:</strong> Sin el marco normativo previo, casos como el "camarada Artemio", Los Babys de Oquendo,
+            Los Cuellos Blancos del Puerto y más de 250 organizaciones criminales no habrían podido ser desarticuladas.
+            Esta ley debilita los cimientos de la persecución penal moderna generando miedo, inhibición y silencio.
           </p>
         </>
       )
     },
     {
       number: 2,
-      title: "Ley 32108 - Blindaje a Organizaciones Criminales y Partidos Políticos",
+      title: "Ley 32138 - Definición Imposible de Organización Criminal",
       content: (
         <>
           <p>
-            <strong>Contenido:</strong> Eleva los estándares para sancionar el delito de organización criminal, exigiendo que
-            cometan delitos con penas superiores a 6 años, una "compleja estructura" y "control de la cadena de valor de un mercado
-            ilegal". Además, prohíbe el bloqueo de cuentas y bienes de organizaciones políticas en investigaciones penales, y
-            establece que los allanamientos requieren la presencia del investigado y su abogado.
+            <strong>¿Qué hace esta ley?</strong> Eleva el umbral para calificar una organización criminal exigiendo:
+            "compleja estructura desarrollada y mayor capacidad operativa", roles permanentes correlacionados, pena mínima
+            de 5 años (antes 4), y fin de obtener beneficio económico.
           </p>
           <p>
-            <strong>Beneficiados:</strong> Organizaciones criminales con estructuras flexibles, redes de corrupción en la
-            administración pública, y partidos políticos investigados como Fuerza Popular, que ven prohibido el bloqueo de sus bienes.
+            <strong>¿Por qué es pro-crimen?</strong> La mayoría de organizaciones criminales peruanas operan con modelos
+            informales, de mando flexible y rápida rotación de miembros. Esta ley exige probar estructuras casi empresariales,
+            haciendo prácticamente inaplicable la norma frente a las redes criminales que dominan territorios, extorsionan
+            comerciantes o articulan sicariato. Contradice abiertamente la Convención de Palermo que solo exige "grupo
+            estructurado de tres o más personas que actúe concertadamente" sin demandar complejidad ni estructura desarrollada.
           </p>
           <p>
-            <strong>Afectados:</strong> El Ministerio Público, la Policía Nacional y el Poder Judicial, al restringirse herramientas
-            para investigar el crimen organizado. Las víctimas de extorsión, sicariato y corrupción ven debilitada la capacidad del
-            Estado para desarticular estas redes.
-          </p>
-          <p>
-            <strong>Nota:</strong> La Ley 32108 fue modificada por la Ley 32138 respecto al delito de organización criminal y las
-            reglas del allanamiento, pero se mantiene la protección a los bienes de partidos políticos.
+            <strong>Impacto:</strong> Organizaciones criminales de extorsión en Lima y Trujillo, redes de tráfico ilegal
+            de madera en la selva, y grupos de corrupción quedan fuera de esta definición. Se ha sustituido un concepto
+            operativo por uno inalcanzable, divorciado de la realidad criminal del país. Las fiscalías deben ahora acreditar
+            requisitos que ni siquiera el derecho internacional demanda, dejando en impunidad a los verdaderos generadores
+            de violencia criminal.
           </p>
         </>
       )
     },
     {
       number: 3,
-      title: "Ley 32138 - Más Obstáculos contra el Crimen Organizado",
+      title: "Ley 32108 - Allanamientos sin Sorpresa: Avisar al Delincuente",
       content: (
         <>
           <p>
-            <strong>Contenido:</strong> Modifica nuevamente el artículo 317 del Código Penal estableciendo que debe concurrir
-            una pena mínima de 5 años, "una compleja estructura desarrollada y mayor capacidad operativa" y el fin de obtener
-            beneficio económico. Para allanamientos, el fiscal debe convocar a la defensa pública desde el inicio.
+            <strong>¿Qué hace esta ley?</strong> Exige la presencia obligatoria del investigado y su abogado defensor durante
+            los allanamientos. Si no tiene abogado, se debe proporcionar uno de oficio antes de ingresar al inmueble.
+            Además, requiere "suficientes elementos probatorios" previos al allanamiento.
           </p>
           <p>
-            <strong>Beneficiados:</strong> Organizaciones criminales con estructuras flexibles o informales que quedan fuera del
-            tipo penal. Favorece a personas investigadas por organización criminal en partidos como Perú Libre, Podemos Perú,
-            APP, Renovación Popular y Acción Popular.
+            <strong>¿Por qué es pro-crimen?</strong> El allanamiento se sustenta en los principios de oportunidad y sorpresa
+            operativa, elementos esenciales para garantizar la eficacia del registro y la incautación de pruebas. Exigir la
+            presencia del abogado convierte una diligencia que debía ser reservada y táctica en una actuación anticipada que
+            otorga ventaja al investigado. La Policía y la Fiscalía pierden la iniciativa operativa, pues deben coordinar la
+            asistencia de un abogado antes de ingresar, dilatando tiempos y exponiendo la diligencia a filtraciones o advertencias.
           </p>
           <p>
-            <strong>Afectados:</strong> La Policía Nacional y las fiscalías especializadas enfrentan estándares probatorios más altos
-            y antitécnicos. Las víctimas de extorsión, sicariato y corrupción ven reducida la capacidad del Estado para desarticular
-            redes delictivas.
+            <strong>Impacto:</strong> En contextos donde las organizaciones criminales controlan territorios y mantienen redes
+            de informantes, cada minuto de retraso puede significar la pérdida de evidencia o la fuga de implicados. No puede
+            imponerse una lógica burocrática garantista a una medida eminentemente táctica. En un país asediado por el crimen,
+            la sorpresa y la oportunidad son una forma de defensa del Estado.
           </p>
         </>
       )
     },
     {
       number: 4,
-      title: "Ley 32130 - Traslado del Poder de Investigación a la Policía",
+      title: "Ley 32130 - Solo 4 Meses para Escuchar a los Criminales",
       content: (
         <>
           <p>
-            <strong>Contenido:</strong> Modifica ampliamente el Código Procesal Penal desplazando la conducción de la investigación
-            preliminar del Ministerio Público hacia la Policía Nacional, reduciendo los plazos de interceptación telefónica a 120 días
-            máximo, reiterando la asignación obligatoria de abogado defensor en allanamientos, y equiparando las medidas de
-            comparecencia con los plazos de prisión preventiva.
+            <strong>¿Qué hace esta ley?</strong> Limita la interceptación de comunicaciones (escuchas telefónicas) a un máximo
+            de 60 días, prorrogable solo una vez por igual plazo. Es decir, máximo 120 días (4 meses) en total. La prórroga solo
+            puede sustentarse en "nuevos y suficientes elementos probatorios".
           </p>
           <p>
-            <strong>Beneficiados:</strong> La PNP asume el control operativo de las investigaciones penales, lo cual es peligroso
-            considerando los graves problemas de corrupción en la institución (hasta 300 policías implicados en extorsión,
-            narcotráfico y bandas organizadas). Beneficia también a criminales y políticos al reducir la interceptación telefónica,
-            haciendo inviable el seguimiento de tramas complejas de extorsión y corrupción.
+            <strong>¿Por qué es pro-crimen?</strong> Las organizaciones criminales de alto nivel, grupos de extorsión y tramas
+            de corrupción estructural requieren investigaciones prolongadas, sostenidas y con seguimiento técnico continuo.
+            Imponer un límite de cuatro meses es absurdo desde el punto de vista operativo, pues el propio ciclo de adaptación
+            delictiva de estas redes supera con creces ese plazo. ¿Cómo puede pretenderse neutralizar estructuras que se
+            infiltran en el Estado o dominan territorios, si se prohíbe escuchar sus comunicaciones después de apenas 120 días?
           </p>
           <p>
-            <strong>Afectados:</strong> La población ve afectado su acceso a la justicia. Queda desprotegida ante el crimen organizado
-            y un poder policial que genera desconfianza pero ahora tiene más facultades para encubrir a sus malos elementos.
+            <strong>Impacto:</strong> Si un extorsionador anuncia por teléfono que va a asesinar a su víctima o un funcionario
+            corrupto conversa sobre cómo recibir sobornos, después de cuatro meses el Estado ya no puede escuchar nada más,
+            ni actuar preventivamente. Las investigaciones de crimen organizado y corrupción requieren seguimiento técnico
+            prolongado—muchas veces hasta por 36 meses. Esta reforma convierte una herramienta eficaz en una formalidad
+            estéril, quitándole al Estado la capacidad de oír, anticipar y neutralizar el crimen antes de que mate, extorsione
+            o robe nuevamente.
           </p>
         </>
       )
     },
     {
       number: 5,
-      title: "Ley 32326 - Blindaje de Activos Ilícitos",
+      title: "Ley 32326 - Esperar Sentencia para Recuperar lo Robado",
       content: (
         <>
           <p>
-            <strong>Contenido:</strong> Modifica el decreto legislativo 1373 sobre extinción de dominio, condicionando su aplicación
-            a la existencia de una sentencia penal firme y consentida, con excepciones limitadas a determinados delitos graves.
+            <strong>¿Qué hace esta ley?</strong> Condiciona el proceso de extinción de dominio a la existencia de una sentencia
+            firme y consentida, salvo para un conjunto muy restringido de delitos (narcotráfico, terrorismo, secuestro, extorsión,
+            trata de personas, contrabando, minería ilegal, estafa y delitos informáticos). Excluye expresamente delitos de
+            corrupción y lavado de activos.
           </p>
           <p>
-            <strong>Beneficiados:</strong> Organizaciones criminales, redes de corrupción y lavadores de activos ganan tiempo para
-            ocultar, transferir o consolidar su patrimonio ilícito durante procesos penales prolongados. Afecta casos relacionados
-            a Vladimir Cerrón, Rodolfo Orellana, Alejandro Toledo, PPK, Caso "Artemio" y Vizcarra.
+            <strong>¿Por qué es pro-crimen?</strong> El proceso de extinción de dominio es un procedimiento jurisdiccional
+            de carácter patrimonial, autónomo e independiente del proceso penal, que permite al Estado recuperar bienes,
+            dinero o activos de origen ilícito, aun cuando no exista condena penal. Su eficacia radicaba en esa autonomía:
+            el Estado podía actuar con rapidez y oportunidad para despojar a los delincuentes de los beneficios económicos
+            del delito. Con esta modificación, ya no se podrá iniciar la extinción de dominio en casos de corrupción, lavado
+            de activos, enriquecimiento ilícito o colusión sin una condena previa.
           </p>
           <p>
-            <strong>Afectados:</strong> El Ministerio Público, el Poder Judicial y el Estado en su capacidad de recuperación de activos,
-            porque la norma elimina la autonomía de la extinción de dominio y la supedita a una sentencia penal firme.
+            <strong>Impacto:</strong> Organizaciones criminales, redes de corrupción y lavadores de activos ganan tiempo para
+            ocultar, transferir o consolidar su patrimonio ilícito durante procesos penales prolongados que en el Perú pueden
+            tardar más de una década. El Estado ya no podrá iniciar la recuperación de bienes hasta que exista una sentencia
+            condenatoria, lo que en la práctica significa que no se puede hacer nada durante todo el proceso penal. Es una ley
+            hecha a la medida de la impunidad.
           </p>
         </>
       )
     },
     {
       number: 6,
-      title: "Ley 31989 - Protección a la Minería Ilegal",
+      title: "Ley 31989 - Explosivos Libres: De la Mina a tu Puerta",
       content: (
         <>
           <p>
-            <strong>Contenido:</strong> Deroga la disposición que permitía a la Policía Nacional aplicar medidas contra personas
-            inscritas en el REINFO con inscripción suspendida sorprendidas en posesión de explosivos sin autorización. Elimina
-            la exclusión automática del REINFO y debilita los mecanismos preventivos contra el uso ilegal de explosivos en minería.
+            <strong>¿Qué hace esta ley?</strong> Deroga la disposición que permitía a la Policía Nacional aplicar medidas
+            inmediatas contra mineros ilegales con inscripción suspendida en el REINFO sorprendidos en posesión de explosivos
+            sin autorización. Eliminaba la exclusión automática del REINFO y permitía actuar preventivamente.
           </p>
           <p>
-            <strong>Beneficiados:</strong> Operadores de minería ilegal e informal que mantienen su inscripción en el REINFO
-            irregularmente. Redes criminales vinculadas a la minería ilegal que usan explosivos, los cuales son desviados para
-            atentados y extorsiones en todo el país.
+            <strong>¿Por qué es pro-crimen?</strong> Antes, la Policía contaba con un mecanismo claro para actuar de manera
+            inmediata ante el hallazgo de explosivos en zonas mineras informales, evitando burocracia judicial. La simple
+            constatación de posesión ilegal de explosivos bastaba para excluir automáticamente del REINFO. Con esta derogación,
+            se ha despojado a la PNP de una herramienta legal que articulaba control administrativo y reacción operativa,
+            abriendo un vacío que hoy aprovechan mineros ilegales y redes criminales dedicadas al tráfico de explosivos.
           </p>
           <p>
-            <strong>Afectados:</strong> La Policía Nacional pierde herramientas efectivas contra el uso ilegal de explosivos.
-            La población sufre porque estos explosivos se comercializan y utilizan para atentados y extorsiones, afectando la
-            seguridad ciudadana.
+            <strong>Impacto:</strong> En un momento en que el país enfrenta una ola de extorsiones y atentados con dinamita,
+            muchos de estos materiales—extraídos, desviados o comercializados ilícitamente—vienen apareciendo en las puertas
+            de pequeños comercios, viviendas y establecimientos, no solo como amenaza extorsiva, sino incluso explotando
+            deliberadamente, causando terror entre la población. Otorgar mayor permisividad a la posesión y circulación de
+            estos materiales equivale a debilitar la seguridad pública y exponer a los ciudadanos al miedo y la violencia cotidiana.
           </p>
         </>
       )
     },
     {
       number: 7,
-      title: "Ley 32054 - Inmunidad para Partidos Políticos Criminales",
+      title: "Ley 32054 - Partidos Políticos: Intocables e Inmortales",
       content: (
         <>
           <p>
-            <strong>Contenido:</strong> Modifica el Código Penal y la Ley 30424 para excluir de sanciones (como disolución,
-            clausura o suspensión de actividades) a los partidos políticos por delitos cometidos mediante su estructura,
-            impidiendo que sean disueltos.
+            <strong>¿Qué hace esta ley?</strong> Excluye expresamente a los partidos políticos de las sanciones penales y
+            administrativas que sí se aplican a cualquier otra persona jurídica cuando es utilizada para cometer delitos.
+            Prohíbe específicamente la disolución, suspensión de actividades y ciertas sanciones pecuniarias derivadas de
+            delitos como lavado de activos, financiamiento ilícito o corrupción.
           </p>
           <p>
-            <strong>Beneficiados:</strong> La mayoría de partidos políticos en el Congreso. Fuerza Popular invocó esta norma en el
-            caso Lava Jato. Otros partidos en investigación incluyen Perú Libre, Podemos Perú y Renovación Popular. Los fiscales
-            quedan impedidos de solicitar la disolución de estas organizaciones.
+            <strong>¿Por qué es pro-crimen?</strong> Si una empresa o fundación sirve como vehículo para lavar dinero, financiar
+            actividades ilícitas o encubrir corrupción, puede ser sancionada con disolución o suspensión; pero si lo hace un
+            partido político, queda fuera del alcance de la justicia penal. Este cambio vulnera el principio de igualdad ante
+            la ley y rompe el equilibrio institucional del Estado, otorgando a las organizaciones políticas un estatus de
+            impunidad que las coloca por encima de la Constitución. Es un acto legislativo de autoblindaje: el Congreso legisló
+            para proteger a sus propios patrocinadores y estructuras partidarias.
           </p>
           <p>
-            <strong>Afectados:</strong> Toda la población peruana, porque pervierte la democracia contaminando la política de dinero
-            mal habido y corrupción, apoderándose de partidos que ya no pertenecen al pueblo.
+            <strong>Impacto:</strong> Con esta ley, el Congreso ha creado organizaciones perpetuas e intocables, blindadas
+            frente a la acción del Ministerio Público y del Poder Judicial. Un partido político puede ser instrumento para
+            lavar dinero, recibir fondos ilícitos o encubrir sobornos, pero seguirá existiendo y participando en elecciones,
+            bajo la excusa de que solo se sanciona a los individuos. Pervierte la democracia contaminando la política de dinero
+            mal habido y corrupción.
           </p>
         </>
       )
     },
     {
       number: 8,
-      title: "Ley 31751 - \"Ley Soto\": Prescripción Express para Corruptos",
+      title: "Ley 31751 - \"Ley Soto\": El Reloj Corre para la Impunidad",
       content: (
         <>
           <p>
-            <strong>Contenido:</strong> Modifica el artículo 84 del Código Penal estableciendo que la suspensión del plazo de
-            prescripción no puede ser mayor a un año. Anteriormente no tenía límite. Favorece la impunidad de altos funcionarios
-            con antejuicio, porque el proceso no puede avanzar hasta que el Congreso apruebe la denuncia constitucional, pero
-            ahora la prescripción solo se suspende un año.
+            <strong>¿Qué hace esta ley?</strong> Modifica el artículo 84 del Código Penal estableciendo que la suspensión
+            del plazo de prescripción no puede ser mayor a un año. Anteriormente no tenía límite. Además, la Ley 32104
+            obliga a los jueces a aplicar esta norma, en detrimento del control difuso constitucional.
           </p>
           <p>
-            <strong>Beneficiados:</strong> Casos emblemáticos son Alejandro Soto Reyes y Waldemar Cerrón Rojas, Joaquín Ramírez,
-            quienes lograron archivar sus casos gracias a esta ley. Altos funcionarios como congresistas que entrampan sus denuncias
-            constitucionales para que prescriban sus delitos.
+            <strong>¿Por qué es pro-crimen?</strong> Favorece especialmente la impunidad de altos funcionarios con antejuicio
+            (prerrogativa que tienen congresistas, ministros y otros altos cargos), porque el proceso penal no puede avanzar
+            hasta que el Congreso apruebe la denuncia constitucional. Antes, la prescripción se suspendía indefinidamente
+            durante este trámite político. Ahora, la prescripción solo se suspende un año, permitiendo que congresistas
+            entrampan deliberadamente sus denuncias constitucionales para que sus delitos prescriban automáticamente.
           </p>
           <p>
-            <strong>Afectados:</strong> El Ministerio Público, el Poder Judicial y las víctimas, porque reduce drásticamente los
-            márgenes temporales para investigar casos complejos. Se afecta especialmente la persecución penal de delitos de
-            corrupción y criminalidad común.
-          </p>
-          <p>
-            <strong>Nota:</strong> El Congreso aprobó la Ley 32104 para forzar a los jueces a aplicar obligatoriamente la "Ley Soto",
-            en detrimento del control difuso que pueden realizar frente a leyes inconstitucionales.
-          </p>
-        </>
-      )
-    },
-    {
-      number: 9,
-      title: "Ley 32104 - Obligación de Aplicar la \"Ley Soto\"",
-      content: (
-        <>
-          <p>
-            <strong>Contenido:</strong> Precisa la aplicación de la Ley 31751 buscando que los operadores del sistema de justicia
-            apliquen obligatoriamente la "Ley Soto", en detrimento del control difuso que pueden realizar los jueces frente a
-            leyes inconstitucionales.
-          </p>
-          <p>
-            <strong>Beneficiarios y Afectados:</strong> Los mismos que la Ley 31751.
-          </p>
-          <p>
-            <strong>Nota:</strong> Pese a que la Corte Suprema en dos resoluciones ha señalado la inconstitucionalidad de esta ley,
-            no es obstáculo para que un juez se aparte de estos pronunciamientos y aplique la ley, generando casos de impunidad.
-          </p>
-        </>
-      )
-    },
-    {
-      number: 10,
-      title: "Ley 31973 - Deforestación Legalizada",
-      content: (
-        <>
-          <p>
-            <strong>Contenido:</strong> Modifica la Ley Forestal y de Fauna Silvestre estableciendo una excepción que permite
-            regularizar predios ya deforestados que desarrollan actividades agropecuarias, incluso en zonas clasificadas como bosques.
-            Elimina la clasificación de tierras por capacidad de uso mayor y la autorización previa de cambio de uso. Autoriza el
-            retiro de hasta 70% de cobertura boscosa sin evaluación técnica ambiental previa, permitiendo deforestar primero y
-            regularizar después. Debilita el delito de tala ilegal al suprimir la exigencia de autorización administrativa.
-          </p>
-          <p>
-            <strong>Beneficiados:</strong> Grandes y medianos actores económicos que ya habían deforestado bosques para expandir
-            actividades agropecuarias y agroindustriales. Empresas y operadores con investigaciones en curso, ya que se debilita
-            el delito de tala ilegal y permite archivo de procesos.
-          </p>
-          <p>
-            <strong>Afectados:</strong> El Estado y su capacidad de gobernanza ambiental (SERFOR, gobiernos regionales, Ministerio
-            del Ambiente). Los pueblos indígenas y comunidades amazónicas cuyos territorios quedan más expuestos a expansión
-            agropecuaria y tráfico de tierras. El Ministerio Público y fiscalías ambientales ven reducida la eficacia del delito
-            de tala ilegal.
-          </p>
-        </>
-      )
-    },
-    {
-      number: 11,
-      title: "Ley 32107 - Prescripción de Crímenes de Lesa Humanidad",
-      content: (
-        <>
-          <p>
-            <strong>Contenido:</strong> Precisa que el Estatuto de Roma es vigente para el Perú desde el 1 de junio de 2002 y la
-            Convención sobre Imprescriptibilidad de Crímenes de Guerra y de Lesa Humanidad desde el 9 de noviembre de 2003.
-            Establece que los delitos cometidos antes de estas fechas prescriben según los plazos de la ley nacional.
-          </p>
-          <p>
-            <strong>Beneficiados:</strong> Potenciales responsables (miembros de fuerzas armadas y policiales) de graves violaciones
-            de derechos humanos durante el conflicto armado interno de las décadas de 1980 y 1990, al bloquear su persecución bajo
-            la figura de crimen de lesa humanidad.
-          </p>
-          <p>
-            <strong>Afectados:</strong> Los deudos de las víctimas de delitos de lesa humanidad cometidos por el ejército y la policía
-            durante el conflicto armado. Esta ley puede aplicarse a casos como "Accomarca", "El Frontón", "Cayara" y "Los Cabitos".
-          </p>
-          <p>
-            <strong>Nota:</strong> El Tribunal Constitucional declaró infundadas las demandas de inconstitucionalidad contra la
-            Ley 32107, pues no se alcanzaron los 5 votos necesarios. Este TC fue elegido por los partidos del pacto en el Congreso.
-          </p>
-        </>
-      )
-    },
-    {
-      number: 12,
-      title: "Ley 32419 - Amnistía \"Humanitaria\" para Violadores de Derechos Humanos",
-      content: (
-        <>
-          <p>
-            <strong>Contenido:</strong> Contiene dos beneficios proscritos en cualquier Estado de Derecho: 1) Concede amnistía a
-            miembros de FFAA, PNP y rondas por su participación en la lucha contra el terrorismo entre 1980-2000; y 2) Concede
-            amnistía de carácter humanitario a adultos mayores de 70 años participantes en esa lucha con sentencia firme.
-          </p>
-          <p>
-            <strong>Beneficiados:</strong> Ley formulada por sectores militares y de derecha para beneficiar a militares y policías,
-            especialmente de alto rango condenados o en procesos por casos emblemáticos (Cantuta, Barrios Altos, Accomarca, Frontón,
-            Cabitos, Cashahui, Putis). Según Amnistía Internacional, impactará al menos 156 casos con sentencia firme. Según Human
-            Rights Watch, puede detener más de 600 procesos en curso.
-          </p>
-          <p>
-            <strong>Afectados:</strong> Familias y víctimas de violaciones de DDHH que se quedan sin acceso a la justicia, sin derecho
-            a la verdad ni a reparaciones. Es una ley discriminatoria con un mensaje de impunidad que dice a la gente sin poder
-            político, especialmente del interior, que la vida de los suyos no vale nada. Casos como Putis, Ayacucho (1984), donde
-            123 personas incluyendo niños fueron asesinados, no valen nada para los políticos y militares del Congreso.
+            <strong>Impacto:</strong> Casos emblemáticos como Alejandro Soto Reyes y Waldemar Cerrón Rojas lograron archivar
+            sus casos gracias a esta ley. Reduce drásticamente los márgenes temporales para investigar casos complejos de
+            corrupción. Pese a que la Corte Suprema ha señalado la inconstitucionalidad de esta ley en dos resoluciones,
+            la Ley 32104 obliga a los jueces a aplicarla, generando casos de impunidad que vulneran el Estado de Derecho.
+            Es prescripción express para corruptos con poder político.
           </p>
         </>
       )
@@ -352,10 +281,19 @@ function LeyesProCrimenPage() {
         <div className="container">
           <div className="blog-post-content">
             <p>
-              Entre 2021 y 2025, el Congreso peruano aprobó una serie de leyes que favorecen la delincuencia y la corrupción,
-              en contra del clamor ciudadano por seguridad y justicia. Estas normas pro-impunidad han beneficiado a congresistas
-              investigados, partidos implicados en financiamiento ilegal, mafias de minería y tala ilegal, redes de corrupción
-              y hasta responsables de crímenes atroces.
+              En los últimos años, el país ha sido testigo de un preocupante proceso de <strong>desmantelamiento progresivo
+              de las herramientas legales más efectivas contra el crimen organizado, la corrupción y la violencia criminal.</strong>
+              Desde el Congreso de la República se ha impulsado y aprobado un conjunto de normas que, en lugar de fortalecer
+              la persecución penal, la debilitan deliberadamente, restringiendo las facultades del Ministerio Público, la Policía
+              Nacional del Perú y el Poder Judicial.
+            </p>
+            <p>
+              Estas disposiciones, conocidas hoy como <strong>"leyes pro-crimen"</strong>, han alterado pilares esenciales del
+              sistema de justicia penal y reducido la capacidad operativa del Estado para enfrentar las nuevas formas de criminalidad
+              violenta y organizada que se expanden en el país. <strong>No puede haber—ni debe permitirse—el más mínimo ápice de
+              flexibilidad o permisividad frente al crimen organizado.</strong> La respuesta del Estado debe ser firme, técnica
+              y legalmente sólida. Cualquier retroceso normativo que limite la acción de la justicia equivale a fortalecer a los
+              delincuentes y desarmar al Estado.
             </p>
           </div>
         </div>
@@ -365,9 +303,10 @@ function LeyesProCrimenPage() {
       <section className="apoyo-section apoyo-amarillo">
         <div className="container">
           <div className="blog-post-content">
-            <h3>Las 12 Leyes Pro Crimen</h3>
+            <h3>Las 8 Leyes Pro Crimen</h3>
             <p>
-              Haz clic en cada ley para ver los detalles sobre su contenido, quiénes se benefician y quiénes son los afectados.
+              Haz clic en cada ley para ver qué hace, por qué favorece al crimen organizado y a la corrupción,
+              y cuál es su impacto en la seguridad del país.
             </p>
             <div className="laws-accordion">
               {laws.map((law) => (
@@ -392,7 +331,7 @@ function LeyesProCrimenPage() {
       </section>
 
       {/* Matrices de Votación - Carousel */}
-      <section className="apoyo-section apoyo-azul">
+      <section className="apoyo-section apoyo-azul" style={{ marginBottom: '40px' }}>
         <div className="container">
           <div className="blog-post-content">
             <h3>Matrices de Votación por Partido</h3>
@@ -436,21 +375,30 @@ function LeyesProCrimenPage() {
       <section className="apoyo-section apoyo-amarillo">
         <div className="container">
           <div className="blog-post-content">
-            <h3>Conclusión</h3>
+            <h3>Conclusión: Un Ataque Sistemático al Estado de Derecho</h3>
             <p>
-              Entre 2021 y 2025 el Congreso peruano aprobó una serie de leyes que favorecen la delincuencia y la corrupción,
-              en contra del clamor ciudadano por seguridad y justicia. Estas normas pro-impunidad han beneficiado a congresistas
-              investigados, partidos implicados en financiamiento ilegal, mafias de minería y tala ilegal, redes de corrupción
-              y responsables de crímenes atroces. Derogarlas es urgente para restablecer el Estado de derecho.
+              Las denominadas "leyes pro-crimen" han generado un <strong>daño estructural al sistema penal peruano</strong>,
+              debilitando la acción del Ministerio Público, la Policía Nacional y el Poder Judicial en un momento en que el
+              país enfrenta su mayor crisis de seguridad en décadas. Cada una de estas normas ha introducido obstáculos
+              procesales, exigencias innecesarias y privilegios indebidos que favorecen a los delincuentes y desprotegen a
+              la ciudadanía.
             </p>
             <p>
-              Es necesario adoptar una narrativa de mano firme contra la impunidad: denunciar que "el Congreso actuó como abogado
-              de los delincuentes" y afirmar que se limpiarán estas leyes vergonzosas.
+              El resultado es un Estado que <strong>investiga menos, captura menos y sanciona menos</strong>, mientras el
+              crimen avanza con mayor coordinación, poder económico y capacidad de intimidación. No se trata de un debate
+              jurídico abstracto, sino de una urgencia nacional: estas leyes están impactando directamente en la capacidad
+              del Estado para salvar vidas, recuperar el control territorial y devolver la confianza en la justicia.
             </p>
             <p>
-              Las derogatorias deben ser parte de un paquete legislativo de "Restauración de la Legalidad" para los primeros 100
-              días de gobierno, que abrogue todas las leyes mencionadas y fortalezca las herramientas anticrímenes en concordancia
-              con estándares internacionales.
+              <strong>Es tiempo de actuar con firmeza.</strong> Las derogatorias deben ser parte de un paquete legislativo
+              de "Restauración de la Legalidad", que abrogue todas las leyes mencionadas y fortalezca las herramientas
+              anticrímenes en concordancia con estándares internacionales. La ciudadanía necesita ver un Estado decidido,
+              coherente y valiente frente al crimen organizado, no uno atado por normas complacientes.
+            </p>
+            <p>
+              La historia ha demostrado que <strong>cuando la ley se pone al servicio de la impunidad, el Estado pierde
+              su razón de ser.</strong> Es tiempo de corregir el rumbo y restituir la autoridad del derecho, la fuerza
+              de la justicia y el respeto al orden público en defensa de la Nación.
             </p>
           </div>
         </div>
