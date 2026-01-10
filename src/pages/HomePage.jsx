@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Header from '../components/layout/Header';
 import CasoCard from '../components/shared/CasoCard';
 
@@ -8,6 +8,13 @@ function HomePage() {
   const [showX, setShowX] = useState(false);
   const [showDesktopX, setShowDesktopX] = useState(false);
   const [numberKey, setNumberKey] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const heroImages = [
+    "/images/inicio/harvey-portrait-transparente.png",
+    "/images/inicio/HC_SOLO.png",
+    "/images/inicio/TORITO PORTADA.png"
+  ];
 
   useEffect(() => {
     const container = document.getElementById('juicer-container');
@@ -39,6 +46,15 @@ function HomePage() {
       }
     };
   }, []);
+
+  // Image rotation effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 4000); // Rotate every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
 
   return (
     <>
@@ -93,7 +109,7 @@ function HomePage() {
               </div>
               <p>Con tu voto tumbamos el crimen y la corrupción!</p>
               <div className="cta-container">
-                <Link to="/propuestas" className="cta-button">EL MÉTODO COLCHADO</Link>
+                <Link to="/propuestas" className="cta-button">CONOCE EL MÉTODO COLCHADO</Link>
               </div>
             </motion.div>
             <motion.div
@@ -103,11 +119,44 @@ function HomePage() {
               transition={{ duration: 0.6 }}
             >
               <div className="hero-images-desktop">
-                <img src="/images/inicio/HC_SOLO.png" alt="Harvey Colchado" className="hero-image-part hero-image-person" />
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentImageIndex}
+                    src={heroImages[currentImageIndex]}
+                    alt="Harvey Colchado"
+                    className="hero-image-part hero-image-person"
+                    style={
+                      heroImages[currentImageIndex].includes('TORITO PORTADA')
+                        ? { width: '80%', height: 'auto' } // Adjust these values as needed
+                        : {}
+                    }
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{
+                      duration: 0.6,
+                      ease: "easeInOut"
+                    }}
+                  />
+                </AnimatePresence>
                 <img src="/images/inicio/CASCO.png" alt="Casco" className="hero-image-part hero-image-helmet" />
                 <img src="/images/inicio/NÚMERO 1.png" alt="Número 1" className="hero-image-part hero-image-number" />
               </div>
-              <img src="/images/inicio/hero-main.png" alt="Harvey Colchado" className="hero-image hero-image-mobile" />
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentImageIndex}
+                  src={heroImages[currentImageIndex]}
+                  alt="Harvey Colchado"
+                  className="hero-image hero-image-mobile"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{
+                    duration: 0.6,
+                    ease: "easeInOut"
+                  }}
+                />
+              </AnimatePresence>
 
               {/* Voting Instructions - Desktop Only */}
               <motion.div
@@ -215,7 +264,7 @@ function HomePage() {
         <div className="container">
           <h2>¿Quién soy?</h2>
           <div className="quien-soy-content">
-            <img src="/images/inicio/harvey-portrait.jpg" alt="Harvey Colchado Portrait" className="portrait" />
+            <img src="/images/inicio/harvey-hero-photo.jpg" alt="Harvey Colchado Portrait" className="portrait" />
             <div className="quien-soy-text">
               <h3>Si hay crimen y corrupción, ¡la tumbamos!</h3>
               <p>Harvey Colchado nació el 11 de abril de 1974 en Lima y desde joven mostró una vocación de servicio público. En 1993 ingresó a la Escuela de Oficiales de la Policía Nacional del Perú, graduándose en el tercer puesto de su promoción. Su carrera policial comenzó en 1997 en la Dirección Contra el Terrorismo (DIRCOTE). y a lo largo de los años ha sido asignado a misiones especializadas en investigación criminal, combatiendo el terrorismo, narcotráfico y crimen organizado en todo el país. Paralelamente, cursó estudios de Derecho y recibió capacitación de la DEA en Estados Unidos, participando como exponente en conferencias internacionales sobre investigación criminal.</p>

@@ -246,6 +246,7 @@ body {
     gap: 40px;
     width: 100%;
     flex: 1;
+    flex-direction: row-reverse;
 }
 
 .cta-container {
@@ -278,7 +279,7 @@ body {
 .voting-instructions {
     position: absolute;
     bottom: 30px;
-    right: 185px;
+    left: 135px;
     background: var(--blanco);
     border-radius: 16px;
     padding: 10px 50px;
@@ -748,14 +749,25 @@ article.caso-card .caso-enlace:hover {
         padding: 20px;
         position: relative;
         z-index: 2;
-        background-image: url(../public/images/inicio/hero-main.png);
-        background-size: contain;
-        background-position: center bottom;
-        background-repeat: no-repeat;
     }
 
     .hero-image-container {
+        display: flex !important;
+        justify-content: center;
+        align-items: flex-end;
+        height: 100%;
+        max-height: 400px;
+    }
+
+    .hero-images-desktop {
         display: none !important;
+    }
+
+    .hero-image-mobile {
+        display: block !important;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
     }
 
     .hero-logo-desktop {
@@ -1342,7 +1354,7 @@ article.caso-card .caso-enlace:hover {
     padding: 40px;
     border-radius: 15px;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 20px auto;
 }
 
 .form-row {
@@ -1490,8 +1502,6 @@ article.caso-card .caso-enlace:hover {
     color: var(--azul-principal);
     margin: 0;
     font-weight: bold;
-    font-style: italic;
-    text-decoration: underline;
     text-underline-offset: 8px;
 }
 
@@ -2524,7 +2534,6 @@ html {
 
 .biografia-content {
     background: var(--blanco);
-    padding: 60px 0 0 0;
 }
 
 .biografia-container {
@@ -2551,6 +2560,11 @@ html {
     font-size: 18px;
     line-height: 1.8;
     font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.biografia-intro .intro-text:last-child {
+    margin-bottom: 0;
 }
 
 .biografia-section {
