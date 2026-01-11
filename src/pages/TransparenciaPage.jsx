@@ -1,11 +1,23 @@
 import React from 'react';
+import Carousel from '../components/shared/Carousel';
 
-function NoticiasPage() {
+function TransparenciaPage() {
+  const slides = [
+    '/images/propuestas/carrusell/carrusel_1.png',
+    '/images/propuestas/carrusell/carrusel_2.png',
+    '/images/propuestas/carrusell/carrusel_3.png'
+  ];
+
   return (
     <>
+      {/* Carousel Section */}
+      <section className="metodo-hero metodo-hero-transparencia">
+        <Carousel slides={slides} />
+      </section>
+
       {/* Título de la página */}
       <section className="noticias-header">
-        <h1>Nuestro Compromiso</h1>
+        <h1>¿Cómo financiamos nuestra campaña?</h1>
       </section>
 
       {/* Contenido de transparencia */}
@@ -22,4 +34,4 @@ function NoticiasPage() {
   );
 }
 
-export default NoticiasPage;
+export default TransparenciaPage;

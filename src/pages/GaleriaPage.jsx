@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './GaleriaPage.css';
 
 function GaleriaPage() {
@@ -12,7 +12,7 @@ function GaleriaPage() {
     '/images/gallery/IMG_2567.jpeg',
     '/images/gallery/IMG_2568.jpeg',
     '/images/gallery/IMG_2569.jpeg',
-    '/images/gallery/IMG_2570.jpeg',
+    '/images/gallery/IMG_2582.jpeg',
     '/images/gallery/IMG_2571.jpeg',
     '/images/gallery/IMG_2572.jpeg',
     '/images/gallery/IMG_2573.jpeg'
@@ -20,13 +20,13 @@ function GaleriaPage() {
 
   const minSwipeDistance = 50;
 
-  const goToNext = () => {
+  const goToNext = useCallback(() => {
     setSelectedIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
+  }, [images.length]);
 
-  const goToPrevious = () => {
+  const goToPrevious = useCallback(() => {
     setSelectedIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-  };
+  }, [images.length]);
 
   const onTouchStart = (e) => {
     setTouchEnd(null);
@@ -66,7 +66,7 @@ function GaleriaPage() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedIndex]);
+  }, [selectedIndex, goToNext, goToPrevious]);
 
   return (
     <>

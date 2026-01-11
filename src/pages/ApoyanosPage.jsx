@@ -5,6 +5,8 @@ function ApoyanosForm() {
   const [expandedPropuesta, setExpandedPropuesta] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [volunteerType, setVolunteerType] = useState('');
+  const [otrosDescription, setOtrosDescription] = useState('');
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const propuestas = [
@@ -51,19 +53,22 @@ function ApoyanosForm() {
     {
       id: 2,
       icon: '/images/propuestas/icons/policia.svg',
-      titulo: 'VOLUNTARIO/A ENCUESTADOR/A',
+      titulo: 'VOLUNTARIO/A EN APOYO TERRITORIAL',
       detalles: [
         {
           subtitulo: '¿De qué se trata este voluntariado?',
-          contenido: 'Buscamos personas comprometidas con la democracia y el cambio que quieran ser parte fundamental de nuestra campaña, saliendo a las calles para conocer de primera mano qué piensan los ciudadanos, qué necesitan y qué esperan de un líder como Harvey Colchado. Como encuestador/a voluntario/a, serás los ojos y oídos de la campaña en el territorio.'
+          contenido: 'Buscamos personas comprometidas con la democracia y el cambio que quieran ser parte fundamental de nuestra campaña en el territorio. Como voluntario/a en apoyo territorial, serás clave para conectar la campaña con las comunidades, organizando actividades, identificando oportunidades de contacto con la ciudadanía, construyendo redes locales y recogiendo información directa sobre las necesidades y expectativas de la población.'
         },
         {
           subtitulo: '¿Qué harás?',
           contenido: [
+            'Apoyar en la organización de eventos, actividades y encuentros comunitarios en tu distrito o zona.',
+            'Prospectar y proponer lugares estratégicos para visitas, charlas o actividades de la campaña.',
+            'Construir y fortalecer redes locales con líderes vecinales, organizaciones comunitarias y ciudadanos comprometidos.',
             'Aplicar encuestas presenciales a ciudadanos en diferentes distritos y sectores.',
             'Recoger de forma objetiva las opiniones, preocupaciones y expectativas de la población.',
-            'Registrar los datos de manera clara y ordenada para su posterior análisis.',
-            'Coordinarte con el equipo de campo para cumplir los objetivos semanales de encuestas.',
+            'Registrar información de manera clara y ordenada para su posterior análisis.',
+            'Coordinarte con el equipo de campo para cumplir los objetivos de la campaña en territorio.',
             'Representar los valores de la campaña con respeto, ética y profesionalismo.'
           ]
         },
@@ -72,18 +77,21 @@ function ApoyanosForm() {
           contenido: [
             'Actitud proactiva, responsable y respetuosa en el trato con las personas.',
             'Disponibilidad para salir a terreno (fines de semana y/o entre semana).',
+            'Habilidades de comunicación y capacidad para conectar con personas de diferentes sectores.',
             'Capacidad para escuchar sin prejuicios y registrar información con precisión.',
+            'Iniciativa para identificar oportunidades y proponer ideas para fortalecer la presencia territorial.',
             'Compromiso con los valores democráticos y el trabajo en equipo.',
-            'Uso básico de celular o tablet para registro de datos (deseable).',
-            'Experiencia previa en encuestas o trabajo de campo (deseable, no excluyente).'
+            'Conocimiento de tu distrito o comunidad local (deseable).',
+            'Experiencia en organización comunitaria, trabajo de campo o gestión de eventos (deseable, no excluyente).'
           ]
         },
         {
           subtitulo: '¿Qué ofrecemos?',
           contenido: [
-            'Formación previa sobre técnicas de encuesta y manejo de la herramienta.',
-            'La oportunidad de ser parte del proceso real de toma de decisiones de una campaña política.',
-            'Contacto directo con la ciudadanía y experiencia práctica en investigación de campo.',
+            'Formación en trabajo territorial, organización comunitaria y técnicas de encuesta.',
+            'La oportunidad de ser parte activa del proceso real de una campaña política nacional.',
+            'Contacto directo con la ciudadanía y experiencia práctica en organización de eventos y construcción de redes.',
+            'Desarrollo de habilidades en liderazgo comunitario, comunicación política y trabajo en equipo.',
             'Certificado de participación como voluntario/a en la campaña Harvey Colchado 2026.',
             'Un espacio de aprendizaje, crecimiento personal y compromiso cívico.'
           ]
@@ -101,11 +109,23 @@ function ApoyanosForm() {
 
     setIsSubmitting(true);
 
+    // Construct the ayuda field based on volunteer type
+    let ayudaValue;
+    if (volunteerType === 'contenidos') {
+      ayudaValue = 'Contenidos digitales';
+    } else if (volunteerType === 'territorial') {
+      ayudaValue = 'Apoyo territorial';
+    } else if (volunteerType === 'otros') {
+      ayudaValue = `Otros: ${otrosDescription}`;
+    }
+
     // In development mode, always show success
     if (process.env.NODE_ENV === 'development') {
       setTimeout(() => {
         setSubmitSuccess(true);
         e.target.reset();
+        setVolunteerType('');
+        setOtrosDescription('');
         setIsSubmitting(false);
       }, 1000); // Simulate network delay
       return;
@@ -123,12 +143,12 @@ function ApoyanosForm() {
 
       const formData = {
         captchaToken,
-        nombres: e.target[0].value,
-        apellidos: e.target[1].value,
-        dni: e.target[2].value,
-        celular: e.target[3].value,
-        email: e.target[4].value,
-        ayuda: e.target[5].value
+        nombres: e.target.nombres.value,
+        apellidos: e.target.apellidos.value,
+        dni: e.target.dni.value,
+        celular: e.target.celular.value,
+        email: e.target.email.value,
+        ayuda: ayudaValue
       };
 
       const response = await fetch('/api/submit-volunteer', {
@@ -144,6 +164,8 @@ function ApoyanosForm() {
       if (response.ok) {
         setSubmitSuccess(true);
         e.target.reset();
+        setVolunteerType('');
+        setOtrosDescription('');
       } else {
         console.error('Server error response:', data);
         const errorMsg = data.details ? `Error: ${data.error}\nDetalles: ${data.details}` : `Error: ${data.error}`;
@@ -202,7 +224,7 @@ function ApoyanosForm() {
           <h2>Involúcrate en lograr este cambio</h2>
           <div className="apoyo-content">
             <p>El cambio no se construye en soledad, se construye con personas comprometidas por un Perú más seguro. Si quieres participar activamente, aportar tu tiempo y tu talento, y ser parte de esta campaña, déjanos tus datos y cuéntanos en qué te gustaría colaborar: muy pronto nos pondremos en contacto contigo.</p>
-            <p>Aquí te contamos en qué perfiles puedes sumarte:</p>
+            <p>Aquí te contamos en qué perfiles puedes sumarte. Pero si ninguno de estos calza exactamente contigo, ¡igual regístrate y cuéntanos cómo quieres ayudar!</p>
 
             <div className="propuestas-grid" style={{ marginBottom: '40px' }}>
               {propuestas.map((propuesta, index) => (
@@ -216,16 +238,14 @@ function ApoyanosForm() {
                         <h3>{propuesta.titulo}</h3>
                       </div>
                     </div>
-                    <a
-                      href="#"
+                    <button
+                      type="button"
                       className={`propuesta-link ${expandedPropuesta === index ? 'active' : ''}`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        toggleDetalle(index);
-                      }}
+                      onClick={() => toggleDetalle(index)}
+                      style={{ border: 'none', background: 'none', padding: 0 }}
                     >
                       +
-                    </a>
+                    </button>
                   </div>
                   <div
                     id={`detalle-${propuesta.id}`}
@@ -267,6 +287,7 @@ function ApoyanosForm() {
                 <div className="form-row">
                   <input
                     type="text"
+                    name="nombres"
                     placeholder="NOMBRES COMPLETOS"
                     required
                     onInvalid={(e) => e.target.setCustomValidity('Por favor, completa este campo.')}
@@ -276,6 +297,7 @@ function ApoyanosForm() {
                 <div className="form-row">
                   <input
                     type="text"
+                    name="apellidos"
                     placeholder="APELLIDOS COMPLETOS"
                     required
                     onInvalid={(e) => e.target.setCustomValidity('Por favor, completa este campo.')}
@@ -285,6 +307,7 @@ function ApoyanosForm() {
                 <div className="form-row form-row-half">
                   <input
                     type="text"
+                    name="dni"
                     placeholder="DNI"
                     pattern="[0-9]{8}"
                     maxLength="8"
@@ -303,6 +326,7 @@ function ApoyanosForm() {
                   />
                   <input
                     type="text"
+                    name="celular"
                     placeholder="NÚMERO CELULAR"
                     pattern="[0-9]{9}"
                     maxLength="9"
@@ -323,6 +347,7 @@ function ApoyanosForm() {
                 <div className="form-row">
                   <input
                     type="email"
+                    name="email"
                     placeholder="CORREO ELECTRÓNICO"
                     required
                     onInvalid={(e) => e.target.setCustomValidity('Por favor, ingresa un correo electrónico válido.')}
@@ -330,14 +355,77 @@ function ApoyanosForm() {
                   />
                 </div>
                 <div className="form-row">
-                  <textarea
-                    placeholder="¿EN QUÉ PUEDES AYUDAR?"
-                    rows="4"
-                    required
-                    onInvalid={(e) => e.target.setCustomValidity('Por favor, completa este campo.')}
-                    onInput={(e) => e.target.setCustomValidity('')}
-                  ></textarea>
+                  <label style={{ display: 'block', marginBottom: '15px', fontWeight: '600', color: 'var(--azul-principal)', fontSize: '14px' }}>¿EN QUÉ QUIERES AYUDAR?</label>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                    <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', color: 'var(--azul-principal)', fontSize: '15px' }}>
+                      <input
+                        type="radio"
+                        name="volunteerType"
+                        value="contenidos"
+                        checked={volunteerType === 'contenidos'}
+                        onChange={(e) => setVolunteerType(e.target.value)}
+                        required
+                        style={{
+                          marginRight: '10px',
+                          width: '18px',
+                          height: '18px',
+                          cursor: 'pointer',
+                          accentColor: 'var(--azul-principal)'
+                        }}
+                      />
+                      Contenidos digitales
+                    </label>
+                    <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', color: 'var(--azul-principal)', fontSize: '15px' }}>
+                      <input
+                        type="radio"
+                        name="volunteerType"
+                        value="territorial"
+                        checked={volunteerType === 'territorial'}
+                        onChange={(e) => setVolunteerType(e.target.value)}
+                        required
+                        style={{
+                          marginRight: '10px',
+                          width: '18px',
+                          height: '18px',
+                          cursor: 'pointer',
+                          accentColor: 'var(--azul-principal)'
+                        }}
+                      />
+                      Apoyo territorial
+                    </label>
+                    <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', color: 'var(--azul-principal)', fontSize: '15px' }}>
+                      <input
+                        type="radio"
+                        name="volunteerType"
+                        value="otros"
+                        checked={volunteerType === 'otros'}
+                        onChange={(e) => setVolunteerType(e.target.value)}
+                        required
+                        style={{
+                          marginRight: '10px',
+                          width: '18px',
+                          height: '18px',
+                          cursor: 'pointer',
+                          accentColor: 'var(--azul-principal)'
+                        }}
+                      />
+                      Otros
+                    </label>
+                  </div>
                 </div>
+                {volunteerType === 'otros' && (
+                  <div className="form-row">
+                    <textarea
+                      placeholder="Cuéntanos en qué te gustaría ayudar"
+                      rows="4"
+                      value={otrosDescription}
+                      onChange={(e) => setOtrosDescription(e.target.value)}
+                      required
+                      onInvalid={(e) => e.target.setCustomValidity('Por favor, describe en qué te gustaría ayudar.')}
+                      onInput={(e) => e.target.setCustomValidity('')}
+                    ></textarea>
+                  </div>
+                )}
                 <button
                   type="submit"
                   className="form-submit"

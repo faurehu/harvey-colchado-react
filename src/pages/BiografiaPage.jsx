@@ -17,115 +17,102 @@ function BiografiaPage() {
         <div className="biografia-container">
           {/* Meet Harvey Section */}
           <div className="biografia-intro">
-            <h3>Conoce a Harvey Colchado</h3>
+            <h3>Conóceme</h3>
             <p className="intro-text">
-              Si hay crimen y corrupción, ¡la tumbamos! Harvey Colchado es un coronel de la Policía Nacional del Perú
-              que ha dedicado su vida a la lucha contra el crimen organizado y la corrupción. Su trayectoria de 28 años
-              de servicio lo ha llevado a desarticular a las organizaciones criminales más poderosas del país.
+              Si hay crimen y corrupción, la tumbamos.
+            </p>
+            <p className="intro-text">
+              Soy Harvey Colchado, coronel de la Policía Nacional del Perú, y he dedicado mi vida a combatir a las organizaciones criminales y a quienes usan el poder para robarle al país. Durante 28 años de servicio, enfrenté al crimen organizado sin miedo, sin favores y sin mirar a quién.
             </p>
           </div>
 
           {/* Early Life Section */}
           <div className="biografia-section">
-            <h3>Los Primeros Años</h3>
+            <h3>Mis primeros años</h3>
             <div className="biografia-section-content">
               <img src="/images/biografia/bio3.png" alt="Harvey Colchado en sus primeros años" className="biografia-image" />
-              <p>
-                Harvey Colchado nació el 11 de abril de 1974 en Lima. Su madre, una mujer arequipeña, trabajaba en una
-                fábrica y fue dirigente sindical; su padre, un hombre ancashino, se desempeñó como efectivo de la Guardia
-                Republicana del Perú. En el distrito de Comas, donde ha vivido la mayor parte de su vida, creció junto a
-                tres de sus cinco hermanos. Fue un estudiante destacado en diversas instituciones educativas, y sus
-                asignaturas preferidas fueron siempre historia del Perú e historia universal. Fuera del ámbito académico,
-                practicó boxeo como aficionado y compitió en ligas de fútbol distritales de Comas, Los Olivos, Chorrillos
-                y Chaclacayo.
-              </p>
+              <div>
+                <p>
+                  Nací el 11 de abril de 1974 en Lima. Mi historia comienza en una familia trabajadora. Mi madre, arequipeña, fue obrera en una fábrica y dirigente sindical; mi padre, ancashino, sirvió al país como efectivo de la Guardia Republicana del Perú. Crecí en Comas, el distrito que ha sido mi hogar casi toda la vida, junto a tres de mis cinco hermanos.
+                </p>
+                <p>
+                  Desde joven fui un estudiante aplicado. Siempre me apasionaron la historia del Perú y la historia universal, porque entender el pasado es clave para no repetir los errores. Fuera de las aulas practiqué boxeo y jugué fútbol en ligas distritales de Comas, Los Olivos, Chorrillos y Chaclacayo, deportes que me enseñaron esfuerzo, disciplina y trabajo en equipo.
+                </p>
+              </div>
             </div>
           </div>
 
           {/* Police Academy Section */}
           <div className="biografia-section">
-            <h3>Formación Policial</h3>
+            <h3>Mi formación policial</h3>
             <div className="biografia-section-content image-right">
               <img src="/images/biografia/bio4.png" alt="Harvey Colchado en la academia" className="biografia-image" />
-              <p>
-                En el año 1993, Harvey Colchado ingresó a la Escuela de Oficiales de la Policía Nacional del Perú, donde
-                destacó académicamente y mostró una marcada preferencia por los cursos de investigación criminal. Participó
-                activamente en actividades de fútbol, atletismo y boxeo. Egresó en el tercer puesto entre los 194 cadetes de su
-                promoción.
-              </p>
+              <div>
+                <p>
+                  En 1993 ingresé a la Escuela de Oficiales de la Policía Nacional del Perú. Desde el inicio destaqué académicamente y encontré mi vocación en los cursos de investigación criminal. Paralelamente seguí practicando fútbol, atletismo y boxeo.
+                </p>
+                <p>
+                  Egresé en el tercer puesto entre 194 cadetes de mi promoción, con la convicción clara de que mi carrera estaría al servicio de la ley y del país.
+                </p>
+              </div>
             </div>
           </div>
 
           {/* DIRCOTE */}
           <div className="biografia-section">
-            <h3>Inicio de Carrera Policial</h3>
+            <h3>El inicio de una carrera marcada por el riesgo</h3>
             <p>
-              En el año 1997, mientras la residencia del embajador de Japón permanecía tomada por miembros de la
-              organización terrorista MRTA, Harvey Colchado se graduó como oficial y fue asignado a la Dirección
-              Contra el Terrorismo (DIRCOTE) donde su primera tarea consistió en realizar análisis de las escuchas a los micrófonos
-              que habían sido infiltrados en la residencia ocupada. Así se inició su intensa carrera policial.
+              En 1997, mientras el Perú vivía uno de los episodios más duros del terrorismo con la toma de la residencia del embajador de Japón por el MRTA, me gradué como oficial y fui asignado a la DIRCOTE. Mi primera tarea fue analizar las escuchas obtenidas de los micrófonos infiltrados en la residencia. Ahí comenzó una carrera intensa, exigente y peligrosa.
             </p>
             <p>
-              A lo largo de los años, Harvey Colchado ha sido asignado a diversas misiones especializadas. Además
-              de la DIRCOTE, integró también la DIVINESP en la Dirección Antidrogas (DIRANDRO) y la Dirección de
-              Investigación Criminal (DIRINCRI). También formó parte de la Dirección de Policía del Ministerio
-              Público. En el marco de estas funciones, realizó investigaciones en todos los departamentos del Perú
-              menos Pasco.
+              A lo largo de los años serví en unidades especializadas como DIRCOTE, DIRANDRO, DIRINCRI y en la Dirección de Policía del Ministerio Público. Investigué en casi todos los departamentos del Perú, enfrentando terrorismo, narcotráfico, sicariato y crimen organizado.
             </p>
           </div>
 
           {/* International Training */}
           <div className="biografia-section">
-            <h3>Capacitación Internacional</h3>
+            <h3>Preparación dentro y fuera del país</h3>
             <div className="biografia-section-content">
               <img src="/images/biografia/bio1.png" alt="Harvey Colchado capacitación internacional" className="biografia-image" />
-              <p>
-                De manera paralela a su labor policial, cursó estudios de Derecho en horario nocturno en la Universidad
-                Nacional Federico Villarreal. Asimismo, fue seleccionado para viajar a Washington D.C. y recibir
-                capacitación de la Drug Enforcement Administration (DEA) de los Estados Unidos en materias vinculadas a
-                la investigación criminal. En otras oportunidades, asistió a seminarios en la International Law Enforcement
-                Academy (ILEA) en Nuevo México y El Salvador. Como exponente, participó en conferencias en materia de
-                investigación criminal en diversos países como Brasil, Colombia, Ecuador, Bolivia, España, Angola, Austria,
-                etc.
-              </p>
+              <div>
+                <p>
+                  Mientras cumplía funciones policiales, estudié Derecho en horario nocturno en la Universidad Nacional Federico Villarreal. Además, fui seleccionado para capacitarme en Washington D.C. con la DEA de los Estados Unidos, y participé en programas de la International Law Enforcement Academy (ILEA) en Nuevo México y El Salvador.
+                </p>
+                <p>
+                  También tuve el honor de compartir mi experiencia como expositor en conferencias sobre investigación criminal en países como Brasil, Colombia, Ecuador, Bolivia, España, Angola y Austria, entre otros.
+                </p>
+              </div>
             </div>
           </div>
 
           {/* Camarada Artemio */}
           <div className="biografia-section">
-            <h3>La Captura de Camarada Artemio</h3>
+            <h3>La captura de camarada Artemio</h3>
             <div className="biografia-section-content image-right">
               <img src="/images/biografia/bio7.jpg" alt="Operativo contra el terrorismo" className="biografia-image" />
-              <p>
-                Estas experiencias en la primera etapa de su carrera policial, centradas en la investigación de casos de
-                terrorismo, narcotráfico y sicariato en diversas regiones del Perú, le dieron la base necesaria para asumir
-                su primer gran objetivo. En 2006 se le asignó la misión de desmantelar la actividad narcoterrorista en el
-                Alto Huallaga. Tras siete años de trabajo sostenido, Harvey Colchado se enfrentó a las facciones remanentes
-                del grupo terrorista maoísta Sendero Luminoso, logrando finalmente la captura de su dirigente Florindo
-                Eleuterio Flores alias camarada Artemio.
-              </p>
+              <div>
+                <p>
+                  En 2006 asumí uno de los mayores desafíos de mi carrera: desmantelar la actividad narcoterrorista en el Alto Huallaga. Fueron siete años de trabajo sostenido, de riesgo permanente y de compromiso absoluto con el país.
+                </p>
+                <p>
+                  Ese esfuerzo culminó con la captura de Florindo Eleuterio Flores, alias "camarada Artemio", uno de los principales remanentes de Sendero Luminoso. Fue un golpe decisivo contra el terrorismo.
+                </p>
+              </div>
             </div>
           </div>
 
           {/* DIVIAC */}
           <div className="biografia-section">
-            <h3>Fundación de la DIVIAC</h3>
+            <h3>La DIVIAC y la lucha contra la corrupción</h3>
             <div className="biografia-section-content">
               <img src="/images/biografia/bio8.jpg" alt="Harvey Colchado en la DIVIAC" className="biografia-image" />
               <div>
                 <p>
-                  El amplio reconocimiento a la labor de Harvey Colchado motivó su selección, en 2016, como oficial fundador
-                  de la División de Investigación de Alta Complejidad (DIVIAC), creada con la misión de combatir la
-                  criminalidad organizada en sus diversas modalidades: corrupción de funcionarios, lavado de activos, tráfico
-                  de terrenos, sicariato, trata de personas, robo agravado, extorsión, minería y tala ilegal.
+                  En 2016 fui convocado como oficial fundador de la División de Investigación de Alta Complejidad (DIVIAC), creada para enfrentar la criminalidad organizada en todas sus formas: corrupción de funcionarios, lavado de activos, tráfico de terrenos, sicariato, trata de personas, extorsión, minería y tala ilegal, entre otros delitos.
                 </p>
                 <p>
-                  Desde esa posición, participó en operaciones clave para la desarticulación de organizaciones criminales como
-                  los Cuellos Blancos del Puerto, el caso Odebrecht, los Piratas del Norte, el clan Orellana y los Malditos
-                  de Santa Rosa, entre otros. Asimismo, colaboró en investigaciones que involucraron al partido Fuerza Popular
-                  y a su lideresa Keiko Fujimori, al político José Luna Galvez, así como a la exalcaldesa Susana Villarán, los
-                  expresidentes Alan García, Pedro Pablo Kuczynski, Pedro Castillo, y Dina Boluarte y a la exfiscal de la
-                  Nación Patricia Benavides.
+                  Desde la DIVIAC participé en investigaciones emblemáticas como Cuellos Blancos del Puerto, Odebrecht, Los Piratas del Norte, el clan Orellana, Los Malditos de Santa Rosa, y en casos que involucraron a figuras del poder político y económico del país, sin excepciones ni privilegios.
+                  Siempre actué con un solo criterio: la ley es igual para todos.
                 </p>
               </div>
             </div>
@@ -133,18 +120,15 @@ function BiografiaPage() {
 
           {/* Current Chapter */}
           <div className="biografia-section">
-            <h3>Un Nuevo Capítulo</h3>
+            <h3>Un nuevo capítulo</h3>
             <p>
-              En 2024, la DIVIAC fue desactivada por el Ministerio del Interior durante la gestión de Juan José
-              Santiváñez, bajo el gobierno de Dina Boluarte. El coronel Harvey Colchado fue reasignado al Observatorio
-              de la Policía y en ocasión a labores de patrullaje. Poco tiempo después, fue pasado al retiro por
-              disposición del mismo ministerio, poniendo fin a una trayectoria de 28 años de servicio en la Policía
-              Nacional del Perú.
+              En 2024, la DIVIAC fue desactivada por decisión del Ministerio del Interior. Fui reasignado y, poco tiempo después, pasado al retiro de manera anticipada, poniendo fin a mis 28 años de servicio en la Policía Nacional del Perú.
             </p>
             <p>
-              Hoy, a los 51 años, el pase anticipado al retiro llevó a Harvey Colchado a incursionar en la política como
-              una vía para continuar su lucha contra el crimen y la corrupción. Ha dejado la práctica del boxeo, pero
-              sigue aprovechando cada oportunidad para jugar fútbol.
+              A mis 51 años, ese retiro no significó rendirme. Al contrario, me llevó a dar un paso al frente e ingresar a la política, como una nueva forma de seguir luchando contra el crimen y la corrupción, ahora desde el lado de las decisiones y las reformas.
+            </p>
+            <p>
+              Ya no practico boxeo, pero sigo jugando fútbol cada vez que puedo. Mantengo la misma energía, la misma convicción y el mismo compromiso con el Perú.
             </p>
           </div>
 
@@ -152,16 +136,19 @@ function BiografiaPage() {
           <div className="biografia-hero-section">
             <div className="biografia-hero-content">
               <div className="biografia-hero-text">
-                <h3>Un Servidor Público Ejemplar</h3>
+                <h3>Mi compromiso</h3>
                 <p>
-                  La trayectoria del Coronel Harvey Colchado representa el ejemplo de lo que debe ser un servidor público:
-                  honesto, valiente, comprometido con la justicia y dispuesto a enfrentar cualquier adversidad en defensa
-                  de los intereses del pueblo peruano.
+                  Mi trayectoria representa lo que creo que debe ser un servidor público: honesto, valiente, firme frente al poder, leal al pueblo y siempre con ansias de seguir aprendiendo.
                 </p>
                 <p>
-                  Su dedicación inquebrantable a la lucha contra el crimen organizado y la corrupción, sin importar el
-                  poder o la influencia de los implicados, lo ha convertido en un símbolo de integridad y valentía para
-                  millones de peruanos que anhelan un país más justo y transparente.
+                  Nunca me detuve ante las amenazas ni ante los nombres influyentes. Y no lo haré ahora.
+                </p>
+                <p>
+                  Sigo en esta lucha porque creo en un Perú justo, seguro y transparente, donde la ley se cumpla y el Estado esté del lado de los ciudadanos, no de las mafias.
+                </p>
+                <p>
+                  Ese es mi compromiso.
+                  Y por ese país, vamos a tumbar el crimen y la corrupción.
                 </p>
               </div>
               <div className="biografia-hero-image">

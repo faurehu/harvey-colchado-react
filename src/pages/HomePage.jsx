@@ -8,13 +8,21 @@ function HomePage() {
   const [showX, setShowX] = useState(false);
   const [showDesktopX, setShowDesktopX] = useState(false);
   const [numberKey, setNumberKey] = useState(0);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const heroImages = [
     "/images/inicio/harvey-portrait-transparente.png",
     "/images/inicio/HC_SOLO.png",
     "/images/inicio/TORITO PORTADA.png"
   ];
+
+  // Random initial image for mobile, sequential for desktop
+  const [currentImageIndex, setCurrentImageIndex] = useState(() => {
+    const randomIndex = Math.floor(Math.random() * heroImages.length);
+    console.log('Mobile: Random image index selected:', randomIndex, heroImages[randomIndex]);
+    return randomIndex;
+  });
+  const [desktopImageIndex, setDesktopImageIndex] = useState(1); // Start with HC_SOLO
 
   useEffect(() => {
     const container = document.getElementById('juicer-container');
@@ -47,14 +55,34 @@ function HomePage() {
     };
   }, []);
 
-  // Image rotation effect
+  // Image rotation effect (desktop only)
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+      setDesktopImageIndex((prevIndex) => {
+        const nextIndex = (prevIndex + 1) % heroImages.length;
+        console.log('Desktop: Rotating to index:', nextIndex, heroImages[nextIndex]);
+        return nextIndex;
+      });
     }, 4000); // Rotate every 4 seconds
 
     return () => clearInterval(interval);
   }, [heroImages.length]);
+
+  // Track window resize for mobile detection
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Debug: Log which images are being rendered
+  useEffect(() => {
+    console.log('Current state - Mobile index:', currentImageIndex, '| Desktop index:', desktopImageIndex);
+    console.log('Window width:', window.innerWidth, '| isMobile:', isMobile);
+  }, [currentImageIndex, desktopImageIndex, isMobile]);
 
   return (
     <>
@@ -118,17 +146,46 @@ function HomePage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="hero-images-desktop">
+              {!isMobile ? (
+                // Desktop: rotating images with helmet and number
+                <div className="hero-images-desktop">
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={desktopImageIndex}
+                      src={heroImages[desktopImageIndex]}
+                      alt="Harvey Colchado"
+                      className="hero-image-part hero-image-person"
+                      style={
+                        heroImages[desktopImageIndex].includes('TORITO PORTADA')
+                          ? { width: '80%', height: 'auto' }
+                          : {}
+                      }
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{
+                        duration: 0.6,
+                        ease: "easeInOut"
+                      }}
+                    />
+                  </AnimatePresence>
+                  <img src="/images/inicio/CASCO.png" alt="Casco" className="hero-image-part hero-image-helmet" />
+                  <img src="/images/inicio/NÚMERO 1.png" alt="Número 1" className="hero-image-part hero-image-number" />
+                </div>
+              ) : (
+                // Mobile: random static image
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={currentImageIndex}
                     src={heroImages[currentImageIndex]}
                     alt="Harvey Colchado"
-                    className="hero-image-part hero-image-person"
+                    className="hero-image hero-image-mobile"
                     style={
                       heroImages[currentImageIndex].includes('TORITO PORTADA')
-                        ? { width: '80%', height: 'auto' } // Adjust these values as needed
-                        : {}
+                        ? { transform: 'translate(15px, 50px)' }
+                        : heroImages[currentImageIndex].includes('HC_SOLO')
+                        ? { transform: 'translateY(-10px) scale(1.6)' }
+                        : { transform: 'translate(0px, 50px) scale(1.2)' }
                     }
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -139,24 +196,7 @@ function HomePage() {
                     }}
                   />
                 </AnimatePresence>
-                <img src="/images/inicio/CASCO.png" alt="Casco" className="hero-image-part hero-image-helmet" />
-                <img src="/images/inicio/NÚMERO 1.png" alt="Número 1" className="hero-image-part hero-image-number" />
-              </div>
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={currentImageIndex}
-                  src={heroImages[currentImageIndex]}
-                  alt="Harvey Colchado"
-                  className="hero-image hero-image-mobile"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{
-                    duration: 0.6,
-                    ease: "easeInOut"
-                  }}
-                />
-              </AnimatePresence>
+              )}
 
               {/* Voting Instructions - Desktop Only */}
               <motion.div

@@ -15,9 +15,9 @@ function Footer() {
             </p>
             <p>Sígueme en mis redes oficiales</p>
             <div className="social-icons">
-              <a href="#" className="social-icon">
+              <button type="button" className="social-icon" style={{ border: 'none', background: 'none', padding: 0, cursor: 'pointer' }}>
                 <img src="/images/common/redes/icono_facebook.svg" alt="Facebook" />
-              </a>
+              </button>
               <a href="https://www.instagram.com/harveycolchadoficial/" target="_blank" rel="noopener noreferrer" className="social-icon">
                 <img src="/images/common/redes/icono_instagram.svg" alt="Instagram" />
               </a>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 function Carousel({ slides }) {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -7,17 +7,19 @@ function Carousel({ slides }) {
     setCurrentSlideIndex(index);
   };
 
-  const changeSlide = (direction) => {
-    let newIndex = currentSlideIndex + direction;
+  const changeSlide = useCallback((direction) => {
+    setCurrentSlideIndex((prevIndex) => {
+      let newIndex = prevIndex + direction;
 
-    if (newIndex >= slides.length) {
-      newIndex = 0;
-    } else if (newIndex < 0) {
-      newIndex = slides.length - 1;
-    }
+      if (newIndex >= slides.length) {
+        newIndex = 0;
+      } else if (newIndex < 0) {
+        newIndex = slides.length - 1;
+      }
 
-    showSlide(newIndex);
-  };
+      return newIndex;
+    });
+  }, [slides.length]);
 
   const goToSlide = (index) => {
     showSlide(index);
@@ -30,7 +32,7 @@ function Carousel({ slides }) {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [currentSlideIndex]);
+  }, [changeSlide]);
 
   return (
     <>
@@ -47,13 +49,7 @@ function Carousel({ slides }) {
       <div className="metodo-hero-overlay"></div>
       <div className="metodo-hero-content">
         <div className="metodo-hero-text">
-          <h1>El Método Colchado</h1>
-          <p>
-            Este método combina mi experiencia en lucha contra la criminalidad y corrupción
-            con el Método de Investigación Prospectiva Compleja para desarticular organizaciones
-            criminales. Con esto he desarrollado 4 propuestas clave para terminar con la corrupción
-            en el poder.
-          </p>
+          <h1>Nuestro compromiso</h1>
         </div>
         <div className="carousel-controls">
           <button className="carousel-btn prev" onClick={() => changeSlide(-1)}>‹</button>

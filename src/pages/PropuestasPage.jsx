@@ -1,14 +1,7 @@
 import React, { useState } from 'react';
-import Carousel from '../components/shared/Carousel';
 
 function PropuestasPage() {
   const [expandedPropuesta, setExpandedPropuesta] = useState(null);
-
-  const slides = [
-    '/images/propuestas/carrusell/carrusel_1.png',
-    '/images/propuestas/carrusell/carrusel_2.png',
-    '/images/propuestas/carrusell/carrusel_3.png'
-  ];
 
   const propuestas = [
     {
@@ -135,15 +128,47 @@ function PropuestasPage() {
 
   return (
     <>
-      {/* Hero Section - El Método Colchado */}
-      <section className="metodo-hero">
-        <Carousel slides={slides} />
-      </section>
+      {/* Video Hero Section */}
+      <div style={{ position: 'relative', overflow: 'hidden', minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        {/* Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center 45%',
+            zIndex: 0
+          }}
+        >
+          <source src="/images/propuestas/huallaga.mp4" type="video/mp4" />
+        </video>
+        {/* Dark Overlay */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          zIndex: 1
+        }}></div>
+        {/* Title */}
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          <h2 style={{ color: 'white', textAlign: 'center', fontSize: '48px', margin: 0 }}>Propuestas</h2>
+        </div>
+      </div>
 
       {/* Propuestas Grid */}
       <section className="propuestas-section">
         <div className="propuestas-header">
-          <h2>Propuestas</h2>
+          <h2>¿Cómo lucharemos contra el crimen y la corrupción?</h2>
         </div>
 
         <div className="propuestas-grid">
@@ -158,16 +183,14 @@ function PropuestasPage() {
                     <h3>{propuesta.titulo}</h3>
                   </div>
                 </div>
-                <a
-                  href="#"
+                <button
+                  type="button"
                   className={`propuesta-link ${expandedPropuesta === index ? 'active' : ''}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    toggleDetalle(index);
-                  }}
+                  onClick={() => toggleDetalle(index)}
+                  style={{ border: 'none', background: 'none', padding: 0 }}
                 >
                   +
-                </a>
+                </button>
               </div>
               <div
                 id={`detalle-${propuesta.id}`}

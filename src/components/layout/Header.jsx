@@ -28,7 +28,7 @@ function Header() {
             Verdad o mito
           </NavLink>
           <NavLink
-            to="/noticias"
+            to="/transparencia"
             className={({ isActive }) => isActive ? 'nav-active' : ''}
           >
             Transparencia

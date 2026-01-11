@@ -757,17 +757,24 @@ article.caso-card .caso-enlace:hover {
         align-items: flex-end;
         height: 100%;
         max-height: 400px;
+        position: relative;
     }
 
     .hero-images-desktop {
         display: none !important;
+        visibility: hidden !important;
+        position: absolute !important;
+        pointer-events: none !important;
     }
 
     .hero-image-mobile {
         display: block !important;
+        visibility: visible !important;
         max-width: 100%;
         height: auto;
         object-fit: contain;
+        position: relative;
+        z-index: 10;
     }
 
     .hero-logo-desktop {
@@ -969,19 +976,96 @@ article.caso-card .caso-enlace:hover {
     }
 
     .hero-content {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 20px;
         height: 500px;
         padding: 20px;
-        background-image: url(../public/images/inicio/hero-main.png);
-        background-size: contain;
-        background-position: center bottom;
-        background-repeat: no-repeat;
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-main-content {
+        display: block;
+        width: 100%;
+        position: relative;
+        height: 100%;
+    }
+
+    .hero-text {
+        position: absolute;
+        bottom: 20px;
+        left: 5%;
+        transform: translateX(-50%);
+        text-align: center;
+        background: rgba(5, 26, 57, 0.85);
+        padding: 15px;
+        border-radius: 10px;
+        margin: 0;
+        width: 90%;
+        max-width: 350px;
+        display: flex !important;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 10;
+    }
+
+    .hero .hero-text p,
+    .hero-prueba .hero-text p {
+        font-size: 24px;
+        font-weight: 900;
+        font-style: italic;
+        font-family: 'Raleway', sans-serif;
+        line-height: 1.2;
+        color: white;
+        margin: 0;
+    }
+
+    .cta-container {
+        margin-top: 10px;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 13px;
     }
 
     .hero-image-container {
+        display: flex !important;
+        justify-content: center;
+        align-items: flex-end;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    .hero-images-desktop {
         display: none !important;
+        visibility: hidden !important;
+        position: absolute !important;
+        pointer-events: none !important;
+    }
+
+    .hero-image-mobile {
+        display: block !important;
+        visibility: visible !important;
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        object-position: bottom center;
     }
 
     .hero-logo-desktop {
+        display: none !important;
+    }
+
+    .hero-text .hero-logo {
         display: none !important;
     }
 
@@ -1044,7 +1128,7 @@ article.caso-card .caso-enlace:hover {
     /* Keep large hero text on mobile for hero section */
     .hero .hero-text p,
     .hero-prueba .hero-text p {
-        font-size: 30px;
+        font-size: 24px;
         font-weight: 900;
         font-style: italic;
         font-family: 'Raleway', sans-serif;
@@ -1717,15 +1801,16 @@ article.caso-card .caso-enlace:hover {
 
 .metodo-hero-text {
     margin-bottom: 30px;
+    transform: translateY(130px);
 }
 
 /* Controles del carrusel en el fondo */
 .metodo-hero .carousel-controls {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    width: 125%; /* Extendido 25% más */
-    left: -12.5%; /* Centrado con el nuevo ancho */
+    transform: translateY(calc(-50% + 130px));
+    width: 200%; /* Extendido 50% más */
+    left: -50%; /* Centrado con el nuevo ancho */
     display: flex;
     justify-content: space-between;
     padding: 0;
@@ -1972,24 +2057,35 @@ article.caso-card .caso-enlace:hover {
 /* Responsive Propuestas */
 @media (max-width: 768px) {
     .metodo-hero {
-        min-height: 85px; /* Reducido al 85% de 100px (100 * 0.85 = 85px) */
         padding: 34px 20px; /* Reducido al 85% de 40px (40 * 0.85 = 34px) */
     }
-    
+
+    .metodo-hero-transparencia {
+        min-height: 300px; /* Increased height for mobile on transparencia page only */
+    }
+
+    .metodo-hero-text {
+        transform: translateY(100px); /* Lower title on mobile */
+    }
+
+    .metodo-hero .carousel-controls {
+        transform: translateY(-50%); /* Reset to centered position on mobile */
+    }
+
     .metodo-hero h1 {
         font-size: 28px;
     }
-    
+
     .metodo-hero p {
         font-size: 14px;
     }
-    
+
     .metodo-hero .carousel-btn {
         width: 40px;
         height: 40px;
         font-size: 20px;
     }
-    
+
     .metodo-hero .carousel-indicators {
         bottom: 20px;
     }
@@ -2102,6 +2198,16 @@ article.caso-card .caso-enlace:hover {
     max-height: 648px;
     position: relative;
     width: 700px;
+}
+
+/* Ensure desktop images show on desktop only */
+@media (min-width: 769px) {
+    .hero-images-desktop {
+        display: flex !important;
+    }
+    .hero-image-mobile {
+        display: none !important;
+    }
 }
 
 .hero-image-part {

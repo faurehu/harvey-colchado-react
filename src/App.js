@@ -6,12 +6,12 @@ import HomePage from './pages/HomePage';
 import ApoyanosPage from './pages/ApoyanosPage';
 import PropuestasPage from './pages/PropuestasPage';
 import VerdadOMitoPage from './pages/VerdadOMitoPage';
-import NoticiasPage from './pages/NoticiasPage';
 import ConocimientoPage from './pages/ConocimientoPage';
 import GaleriaPage from './pages/GaleriaPage';
 import LeyesProCrimenPage from './pages/LeyesProCrimenPage';
 import BiografiaPage from './pages/BiografiaPage';
 import TesisMaestriaPage from './pages/TesisMaestriaPage';
+import TransparenciaPage from './pages/TransparenciaPage';
 import { initGA, logPageView, logClick } from './utils/analytics';
 
 function AppContent() {
@@ -28,7 +28,6 @@ function AppContent() {
       const clickedElement = target.tagName.toLowerCase();
       const elementText = target.textContent?.trim().substring(0, 50) || '';
       const elementId = target.id || '';
-      const elementClass = target.className || '';
 
       let elementDescription = clickedElement;
       if (elementId) elementDescription += `#${elementId}`;
@@ -49,12 +48,12 @@ function AppContent() {
         <Route path="/apoyanos" element={<ApoyanosPage />} />
         <Route path="/propuestas" element={<PropuestasPage />} />
         <Route path="/verdad-o-mito" element={<VerdadOMitoPage />} />
-        <Route path="/noticias" element={<NoticiasPage />} />
         <Route path="/conocimiento" element={<ConocimientoPage />} />
         <Route path="/conocimiento/leyes-pro-crimen" element={<LeyesProCrimenPage />} />
         <Route path="/conocimiento/biografia" element={<BiografiaPage />} />
         <Route path="/conocimiento/tesis-maestria" element={<TesisMaestriaPage />} />
         <Route path="/galeria" element={<GaleriaPage />} />
+        <Route path="/transparencia" element={<TransparenciaPage />} />
       </Routes>
       <Footer />
     </>
