@@ -7,7 +7,16 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Método no permitido' });
   }
 
-  const { captchaToken, nombres, apellidos, dni, celular, email, ayuda } = req.body;
+  const { captchaToken, nombres, apellidos, dni, celular, email, distrito, ayuda } = req.body;
+
+  // Validate required fields including captcha token
+  if (!captchaToken) {
+    return res.status(400).json({ error: 'Token de verificación requerido' });
+  }
+
+  if (!nombres || !apellidos || !dni || !celular || !email || !distrito || !ayuda) {
+    return res.status(400).json({ error: 'Todos los campos son requeridos' });
+  }
 
   // Verify reCAPTCHA token with Google
   const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
@@ -59,8 +68,8 @@ export default async function handler(req, res) {
     console.log('Attempting to insert into database...');
 
     await sql`
-      INSERT INTO volunteers (nombres, apellidos, dni, celular, email, ayuda, created_at)
-      VALUES (${nombres}, ${apellidos}, ${dni}, ${celular}, ${email}, ${ayuda}, NOW())
+      INSERT INTO volunteers (nombres, apellidos, dni, celular, email, distrito, ayuda, created_at)
+      VALUES (${nombres}, ${apellidos}, ${dni}, ${celular}, ${email}, ${distrito}, ${ayuda}, NOW())
     `;
 
     console.log('Volunteer form submission saved to database:', {
@@ -68,7 +77,8 @@ export default async function handler(req, res) {
       apellidos,
       dni,
       celular,
-      email
+      email,
+      distrito
     });
 
     return res.status(200).json({
