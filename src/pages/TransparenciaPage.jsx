@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import Carousel from '../components/shared/Carousel';
 
 function TransparenciaPage() {
@@ -10,6 +11,27 @@ function TransparenciaPage() {
 
   return (
     <>
+      <Helmet>
+        <title>Transparencia - Harvey Colchado 2026 | Financiamiento de Campaña</title>
+        <meta name="description" content="Transparencia en el financiamiento de la campaña Harvey Colchado 2026. Información sobre ingresos y gastos de campaña con rendición de cuentas a la ciudadanía." />
+        <meta name="keywords" content="transparencia Harvey Colchado, financiamiento campaña, rendición de cuentas, gastos campaña 2026, ingresos campaña" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://harveycolchado.com.pe/transparencia" />
+        <meta property="og:title" content="Transparencia - Harvey Colchado 2026" />
+        <meta property="og:description" content="Transparencia en el financiamiento de la campaña con rendición de cuentas a la ciudadanía." />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:url" content="https://harveycolchado.com.pe/transparencia" />
+        <meta property="twitter:title" content="Transparencia - Harvey Colchado 2026" />
+        <meta property="twitter:description" content="Información transparente sobre el financiamiento de la campaña." />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://harveycolchado.com.pe/transparencia" />
+      </Helmet>
+
       {/* Carousel Section */}
       <section className="metodo-hero metodo-hero-transparencia">
         <Carousel slides={slides} />

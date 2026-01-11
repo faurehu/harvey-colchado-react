@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Helmet } from 'react-helmet-async';
 import './GaleriaPage.css';
 
 function GaleriaPage() {
@@ -70,6 +71,28 @@ function GaleriaPage() {
 
   return (
     <>
+      <Helmet>
+        <title>Galería - Harvey Colchado | Imágenes y Apariciones en Medios</title>
+        <meta name="description" content="Galería de imágenes de Harvey Colchado. Apariciones en medios de comunicación destacando su trabajo y compromiso con la justicia y la transparencia." />
+        <meta name="keywords" content="galería Harvey Colchado, fotos Harvey Colchado, medios de comunicación, apariciones públicas, imágenes campaña 2026" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://harveycolchado.com.pe/galeria" />
+        <meta property="og:title" content="Galería - Harvey Colchado" />
+        <meta property="og:description" content="Galería de imágenes de Harvey Colchado y sus apariciones en medios de comunicación." />
+        <meta property="og:image" content="https://harveycolchado.com.pe/images/gallery/IMG_2565.jpeg" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://harveycolchado.com.pe/galeria" />
+        <meta property="twitter:title" content="Galería - Harvey Colchado" />
+        <meta property="twitter:description" content="Galería de imágenes de Harvey Colchado y sus apariciones en medios." />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://harveycolchado.com.pe/galeria" />
+      </Helmet>
+
       {/* Sección Principal de Galería */}
       <section className="apoyo-section apoyo-amarillo">
         <div className="container">
@@ -93,7 +116,7 @@ function GaleriaPage() {
                 className="gallery-item"
                 onClick={() => setSelectedIndex(index)}
               >
-                <img src={image} alt={`Galería ${index + 1}`} />
+                <img src={image} alt={`Galería \${index + 1}`} loading="lazy" />
               </div>
             ))}
           </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 function ConocimientoPage() {
   const blogPosts = [
@@ -25,6 +26,26 @@ function ConocimientoPage() {
 
   return (
     <div className="conocimiento-page">
+      <Helmet>
+        <title>Conocimiento - Harvey Colchado | Artículos y Análisis</title>
+        <meta name="description" content="Centro de conocimiento sobre temas de seguridad, justicia y políticas públicas. Leyes pro crimen, biografía de Harvey Colchado y tesis de maestría." />
+        <meta name="keywords" content="conocimiento Harvey Colchado, leyes pro crimen, análisis político Perú, tesis maestría, seguridad ciudadana" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://harveycolchado.com.pe/conocimiento" />
+        <meta property="og:title" content="Conocimiento - Harvey Colchado" />
+        <meta property="og:description" content="Artículos y análisis sobre seguridad, justicia y políticas públicas en el Perú." />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:url" content="https://harveycolchado.com.pe/conocimiento" />
+        <meta property="twitter:title" content="Conocimiento - Harvey Colchado" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://harveycolchado.com.pe/conocimiento" />
+      </Helmet>
+
       {/* Hero Section */}
       <section className="apoyo-section apoyo-amarillo">
         <div className="container">

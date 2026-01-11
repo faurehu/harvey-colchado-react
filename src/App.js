@@ -1,18 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import HomePage from './pages/HomePage';
-import ApoyanosPage from './pages/ApoyanosPage';
-import PropuestasPage from './pages/PropuestasPage';
-import VerdadOMitoPage from './pages/VerdadOMitoPage';
-import ConocimientoPage from './pages/ConocimientoPage';
-import GaleriaPage from './pages/GaleriaPage';
-import LeyesProCrimenPage from './pages/LeyesProCrimenPage';
-import BiografiaPage from './pages/BiografiaPage';
-import TesisMaestriaPage from './pages/TesisMaestriaPage';
-import TransparenciaPage from './pages/TransparenciaPage';
 import { initGA, logPageView, logClick } from './utils/analytics';
+
+// Code splitting: lazy load pages that aren't needed immediately
+const ApoyanosPage = lazy(() => import('./pages/ApoyanosPage'));
+const PropuestasPage = lazy(() => import('./pages/PropuestasPage'));
+const VerdadOMitoPage = lazy(() => import('./pages/VerdadOMitoPage'));
+const ConocimientoPage = lazy(() => import('./pages/ConocimientoPage'));
+const GaleriaPage = lazy(() => import('./pages/GaleriaPage'));
+const LeyesProCrimenPage = lazy(() => import('./pages/LeyesProCrimenPage'));
+const BiografiaPage = lazy(() => import('./pages/BiografiaPage'));
+const TesisMaestriaPage = lazy(() => import('./pages/TesisMaestriaPage'));
+const TransparenciaPage = lazy(() => import('./pages/TransparenciaPage'));
 
 function AppContent() {
   const location = useLocation();
@@ -43,18 +46,20 @@ function AppContent() {
   return (
     <>
       {!isHomePage && <Header />}
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/apoyanos" element={<ApoyanosPage />} />
-        <Route path="/propuestas" element={<PropuestasPage />} />
-        <Route path="/verdad-o-mito" element={<VerdadOMitoPage />} />
-        <Route path="/conocimiento" element={<ConocimientoPage />} />
-        <Route path="/conocimiento/leyes-pro-crimen" element={<LeyesProCrimenPage />} />
-        <Route path="/conocimiento/biografia" element={<BiografiaPage />} />
-        <Route path="/conocimiento/tesis-maestria" element={<TesisMaestriaPage />} />
-        <Route path="/galeria" element={<GaleriaPage />} />
-        <Route path="/transparencia" element={<TransparenciaPage />} />
-      </Routes>
+      <Suspense fallback={<div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Cargando...</div>}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/apoyanos" element={<ApoyanosPage />} />
+          <Route path="/propuestas" element={<PropuestasPage />} />
+          <Route path="/verdad-o-mito" element={<VerdadOMitoPage />} />
+          <Route path="/conocimiento" element={<ConocimientoPage />} />
+          <Route path="/conocimiento/leyes-pro-crimen" element={<LeyesProCrimenPage />} />
+          <Route path="/conocimiento/biografia" element={<BiografiaPage />} />
+          <Route path="/conocimiento/tesis-maestria" element={<TesisMaestriaPage />} />
+          <Route path="/galeria" element={<GaleriaPage />} />
+          <Route path="/transparencia" element={<TransparenciaPage />} />
+        </Routes>
+      </Suspense>
       <Footer />
     </>
   );
@@ -67,9 +72,11 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-      <AppContent />
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
+    </HelmetProvider>
   );
 }
 

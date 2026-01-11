@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 function ApoyanosForm() {
@@ -7,7 +8,19 @@ function ApoyanosForm() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [volunteerType, setVolunteerType] = useState('');
   const [otrosDescription, setOtrosDescription] = useState('');
+  const [distrito, setDistrito] = useState('');
   const { executeRecaptcha } = useGoogleReCaptcha();
+
+  const distritosLima = [
+    'Ancón', 'Ate', 'Barranco', 'Breña', 'Carabayllo', 'Chaclacayo', 'Chorrillos',
+    'Cieneguilla', 'Comas', 'El Agustino', 'Independencia', 'Jesús María', 'La Molina',
+    'La Victoria', 'Lima', 'Lince', 'Los Olivos', 'Lurigancho', 'Lurín', 'Magdalena del Mar',
+    'Miraflores', 'Pachacámac', 'Pucusana', 'Pueblo Libre', 'Puente Piedra', 'Punta Hermosa',
+    'Punta Negra', 'Rímac', 'San Bartolo', 'San Borja', 'San Isidro', 'San Juan de Lurigancho',
+    'San Juan de Miraflores', 'San Luis', 'San Martín de Porres', 'San Miguel', 'Santa Anita',
+    'Santa María del Mar', 'Santa Rosa', 'Santiago de Surco', 'Surquillo', 'Villa El Salvador',
+    'Villa María del Triunfo'
+  ];
 
   const propuestas = [
     {
@@ -126,6 +139,7 @@ function ApoyanosForm() {
         e.target.reset();
         setVolunteerType('');
         setOtrosDescription('');
+        setDistrito('');
         setIsSubmitting(false);
       }, 1000); // Simulate network delay
       return;
@@ -148,6 +162,7 @@ function ApoyanosForm() {
         dni: e.target.dni.value,
         celular: e.target.celular.value,
         email: e.target.email.value,
+        distrito: distrito,
         ayuda: ayudaValue
       };
 
@@ -166,6 +181,7 @@ function ApoyanosForm() {
         e.target.reset();
         setVolunteerType('');
         setOtrosDescription('');
+        setDistrito('');
       } else {
         console.error('Server error response:', data);
         const errorMsg = data.details ? `Error: ${data.error}\nDetalles: ${data.details}` : `Error: ${data.error}`;
@@ -181,6 +197,28 @@ function ApoyanosForm() {
 
   return (
     <>
+      <Helmet>
+        <title>Únete a la Campaña - Harvey Colchado 2026 | Voluntarios</title>
+        <meta name="description" content="Sé parte del cambio. Únete como voluntario a la campaña de Harvey Colchado. Contenidos digitales, apoyo territorial y más formas de colaborar para lograr un Perú más seguro." />
+        <meta name="keywords" content="voluntarios Harvey Colchado, únete campaña 2026, apoyo territorial, contenidos digitales, voluntariado político Perú" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://harveycolchado.com.pe/apoyanos" />
+        <meta property="og:title" content="Únete a la Campaña - Harvey Colchado 2026" />
+        <meta property="og:description" content="Sé parte del cambio. Únete como voluntario a la campaña de Harvey Colchado para un Perú más seguro." />
+        <meta property="og:image" content="https://harveycolchado.com.pe/images/apoyanos/harvey-short.mp4" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://harveycolchado.com.pe/apoyanos" />
+        <meta property="twitter:title" content="Únete a la Campaña - Harvey Colchado 2026" />
+        <meta property="twitter:description" content="Sé parte del cambio. Únete como voluntario a la campaña de Harvey Colchado." />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://harveycolchado.com.pe/apoyanos" />
+      </Helmet>
+
       {/* Video Hero Section - Únete a la campaña */}
       <div style={{ position: 'relative', overflow: 'hidden', minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         {/* Background Video */}
@@ -189,6 +227,7 @@ function ApoyanosForm() {
           loop
           muted
           playsInline
+          preload="metadata"
           style={{
             position: 'absolute',
             top: 0,
@@ -353,6 +392,32 @@ function ApoyanosForm() {
                     onInvalid={(e) => e.target.setCustomValidity('Por favor, ingresa un correo electrónico válido.')}
                     onInput={(e) => e.target.setCustomValidity('')}
                   />
+                </div>
+                <div className="form-row">
+                  <select
+                    name="distrito"
+                    value={distrito}
+                    onChange={(e) => setDistrito(e.target.value)}
+                    required
+                    onInvalid={(e) => e.target.setCustomValidity('Por favor, selecciona tu distrito.')}
+                    onInput={(e) => e.target.setCustomValidity('')}
+                    style={{
+                      width: '100%',
+                      padding: '15px',
+                      fontSize: '14px',
+                      border: '2px solid #e0e0e0',
+                      borderRadius: '4px',
+                      backgroundColor: 'white',
+                      color: distrito ? 'var(--azul-principal)' : '#999',
+                      fontWeight: '600',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    <option value="" disabled>DISTRITO DE LIMA DONDE VIVES</option>
+                    {distritosLima.map((dist) => (
+                      <option key={dist} value={dist}>{dist}</option>
+                    ))}
+                  </select>
                 </div>
                 <div className="form-row">
                   <label style={{ display: 'block', marginBottom: '15px', fontWeight: '600', color: 'var(--azul-principal)', fontSize: '14px' }}>¿EN QUÉ QUIERES AYUDAR?</label>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import Header from '../components/layout/Header';
 import CasoCard from '../components/shared/CasoCard';
 
@@ -17,9 +18,8 @@ function HomePage() {
   ];
 
   // Random initial image for mobile, sequential for desktop
-  const [currentImageIndex, setCurrentImageIndex] = useState(() => {
+  const [currentImageIndex] = useState(() => {
     const randomIndex = Math.floor(Math.random() * heroImages.length);
-    console.log('Mobile: Random image index selected:', randomIndex, heroImages[randomIndex]);
     return randomIndex;
   });
   const [desktopImageIndex, setDesktopImageIndex] = useState(1); // Start with HC_SOLO
@@ -58,11 +58,7 @@ function HomePage() {
   // Image rotation effect (desktop only)
   useEffect(() => {
     const interval = setInterval(() => {
-      setDesktopImageIndex((prevIndex) => {
-        const nextIndex = (prevIndex + 1) % heroImages.length;
-        console.log('Desktop: Rotating to index:', nextIndex, heroImages[nextIndex]);
-        return nextIndex;
-      });
+      setDesktopImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
     }, 4000); // Rotate every 4 seconds
 
     return () => clearInterval(interval);
@@ -78,14 +74,67 @@ function HomePage() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Debug: Log which images are being rendered
-  useEffect(() => {
-    console.log('Current state - Mobile index:', currentImageIndex, '| Desktop index:', desktopImageIndex);
-    console.log('Window width:', window.innerWidth, '| isMobile:', isMobile);
-  }, [currentImageIndex, desktopImageIndex, isMobile]);
 
   return (
     <>
+      <Helmet>
+        <title>Harvey Colchado - Candidato a Diputado por Lima 2026 | Página Oficial</title>
+        <meta name="description" content="Harvey Colchado, candidato a diputado por Lima en las elecciones 2026. Conoce sus propuestas para luchar contra el crimen organizado, la corrupción y reformar la Policía Nacional. Con tu voto tumbamos el crimen y la corrupción." />
+        <meta name="keywords" content="Harvey Colchado, candidato diputado Lima 2026, elecciones Peru 2026, congreso, lucha contra el crimen, anticorrupción, reforma policial, seguridad ciudadana, Ahora Nación" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://harveycolchado.com.pe/" />
+        <meta property="og:title" content="Harvey Colchado - Candidato a Diputado por Lima 2026" />
+        <meta property="og:description" content="Harvey Colchado, candidato a diputado por Lima 2026. Con tu voto tumbamos el crimen y la corrupción." />
+        <meta property="og:image" content="https://harveycolchado.com.pe/images/inicio/harvey-portrait-transparente.png" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://harveycolchado.com.pe/" />
+        <meta property="twitter:title" content="Harvey Colchado - Candidato a Diputado por Lima 2026" />
+        <meta property="twitter:description" content="Harvey Colchado, candidato a diputado por Lima 2026. Con tu voto tumbamos el crimen y la corrupción." />
+        <meta property="twitter:image" content="https://harveycolchado.com.pe/images/inicio/harvey-portrait-transparente.png" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://harveycolchado.com.pe/" />
+
+        {/* Structured Data - Person Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Harvey Colchado Huamaní",
+            "url": "https://harveycolchado.com.pe",
+            "image": "https://harveycolchado.com.pe/images/inicio/harvey-portrait-transparente.png",
+            "jobTitle": "Candidato a Diputado por Lima",
+            "description": "Candidato a diputado por Lima en las elecciones 2026, ex coronel de la Policía Nacional del Perú",
+            "sameAs": [
+              "https://www.facebook.com/harveycolchadooficial",
+              "https://www.instagram.com/harveycolchadoficial",
+              "https://twitter.com/harveycolchado"
+            ]
+          })}
+        </script>
+
+        {/* Structured Data - Political Organization */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Harvey Colchado - Campaña al Congreso 2026",
+            "url": "https://harveycolchado.com.pe",
+            "logo": "https://harveycolchado.com.pe/images/inicio/logo-campanha.svg",
+            "description": "Campaña de Harvey Colchado para diputado por Lima en las elecciones del Perú 2026",
+            "foundingDate": "2025",
+            "sameAs": [
+              "https://www.facebook.com/harveycolchadooficial",
+              "https://www.instagram.com/harveycolchadoficial"
+            ]
+          })}
+        </script>
+      </Helmet>
+
       {/* Hero Section */}
       <section className="hero hero-prueba">
         <motion.div
@@ -304,7 +353,7 @@ function HomePage() {
         <div className="container">
           <h2>¿Quién soy?</h2>
           <div className="quien-soy-content">
-            <img src="/images/inicio/harvey-hero-photo.jpg" alt="Harvey Colchado Portrait" className="portrait" />
+            <img src="/images/inicio/harvey-hero-photo.jpg" alt="Harvey Colchado Portrait" className="portrait" loading="lazy" />
             <div className="quien-soy-text">
               <h3>Si hay crimen y corrupción, ¡la tumbamos!</h3>
               <p>Harvey Colchado nació el 11 de abril de 1974 en Lima y desde joven mostró una vocación de servicio público. En 1993 ingresó a la Escuela de Oficiales de la Policía Nacional del Perú, graduándose en el tercer puesto de su promoción. Su carrera policial comenzó en 1997 en la Dirección Contra el Terrorismo (DIRCOTE). y a lo largo de los años ha sido asignado a misiones especializadas en investigación criminal, combatiendo el terrorismo, narcotráfico y crimen organizado en todo el país. Paralelamente, cursó estudios de Derecho y recibió capacitación de la DEA en Estados Unidos, participando como exponente en conferencias internacionales sobre investigación criminal.</p>

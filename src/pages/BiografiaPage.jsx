@@ -1,9 +1,60 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 function BiografiaPage() {
   return (
     <div className="conocimiento-page biografia-page">
+      <Helmet>
+        <title>Biografía - Harvey Colchado | Coronel PNP y Candidato a Diputado</title>
+        <meta name="description" content="Conoce la historia de Harvey Colchado Huamaní, coronel de la Policía Nacional del Perú con 28 años de servicio combatiendo el crimen organizado y la corrupción." />
+        <meta name="keywords" content="biografía Harvey Colchado, coronel PNP, Huancayo, Policía Nacional Perú, trayectoria policial, historia Harvey Colchado" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://harveycolchado.com.pe/conocimiento/biografia" />
+        <meta property="og:title" content="Biografía - Harvey Colchado | Coronel PNP" />
+        <meta property="og:description" content="Conoce la historia de Harvey Colchado, coronel de la PNP con 28 años combatiendo el crimen y la corrupción." />
+        <meta property="og:image" content="https://harveycolchado.com.pe/images/inicio/harvey-portrait-transparente.png" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://harveycolchado.com.pe/conocimiento/biografia" />
+        <meta property="twitter:title" content="Biografía - Harvey Colchado" />
+        <meta property="twitter:description" content="Conoce la historia de Harvey Colchado, coronel de la PNP dedicado a combatir el crimen y la corrupción." />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://harveycolchado.com.pe/conocimiento/biografia" />
+
+        {/* Breadcrumb Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Inicio",
+                "item": "https://harveycolchado.com.pe"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Conocimiento",
+                "item": "https://harveycolchado.com.pe/conocimiento"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Biografía",
+                "item": "https://harveycolchado.com.pe/conocimiento/biografia"
+              }
+            ]
+          })}
+        </script>
+      </Helmet>
+
       {/* Header Section */}
       <section className="apoyo-section apoyo-amarillo">
         <div className="container blog-post-header">
@@ -30,7 +81,7 @@ function BiografiaPage() {
           <div className="biografia-section">
             <h3>Mis primeros años</h3>
             <div className="biografia-section-content">
-              <img src="/images/biografia/bio3.png" alt="Harvey Colchado en sus primeros años" className="biografia-image" />
+              <img src="/images/biografia/\1" alt="\2" className="\3" loading="lazy" />
               <div>
                 <p>
                   Nací el 11 de abril de 1974 en Lima. Mi historia comienza en una familia trabajadora. Mi madre, arequipeña, fue obrera en una fábrica y dirigente sindical; mi padre, ancashino, sirvió al país como efectivo de la Guardia Republicana del Perú. Crecí en Comas, el distrito que ha sido mi hogar casi toda la vida, junto a tres de mis cinco hermanos.
@@ -46,7 +97,7 @@ function BiografiaPage() {
           <div className="biografia-section">
             <h3>Mi formación policial</h3>
             <div className="biografia-section-content image-right">
-              <img src="/images/biografia/bio4.png" alt="Harvey Colchado en la academia" className="biografia-image" />
+              <img src="/images/biografia/\1" alt="\2" className="\3" loading="lazy" />
               <div>
                 <p>
                   En 1993 ingresé a la Escuela de Oficiales de la Policía Nacional del Perú. Desde el inicio destaqué académicamente y encontré mi vocación en los cursos de investigación criminal. Paralelamente seguí practicando fútbol, atletismo y boxeo.
@@ -73,7 +124,7 @@ function BiografiaPage() {
           <div className="biografia-section">
             <h3>Preparación dentro y fuera del país</h3>
             <div className="biografia-section-content">
-              <img src="/images/biografia/bio1.png" alt="Harvey Colchado capacitación internacional" className="biografia-image" />
+              <img src="/images/biografia/\1" alt="\2" className="\3" loading="lazy" />
               <div>
                 <p>
                   Mientras cumplía funciones policiales, estudié Derecho en horario nocturno en la Universidad Nacional Federico Villarreal. Además, fui seleccionado para capacitarme en Washington D.C. con la DEA de los Estados Unidos, y participé en programas de la International Law Enforcement Academy (ILEA) en Nuevo México y El Salvador.
@@ -89,7 +140,7 @@ function BiografiaPage() {
           <div className="biografia-section">
             <h3>La captura de camarada Artemio</h3>
             <div className="biografia-section-content image-right">
-              <img src="/images/biografia/bio7.jpg" alt="Operativo contra el terrorismo" className="biografia-image" />
+              <img src="/images/biografia/\1" alt="\2" className="\3" loading="lazy" />
               <div>
                 <p>
                   En 2006 asumí uno de los mayores desafíos de mi carrera: desmantelar la actividad narcoterrorista en el Alto Huallaga. Fueron siete años de trabajo sostenido, de riesgo permanente y de compromiso absoluto con el país.
@@ -105,7 +156,7 @@ function BiografiaPage() {
           <div className="biografia-section">
             <h3>La DIVIAC y la lucha contra la corrupción</h3>
             <div className="biografia-section-content">
-              <img src="/images/biografia/bio8.jpg" alt="Harvey Colchado en la DIVIAC" className="biografia-image" />
+              <img src="/images/biografia/\1" alt="\2" className="\3" loading="lazy" />
               <div>
                 <p>
                   En 2016 fui convocado como oficial fundador de la División de Investigación de Alta Complejidad (DIVIAC), creada para enfrentar la criminalidad organizada en todas sus formas: corrupción de funcionarios, lavado de activos, tráfico de terrenos, sicariato, trata de personas, extorsión, minería y tala ilegal, entre otros delitos.
@@ -152,7 +203,7 @@ function BiografiaPage() {
                 </p>
               </div>
               <div className="biografia-hero-image">
-                <img src="/images/inicio/harvey-portrait-transparente.png" alt="Harvey Colchado" />
+                <img src="/images/inicio/harvey-portrait-transparente.png" alt="Harvey Colchado" loading="lazy" />
               </div>
             </div>
           </div>

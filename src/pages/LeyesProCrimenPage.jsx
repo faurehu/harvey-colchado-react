@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 function LeyesProCrimenPage() {
   const [selectedMatrix, setSelectedMatrix] = useState(null);
@@ -268,6 +269,26 @@ function LeyesProCrimenPage() {
 
   return (
     <div className="conocimiento-page">
+      <Helmet>
+        <title>Leyes Pro Crimen - Harvey Colchado | Análisis de Leyes que Favorecen la Impunidad</title>
+        <meta name="description" content="Análisis detallado de las leyes que favorecen el crimen organizado y la impunidad en el Perú. Harvey Colchado expone cómo el Congreso ha debilitado la lucha contra la delincuencia." />
+        <meta name="keywords" content="leyes pro crimen, impunidad Perú, crimen organizado, análisis legal, reforma congreso, Harvey Colchado" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://harveycolchado.com.pe/conocimiento/leyes-pro-crimen" />
+        <meta property="og:title" content="Leyes Pro Crimen - Harvey Colchado" />
+        <meta property="og:description" content="Análisis de las leyes que favorecen la impunidad y el crimen organizado en el Perú." />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:url" content="https://harveycolchado.com.pe/conocimiento/leyes-pro-crimen" />
+        <meta property="twitter:title" content="Leyes Pro Crimen - Harvey Colchado" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://harveycolchado.com.pe/conocimiento/leyes-pro-crimen" />
+      </Helmet>
+
       {/* Header Section */}
       <section className="apoyo-section apoyo-amarillo">
         <div className="container blog-post-header">
