@@ -81,7 +81,12 @@ function BiografiaPage() {
           <div className="biografia-section">
             <h3>Mis primeros años</h3>
             <div className="biografia-section-content">
-              <img src="/images/biografia/bio1.png" alt="Harvey Colchado en sus primeros años" className="biografia-image" loading="lazy" />
+              <picture>
+                <source media="(min-width: 1200px)" srcSet="/images/biografia/optimized/bio1-desktop.webp" type="image/webp" />
+                <source media="(min-width: 768px)" srcSet="/images/biografia/optimized/bio1-tablet.webp" type="image/webp" />
+                <source srcSet="/images/biografia/optimized/bio1-mobile.webp" type="image/webp" />
+                <img src="/images/biografia/bio1.png" alt="Harvey Colchado en sus primeros años" className="biografia-image" loading="lazy" />
+              </picture>
               <div>
                 <p>
                   Nací el 11 de abril de 1974 en Lima. Mi historia comienza en una familia trabajadora. Mi madre, arequipeña, fue obrera en una fábrica y dirigente sindical; mi padre, ancashino, sirvió al país como efectivo de la Guardia Republicana del Perú. Crecí en Comas, el distrito que ha sido mi hogar casi toda la vida, junto a tres de mis cinco hermanos.
@@ -97,7 +102,12 @@ function BiografiaPage() {
           <div className="biografia-section">
             <h3>Mi formación policial</h3>
             <div className="biografia-section-content image-right">
-              <img src="/images/biografia/bio2.png" alt="Harvey Colchado en formación policial" className="biografia-image" loading="lazy" />
+              <picture>
+                <source media="(min-width: 1200px)" srcSet="/images/biografia/optimized/bio2-desktop.webp" type="image/webp" />
+                <source media="(min-width: 768px)" srcSet="/images/biografia/optimized/bio2-tablet.webp" type="image/webp" />
+                <source srcSet="/images/biografia/optimized/bio2-mobile.webp" type="image/webp" />
+                <img src="/images/biografia/bio2.png" alt="Harvey Colchado en formación policial" className="biografia-image" loading="lazy" />
+              </picture>
               <div>
                 <p>
                   En 1993 ingresé a la Escuela de Oficiales de la Policía Nacional del Perú. Desde el inicio destaqué académicamente y encontré mi vocación en los cursos de investigación criminal. Paralelamente seguí practicando fútbol, atletismo y boxeo.
@@ -124,7 +134,12 @@ function BiografiaPage() {
           <div className="biografia-section">
             <h3>Preparación dentro y fuera del país</h3>
             <div className="biografia-section-content">
-              <img src="/images/biografia/bio3.png" alt="Harvey Colchado en capacitación internacional" className="biografia-image" loading="lazy" />
+              <picture>
+                <source media="(min-width: 1200px)" srcSet="/images/biografia/optimized/bio3-desktop.webp" type="image/webp" />
+                <source media="(min-width: 768px)" srcSet="/images/biografia/optimized/bio3-tablet.webp" type="image/webp" />
+                <source srcSet="/images/biografia/optimized/bio3-mobile.webp" type="image/webp" />
+                <img src="/images/biografia/bio3.png" alt="Harvey Colchado en capacitación internacional" className="biografia-image" loading="lazy" />
+              </picture>
               <div>
                 <p>
                   Mientras cumplía funciones policiales, estudié Derecho en horario nocturno en la Universidad Nacional Federico Villarreal. Además, fui seleccionado para capacitarme en Washington D.C. con la DEA de los Estados Unidos, y participé en programas de la International Law Enforcement Academy (ILEA) en Nuevo México y El Salvador.
@@ -140,7 +155,12 @@ function BiografiaPage() {
           <div className="biografia-section">
             <h3>La captura de camarada Artemio</h3>
             <div className="biografia-section-content image-right">
-              <img src="/images/biografia/bio4.png" alt="Harvey Colchado durante la captura de Artemio" className="biografia-image" loading="lazy" />
+              <picture>
+                <source media="(min-width: 1200px)" srcSet="/images/biografia/optimized/bio4-desktop.webp" type="image/webp" />
+                <source media="(min-width: 768px)" srcSet="/images/biografia/optimized/bio4-tablet.webp" type="image/webp" />
+                <source srcSet="/images/biografia/optimized/bio4-mobile.webp" type="image/webp" />
+                <img src="/images/biografia/bio4.png" alt="Harvey Colchado durante la captura de Artemio" className="biografia-image" loading="lazy" />
+              </picture>
               <div>
                 <p>
                   En 2006 asumí uno de los mayores desafíos de mi carrera: desmantelar la actividad narcoterrorista en el Alto Huallaga. Fueron siete años de trabajo sostenido, de riesgo permanente y de compromiso absoluto con el país.
@@ -156,7 +176,12 @@ function BiografiaPage() {
           <div className="biografia-section">
             <h3>La DIVIAC y la lucha contra la corrupción</h3>
             <div className="biografia-section-content">
-              <img src="/images/biografia/bio5.png" alt="Harvey Colchado en la DIVIAC" className="biografia-image" loading="lazy" />
+              <picture>
+                <source media="(min-width: 1200px)" srcSet="/images/biografia/optimized/bio5-desktop.webp" type="image/webp" />
+                <source media="(min-width: 768px)" srcSet="/images/biografia/optimized/bio5-tablet.webp" type="image/webp" />
+                <source srcSet="/images/biografia/optimized/bio5-mobile.webp" type="image/webp" />
+                <img src="/images/biografia/bio5.png" alt="Harvey Colchado en la DIVIAC" className="biografia-image" loading="lazy" />
+              </picture>
               <div>
                 <p>
                   En 2016 fui convocado como oficial fundador de la División de Investigación de Alta Complejidad (DIVIAC), creada para enfrentar la criminalidad organizada en todas sus formas: corrupción de funcionarios, lavado de activos, tráfico de terrenos, sicariato, trata de personas, extorsión, minería y tala ilegal, entre otros delitos.

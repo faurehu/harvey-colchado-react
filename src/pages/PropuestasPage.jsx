@@ -139,7 +139,7 @@ function PropuestasPage() {
         <meta property="og:url" content="https://harveycolchado.com.pe/propuestas" />
         <meta property="og:title" content="Propuestas - Harvey Colchado 2026 | El Método Colchado" />
         <meta property="og:description" content="Conoce las propuestas de Harvey Colchado: reforma policial, lucha contra el crimen y corrupción, inteligencia y congreso sin blindaje." />
-        <meta property="og:image" content="https://harveycolchado.com.pe/images/propuestas/huallaga.mp4" />
+        <meta property="og:image" content="https://harveycolchado.com.pe/images/propuestas/propuestas_fondo.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
@@ -160,6 +160,7 @@ function PropuestasPage() {
           muted
           playsInline
           preload="metadata"
+          poster="/images/propuestas/propuestas_fondo.png"
           style={{
             position: 'absolute',
             top: 0,

@@ -10,11 +10,36 @@ function HomePage() {
   const [showDesktopX, setShowDesktopX] = useState(false);
   const [numberKey, setNumberKey] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   const heroImages = [
-    "/images/inicio/harvey-portrait-transparente.png",
-    "/images/inicio/HC_SOLO.png",
-    "/images/inicio/TORITO PORTADA.png"
+    {
+      name: "harvey-portrait-transparente",
+      png: "/images/inicio/harvey-portrait-transparente.png",
+      webp: {
+        mobile: "/images/inicio/optimized/harvey-portrait-transparente-mobile.webp",
+        tablet: "/images/inicio/optimized/harvey-portrait-transparente-tablet.webp",
+        desktop: "/images/inicio/optimized/harvey-portrait-transparente-desktop.webp"
+      }
+    },
+    {
+      name: "HC_SOLO",
+      png: "/images/inicio/HC_SOLO.png",
+      webp: {
+        mobile: "/images/inicio/optimized/HC_SOLO-mobile.webp",
+        tablet: "/images/inicio/optimized/HC_SOLO-tablet.webp",
+        desktop: "/images/inicio/optimized/HC_SOLO-desktop.webp"
+      }
+    },
+    {
+      name: "TORITO PORTADA",
+      png: "/images/inicio/TORITO PORTADA.png",
+      webp: {
+        mobile: "/images/inicio/optimized/TORITO PORTADA-mobile.webp",
+        tablet: "/images/inicio/optimized/TORITO PORTADA-tablet.webp",
+        desktop: "/images/inicio/optimized/TORITO PORTADA-desktop.webp"
+      }
+    }
   ];
 
   // Random initial image for mobile, sequential for desktop
@@ -23,6 +48,40 @@ function HomePage() {
     return randomIndex;
   });
   const [desktopImageIndex, setDesktopImageIndex] = useState(1); // Start with HC_SOLO
+
+  // Preload critical hero images
+  useEffect(() => {
+    const screenWidth = window.innerWidth;
+    const sizeKey = screenWidth <= 480 ? 'mobile' : screenWidth <= 768 ? 'tablet' : 'desktop';
+
+    // Preload the appropriate size for current screen
+    const imagesToPreload = [
+      ...heroImages.map(img => img.webp[sizeKey]),
+      `/images/inicio/optimized/CASCO-${sizeKey}.webp`,
+      `/images/inicio/optimized/NÚMERO 1-${sizeKey}.webp`
+    ];
+
+    let loadedCount = 0;
+    const totalImages = imagesToPreload.length;
+
+    imagesToPreload.forEach((src) => {
+      const img = new Image();
+      img.onload = () => {
+        loadedCount++;
+        if (loadedCount === totalImages) {
+          setImagesLoaded(true);
+        }
+      };
+      img.onerror = () => {
+        loadedCount++;
+        if (loadedCount === totalImages) {
+          setImagesLoaded(true);
+        }
+      };
+      img.src = src;
+    });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     const container = document.getElementById('juicer-container');
@@ -140,7 +199,7 @@ function HomePage() {
         <motion.div
           className="hero-content"
           initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
+          animate={imagesLoaded ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <div className={`hero-logo hero-logo-mobile ${!showX ? 'pulse-attention' : ''}`} onClick={() => setShowX(true)} style={{ cursor: 'pointer' }}>
@@ -178,7 +237,7 @@ function HomePage() {
             <motion.div
               className="hero-text"
               initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
+              animate={imagesLoaded ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
               transition={{ duration: 0.6 }}
             >
               <div className="hero-logo hero-logo-desktop">
@@ -192,22 +251,20 @@ function HomePage() {
             <motion.div
               className="hero-image-container"
               initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
+              animate={imagesLoaded ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
               transition={{ duration: 0.6 }}
             >
               {!isMobile ? (
                 // Desktop: rotating images with helmet and number
                 <div className="hero-images-desktop">
                   <AnimatePresence mode="wait">
-                    <motion.img
+                    <motion.div
                       key={desktopImageIndex}
-                      src={heroImages[desktopImageIndex]}
-                      alt="Harvey Colchado"
-                      className="hero-image-part hero-image-person"
+                      className={`hero-image-part hero-image-person ${!imagesLoaded ? 'hero-image-loading' : ''}`}
                       style={
-                        heroImages[desktopImageIndex].includes('TORITO PORTADA')
-                          ? { width: '80%', height: 'auto' }
-                          : {}
+                        heroImages[desktopImageIndex].name === 'TORITO PORTADA'
+                          ? { width: '80%', height: 'auto', position: 'absolute', bottom: 0 }
+                          : { position: 'absolute', bottom: 0 }
                       }
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -216,23 +273,83 @@ function HomePage() {
                         duration: 0.6,
                         ease: "easeInOut"
                       }}
-                    />
+                    >
+                      <picture>
+                        <source
+                          media="(min-width: 1200px)"
+                          srcSet={heroImages[desktopImageIndex].webp.desktop}
+                          type="image/webp"
+                        />
+                        <source
+                          media="(min-width: 768px)"
+                          srcSet={heroImages[desktopImageIndex].webp.tablet}
+                          type="image/webp"
+                        />
+                        <source
+                          srcSet={heroImages[desktopImageIndex].webp.mobile}
+                          type="image/webp"
+                        />
+                        <img
+                          src={heroImages[desktopImageIndex].png}
+                          alt="Harvey Colchado"
+                          style={{ width: '100%', height: 'auto', objectFit: 'contain', objectPosition: 'bottom' }}
+                        />
+                      </picture>
+                    </motion.div>
                   </AnimatePresence>
-                  <img src="/images/inicio/CASCO.png" alt="Casco" className="hero-image-part hero-image-helmet" />
-                  <img src="/images/inicio/NÚMERO 1.png" alt="Número 1" className="hero-image-part hero-image-number" />
+                  <picture>
+                    <source
+                      media="(min-width: 1200px)"
+                      srcSet="/images/inicio/optimized/CASCO-desktop.webp"
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcSet="/images/inicio/optimized/CASCO-tablet.webp"
+                      type="image/webp"
+                    />
+                    <source
+                      srcSet="/images/inicio/optimized/CASCO-mobile.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      src="/images/inicio/CASCO.png"
+                      alt="Casco"
+                      className={`hero-image-part hero-image-helmet ${!imagesLoaded ? 'hero-image-loading' : ''}`}
+                    />
+                  </picture>
+                  <picture>
+                    <source
+                      media="(min-width: 1200px)"
+                      srcSet="/images/inicio/optimized/NÚMERO 1-desktop.webp"
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcSet="/images/inicio/optimized/NÚMERO 1-tablet.webp"
+                      type="image/webp"
+                    />
+                    <source
+                      srcSet="/images/inicio/optimized/NÚMERO 1-mobile.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      src="/images/inicio/NÚMERO 1.png"
+                      alt="Número 1"
+                      className={`hero-image-part hero-image-number ${!imagesLoaded ? 'hero-image-loading' : ''}`}
+                    />
+                  </picture>
                 </div>
               ) : (
                 // Mobile: random static image
                 <AnimatePresence mode="wait">
-                  <motion.img
+                  <motion.div
                     key={currentImageIndex}
-                    src={heroImages[currentImageIndex]}
-                    alt="Harvey Colchado"
-                    className="hero-image hero-image-mobile"
+                    className={`hero-image hero-image-mobile ${!imagesLoaded ? 'hero-image-loading' : ''}`}
                     style={
-                      heroImages[currentImageIndex].includes('TORITO PORTADA')
+                      heroImages[currentImageIndex].name === 'TORITO PORTADA'
                         ? { transform: 'translate(15px, 50px)' }
-                        : heroImages[currentImageIndex].includes('HC_SOLO')
+                        : heroImages[currentImageIndex].name === 'HC_SOLO'
                         ? { transform: 'translateY(-10px) scale(1.6)' }
                         : { transform: 'translate(0px, 50px) scale(1.2)' }
                     }
@@ -243,7 +360,29 @@ function HomePage() {
                       duration: 0.6,
                       ease: "easeInOut"
                     }}
-                  />
+                  >
+                    <picture>
+                      <source
+                        media="(min-width: 1200px)"
+                        srcSet={heroImages[currentImageIndex].webp.desktop}
+                        type="image/webp"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcSet={heroImages[currentImageIndex].webp.tablet}
+                        type="image/webp"
+                      />
+                      <source
+                        srcSet={heroImages[currentImageIndex].webp.mobile}
+                        type="image/webp"
+                      />
+                      <img
+                        src={heroImages[currentImageIndex].png}
+                        alt="Harvey Colchado"
+                        style={{ width: '100%', height: 'auto' }}
+                      />
+                    </picture>
+                  </motion.div>
                 </AnimatePresence>
               )}
 

@@ -2256,6 +2256,39 @@ article.caso-card .caso-enlace:hover {
     display: none;
 }
 
+/* Loading state for hero images */
+.hero-image-loading {
+    filter: blur(20px);
+    transform: scale(1.1);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.hero-content.loading {
+    background: rgba(5, 26, 57, 0.1);
+}
+
+/* Skeleton loader for hero section */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.hero-skeleton {
+    background: linear-gradient(
+        90deg,
+        rgba(171, 218, 252, 0.1) 0%,
+        rgba(171, 218, 252, 0.3) 50%,
+        rgba(171, 218, 252, 0.1) 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+    border-radius: 8px;
+}
+
 /* Asegurar que no hay espacios en la página de prueba */
 body {
     margin: 0 !important;

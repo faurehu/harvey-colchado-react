@@ -37,14 +37,36 @@ function Carousel({ slides }) {
   return (
     <>
       <div className="carousel-background">
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`carousel-slide ${index === currentSlideIndex ? 'active' : ''}`}
-          >
-            <img src={slide} alt={`Carrusel \${index + 1}`} loading="lazy" />
-          </div>
-        ))}
+        {slides.map((slide, index) => {
+          // Generate WebP paths from slide path
+          const baseName = slide.replace(/\.(png|jpg|jpeg)$/i, '').split('/').pop();
+          const dir = slide.substring(0, slide.lastIndexOf('/'));
+
+          return (
+            <div
+              key={index}
+              className={`carousel-slide ${index === currentSlideIndex ? 'active' : ''}`}
+            >
+              <picture>
+                <source
+                  media="(min-width: 1200px)"
+                  srcSet={`${dir}/optimized/${baseName}-desktop.webp`}
+                  type="image/webp"
+                />
+                <source
+                  media="(min-width: 768px)"
+                  srcSet={`${dir}/optimized/${baseName}-tablet.webp`}
+                  type="image/webp"
+                />
+                <source
+                  srcSet={`${dir}/optimized/${baseName}-mobile.webp`}
+                  type="image/webp"
+                />
+                <img src={slide} alt={`Carrusel ${index + 1}`} loading="lazy" />
+              </picture>
+            </div>
+          );
+        })}
       </div>
       <div className="metodo-hero-overlay"></div>
       <div className="metodo-hero-content">
