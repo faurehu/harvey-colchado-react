@@ -16,6 +16,7 @@ function CasoCard({ titulo, imagen, descripcion, enlace, enlaceTexto = 'LINK DE 
             className="caso-card-imagen"
             src={imagen}
             alt={titulo}
+            loading="lazy"
             onError={(e) => { e.target.style.display = 'none'; }}
           />
           <span className="click-hint">

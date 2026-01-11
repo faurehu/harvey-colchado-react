@@ -196,7 +196,7 @@ function Mascot() {
           <div className="speech-bubble-tail"></div>
         </div>
         <div className="mascot-image">
-          <img src="/images/common/super_rana.png" alt="Super René - Mascota" />
+          <img src="/images/common/super_rana.png" alt="Super René - Mascota" loading="lazy" />
         </div>
       </div>
     </div>

@@ -42,7 +42,7 @@ function Carousel({ slides }) {
             key={index}
             className={`carousel-slide ${index === currentSlideIndex ? 'active' : ''}`}
           >
-            <img src={slide} alt={`Carrusel ${index + 1}`} />
+            <img src={slide} alt={`Carrusel \${index + 1}`} loading="lazy" />
           </div>
         ))}
       </div>
