@@ -4,9 +4,9 @@ import Carousel from '../components/shared/Carousel';
 
 function TransparenciaPage() {
   const slides = [
-    '/images/propuestas/carrusell/carrusel_1.png',
-    '/images/propuestas/carrusell/carrusel_2.png',
-    '/images/propuestas/carrusell/carrusel_3.png'
+    '/images/propuestas/carrusell/carrusel_8.png',
+    '/images/propuestas/carrusell/carrusel_9.png',
+    '/images/propuestas/carrusell/carrusel_10.png'
   ];
 
   return (

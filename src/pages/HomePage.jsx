@@ -263,7 +263,35 @@ function HomePage() {
                       className={`hero-image-part hero-image-person ${!imagesLoaded ? 'hero-image-loading' : ''}`}
                       style={
                         heroImages[desktopImageIndex].name === 'TORITO PORTADA'
-                          ? { width: '80%', height: 'auto', position: 'absolute', bottom: 0 }
+                          ? {
+                              width: '80%',
+                              maxWidth: '700px',
+                              height: 'auto',
+                              position: 'absolute',
+                              bottom: 0,
+                              left: '50%',
+                              transform: 'translateX(-45%)'
+                            }
+                          : heroImages[desktopImageIndex].name === 'HC_SOLO'
+                          ? {
+                              width: '100%',
+                              maxWidth: '900px',
+                              height: 'auto',
+                              position: 'absolute',
+                              bottom: 0,
+                              left: '50%',
+                              transform: 'translateX(-50%) scale(1.1)'
+                            }
+                          : heroImages[desktopImageIndex].name === 'harvey-portrait-transparente'
+                          ? {
+                              width: '100%',
+                              maxWidth: '850px',
+                              height: 'auto',
+                              position: 'absolute',
+                              bottom: '100px',
+                              left: '50%',
+                              transform: 'translateX(-50%)'
+                            }
                           : { position: 'absolute', bottom: 0 }
                       }
                       initial={{ opacity: 0 }}

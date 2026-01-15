@@ -25,7 +25,7 @@ function ApoyanosForm() {
   const propuestas = [
     {
       id: 1,
-      icon: '/images/propuestas/icons/liderazgo.svg',
+      icon: '/images/apoyanos/editor.png',
       titulo: 'VOLUNTARIO/A EN CONTENIDOS DIGITALES',
       detalles: [
         {
@@ -65,7 +65,7 @@ function ApoyanosForm() {
     },
     {
       id: 2,
-      icon: '/images/propuestas/icons/policia.svg',
+      icon: '/images/apoyanos/encuestador.png',
       titulo: 'VOLUNTARIO/A EN APOYO TERRITORIAL',
       detalles: [
         {

@@ -29,8 +29,11 @@ body {
     font-family: 'Poppins', 'Raleway', sans-serif;
     line-height: 1.6;
     color: var(--gris-oscuro);
+    background: var(--blanco);
     margin: 0;
     padding: 0;
+    width: 100%;
+    position: relative;
 }
 
 .container {
@@ -403,6 +406,7 @@ body {
     margin: 0 0 50px 0;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
+    box-sizing: border-box;
 }
 
 .quien-soy-content {
@@ -701,7 +705,57 @@ article.caso-card .caso-enlace:hover {
     transform: scale(1.1);
 }
 
-/* Responsive */
+/* Tablet specific - keep desktop hero but mobile nav */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .header .container {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .nav {
+        margin-left: 0;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav a {
+        font-size: 14px;
+    }
+
+    .logo {
+        gap: 10px;
+        padding-left: 30px;
+    }
+
+    .logo img {
+        height: 35px;
+    }
+
+    .logo .logo-diputado {
+        height: 40px;
+        display: block;
+    }
+
+    /* Keep desktop hero images on tablet */
+    .hero-images-desktop {
+        display: flex !important;
+    }
+
+    .hero-image-mobile {
+        display: none !important;
+    }
+
+    /* Adjust voting instructions for tablet */
+    .voting-instructions {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 20px;
+        padding: 10px 30px;
+    }
+}
+
+/* Mobile specific */
 @media (max-width: 768px) {
     .header .container {
         flex-direction: column;
@@ -954,6 +1008,17 @@ article.caso-card .caso-enlace:hover {
 
     .nav a {
         font-size: 12px;
+        width: 130px; /* Reduced width to fit 2 links per line */
+        height: 36px; /* Slightly reduced height */
+        padding: 6px 12px; /* Adjusted padding */
+    }
+
+    /* Apóyanos button same dimensions on mobile */
+    .nav a[href="/apoyanos/"],
+    .nav .apoyanos-btn {
+        width: 130px !important;
+        height: 36px !important;
+        font-size: 12px !important;
     }
 
     .logo {
@@ -995,7 +1060,7 @@ article.caso-card .caso-enlace:hover {
 
     .hero-text {
         position: absolute;
-        bottom: 20px;
+        bottom: 0px;
         left: 5%;
         transform: translateX(-50%);
         text-align: center;
@@ -1244,6 +1309,7 @@ article.caso-card .caso-enlace:hover {
     margin: 0 0 40px 0;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
+    box-sizing: border-box;
 }
 
 .mito-content {
@@ -1388,15 +1454,15 @@ article.caso-card .caso-enlace:hover {
 }
 /* Apóyanos Page Styles */
 .apoyo-section {
-    padding: 0 0 80px 0;
+    padding: 0 0 1px 0;
 }
 
 .apoyo-amarillo {
-    background: var(--blanco);
+    background: var(--blanco) !important;
 }
 
 .apoyo-azul {
-    background: var(--blanco);
+    background: var(--blanco) !important;
 }
 
 .apoyo-section h2 {
@@ -1409,6 +1475,7 @@ article.caso-card .caso-enlace:hover {
     margin: 0 0 50px 0;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
+    box-sizing: border-box;
 }
 
 .apoyo-amarillo h2 {
@@ -1560,16 +1627,38 @@ article.caso-card .caso-enlace:hover {
     margin-bottom: 0;
 }
 
+/* Gradient background for transparencia carousel */
+.metodo-hero-transparencia .carousel-background {
+    background: linear-gradient(to bottom, #d4bcb1, #e8d3c9);
+}
+
+/* Scale down carousel images on transparencia page */
+.metodo-hero-transparencia .carousel-background .carousel-slide img {
+    max-width: 30% !important;
+    max-height: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    position: relative !important;
+    top: 0% !important;
+}
+
+/* Specific style for carrusel_10 (third slide) */
+.metodo-hero-transparencia .carousel-background .carousel-slide:nth-child(3) img {
+    max-width: 60% !important;
+    top: 10% !important;
+}
+
 /* Responsive para Transparencia */
 @media (max-width: 768px) {
     .transparencia-content {
         padding: 60px 0;
     }
-    
+
     .transparencia-text {
         padding: 0 20px;
     }
-    
+
     .transparencia-text p {
         font-size: 16px;
         text-align: left;
@@ -1888,6 +1977,7 @@ article.caso-card .caso-enlace:hover {
     margin-bottom: 40px;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
+    box-sizing: border-box;
 }
 
 .propuestas-header h2 {
@@ -2300,6 +2390,53 @@ html {
     padding: 0 !important;
 }
 
+/* Prevent horizontal overflow without affecting vertical scroll */
+html, body {
+    max-width: 100vw;
+    overflow-x: clip;
+}
+
+/* Ensure images and media don't cause overflow - but not logos or hero images */
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Content images (not logos or hero) should respect container width */
+.caso-card-imagen,
+.noticia-imagen img,
+.biografia-image,
+.gallery-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Maintain logo proportions in header */
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+.logo .logo-diputado {
+    height: 50px;
+    width: auto;
+}
+
+/* Maintain footer logo size */
+.footer-logo img {
+    height: 96px;
+    width: auto;
+}
+
+/* Hero images - maintain their specific sizes */
+.hero-image,
+.hero-image-mobile img,
+.hero-image-part,
+.hero-images-desktop img {
+    width: 100%;
+    height: auto;
+}
+
 /* Detalle expandible de propuestas */
 .propuesta-detalle-expandible {
     background: var(--blanco);
@@ -2584,9 +2721,23 @@ html {
     }
 }
 
-/* Conocimiento Page - Remove bottom padding from apoyo-section */
-.conocimiento-page .apoyo-section {
+/* Conocimiento and Galeria Pages - Ensure white background */
+.conocimiento-page,
+.galeria-page {
+    background: var(--blanco) !important;
+}
+
+.conocimiento-page .apoyo-section,
+.galeria-page .apoyo-section {
     padding-bottom: 0;
+    background: var(--blanco) !important;
+}
+
+.conocimiento-page .apoyo-amarillo,
+.conocimiento-page .apoyo-azul,
+.galeria-page .apoyo-amarillo,
+.galeria-page .apoyo-azul {
+    background: var(--blanco) !important;
 }
 
 /* Blog Post Header Container */
@@ -2737,7 +2888,7 @@ html {
 }
 
 .biografia-image {
-    width: 280px;
+    width: 800px;
     height: auto;
     border-radius: 8px;
     flex-shrink: 0;
@@ -2755,7 +2906,8 @@ html {
     margin-right: -50vw;
     background: var(--azul-artico);
     padding: 60px 0;
-    overflow-x: hidden;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .biografia-hero-content {
@@ -2839,7 +2991,7 @@ html {
 
     .biografia-image {
         width: 100%;
-        max-width: 350px;
+        max-width: 450px;
         margin: 0 auto;
     }
 

@@ -39,7 +39,11 @@ const config = {
       images: [
         'carrusel_1.png',
         'carrusel_2.png',
-        'carrusel_3.png'
+        'carrusel_3.png',
+        'carrusel_7.png',
+        'carrusel_8.png',
+        'carrusel_9.png',
+        'carrusel_10.png'
       ]
     },
     {

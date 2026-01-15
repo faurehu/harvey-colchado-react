@@ -304,7 +304,7 @@ function LeyesProCrimenPage() {
             <p>
               En los últimos años, el país ha sido testigo de un preocupante proceso de <strong>desmantelamiento progresivo
               de las herramientas legales más efectivas contra el crimen organizado, la corrupción y la violencia criminal.</strong>
-              Desde el Congreso de la República se ha impulsado y aprobado un conjunto de normas que, en lugar de fortalecer
+               Desde el Congreso de la República se ha impulsado y aprobado un conjunto de normas que, en lugar de fortalecer
               la persecución penal, la debilitan deliberadamente, restringiendo las facultades del Ministerio Público, la Policía
               Nacional del Perú y el Poder Judicial.
             </p>

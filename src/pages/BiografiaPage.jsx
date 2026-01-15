@@ -82,10 +82,10 @@ function BiografiaPage() {
             <h3>Mis primeros años</h3>
             <div className="biografia-section-content">
               <picture>
-                <source media="(min-width: 1200px)" srcSet="/images/biografia/optimized/bio1-desktop.webp" type="image/webp" />
-                <source media="(min-width: 768px)" srcSet="/images/biografia/optimized/bio1-tablet.webp" type="image/webp" />
-                <source srcSet="/images/biografia/optimized/bio1-mobile.webp" type="image/webp" />
-                <img src="/images/biografia/bio1.png" alt="Harvey Colchado en sus primeros años" className="biografia-image" loading="lazy" />
+                <source media="(min-width: 1200px)" srcSet="/images/biografia/optimized/bio3-desktop.webp" type="image/webp" />
+                <source media="(min-width: 768px)" srcSet="/images/biografia/optimized/bio3-tablet.webp" type="image/webp" />
+                <source srcSet="/images/biografia/optimized/bio3-mobile.webp" type="image/webp" />
+                <img src="/images/biografia/bio3.png" alt="Harvey Colchado en sus primeros años" className="biografia-image" loading="lazy" />
               </picture>
               <div>
                 <p>
@@ -103,10 +103,10 @@ function BiografiaPage() {
             <h3>Mi formación policial</h3>
             <div className="biografia-section-content image-right">
               <picture>
-                <source media="(min-width: 1200px)" srcSet="/images/biografia/optimized/bio2-desktop.webp" type="image/webp" />
-                <source media="(min-width: 768px)" srcSet="/images/biografia/optimized/bio2-tablet.webp" type="image/webp" />
-                <source srcSet="/images/biografia/optimized/bio2-mobile.webp" type="image/webp" />
-                <img src="/images/biografia/bio2.png" alt="Harvey Colchado en formación policial" className="biografia-image" loading="lazy" />
+                <source media="(min-width: 1200px)" srcSet="/images/biografia/optimized/bio4-desktop.webp" type="image/webp" />
+                <source media="(min-width: 768px)" srcSet="/images/biografia/optimized/bio4-tablet.webp" type="image/webp" />
+                <source srcSet="/images/biografia/optimized/bio4-mobile.webp" type="image/webp" />
+                <img src="/images/biografia/bio4.png" alt="Harvey Colchado en formación policial" className="biografia-image" loading="lazy" />
               </picture>
               <div>
                 <p>
@@ -135,10 +135,10 @@ function BiografiaPage() {
             <h3>Preparación dentro y fuera del país</h3>
             <div className="biografia-section-content">
               <picture>
-                <source media="(min-width: 1200px)" srcSet="/images/biografia/optimized/bio3-desktop.webp" type="image/webp" />
-                <source media="(min-width: 768px)" srcSet="/images/biografia/optimized/bio3-tablet.webp" type="image/webp" />
-                <source srcSet="/images/biografia/optimized/bio3-mobile.webp" type="image/webp" />
-                <img src="/images/biografia/bio3.png" alt="Harvey Colchado en capacitación internacional" className="biografia-image" loading="lazy" />
+                <source media="(min-width: 1200px)" srcSet="/images/biografia/optimized/bio1-desktop.webp" type="image/webp" />
+                <source media="(min-width: 768px)" srcSet="/images/biografia/optimized/bio1-tablet.webp" type="image/webp" />
+                <source srcSet="/images/biografia/optimized/bio1-mobile.webp" type="image/webp" />
+                <img src="/images/biografia/bio1.png" alt="Harvey Colchado en capacitación internacional" className="biografia-image" loading="lazy" />
               </picture>
               <div>
                 <p>
@@ -156,10 +156,10 @@ function BiografiaPage() {
             <h3>La captura de camarada Artemio</h3>
             <div className="biografia-section-content image-right">
               <picture>
-                <source media="(min-width: 1200px)" srcSet="/images/biografia/optimized/bio4-desktop.webp" type="image/webp" />
-                <source media="(min-width: 768px)" srcSet="/images/biografia/optimized/bio4-tablet.webp" type="image/webp" />
-                <source srcSet="/images/biografia/optimized/bio4-mobile.webp" type="image/webp" />
-                <img src="/images/biografia/bio4.png" alt="Harvey Colchado durante la captura de Artemio" className="biografia-image" loading="lazy" />
+                <source media="(min-width: 1200px)" srcSet="/images/biografia/optimized/bio7-desktop.webp" type="image/webp" />
+                <source media="(min-width: 768px)" srcSet="/images/biografia/optimized/bio7-tablet.webp" type="image/webp" />
+                <source srcSet="/images/biografia/optimized/bio7-mobile.webp" type="image/webp" />
+                <img src="/images/biografia/bio7.jpg" alt="Harvey Colchado durante la captura de Artemio" className="biografia-image" loading="lazy" />
               </picture>
               <div>
                 <p>
@@ -177,10 +177,10 @@ function BiografiaPage() {
             <h3>La DIVIAC y la lucha contra la corrupción</h3>
             <div className="biografia-section-content">
               <picture>
-                <source media="(min-width: 1200px)" srcSet="/images/biografia/optimized/bio5-desktop.webp" type="image/webp" />
-                <source media="(min-width: 768px)" srcSet="/images/biografia/optimized/bio5-tablet.webp" type="image/webp" />
-                <source srcSet="/images/biografia/optimized/bio5-mobile.webp" type="image/webp" />
-                <img src="/images/biografia/bio5.png" alt="Harvey Colchado en la DIVIAC" className="biografia-image" loading="lazy" />
+                <source media="(min-width: 1200px)" srcSet="/images/biografia/optimized/bio8-desktop.webp" type="image/webp" />
+                <source media="(min-width: 768px)" srcSet="/images/biografia/optimized/bio8-tablet.webp" type="image/webp" />
+                <source srcSet="/images/biografia/optimized/bio8-mobile.webp" type="image/webp" />
+                <img src="/images/biografia/bio8.jpg" alt="Harvey Colchado en la DIVIAC" className="biografia-image" loading="lazy" />
               </picture>
               <div>
                 <p>
