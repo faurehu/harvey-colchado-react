@@ -2,44 +2,45 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
+// Static data hoisted to module level to avoid recreation on every render
+const VOTING_MATRICES = [
+  { name: 'Ahora Nación', image: '/images/pro-crimen/Ahora_Nación_matrix.png' },
+  { name: 'Alianza Electoral Venceremos', image: '/images/pro-crimen/ALIANZA_ELECTORAL_VENCEREMOS_matrix.png' },
+  { name: 'Alianza para el Progreso (APP)', image: '/images/pro-crimen/Alianza_para_el_Progreso_(APP)_matrix.png' },
+  { name: 'Avanza País', image: '/images/pro-crimen/Avanza_País_–_Partido_de_Integración_Social_matrix.png' },
+  { name: 'Fuerza Popular', image: '/images/pro-crimen/FUERZA_POPULAR_matrix.png' },
+  { name: 'Juntos por el Perú', image: '/images/pro-crimen/Juntos_por_el_Perú_matrix.png' },
+  { name: 'Partido Democrático Somos Perú', image: '/images/pro-crimen/Partido_Democrático_Somos_Perú_matrix.png' },
+  { name: 'Partido País para Todos', image: '/images/pro-crimen/Partido_País_para_Todos_matrix.png' },
+  { name: 'Partido Político Cooperación Popular', image: '/images/pro-crimen/Partido_Político_Cooperación_Popular_matrix.png' },
+  { name: 'Partido Político Nacional Perú Libre', image: '/images/pro-crimen/Partido_Político_Nacional_Perú_Libre_matrix.png' },
+  { name: 'Partido Político Perú Primero', image: '/images/pro-crimen/Partido_Político_Perú_Primero_matrix.png' },
+  { name: 'Partido SíCreo', image: '/images/pro-crimen/Partido_SíCreo_matrix.png' },
+  { name: 'Podemos Perú', image: '/images/pro-crimen/Podemos_Perú_matrix.png' },
+  { name: 'Progresemos', image: '/images/pro-crimen/PROGRESEMOS_matrix.png' },
+  { name: 'Renovación Popular', image: '/images/pro-crimen/Renovación_Popular_matrix.png' },
+  { name: 'Unidad Nacional', image: '/images/pro-crimen/UNIDAD_NACIONAL_matrix.png' }
+];
+
 function LeyesProCrimenPage() {
   const [selectedMatrix, setSelectedMatrix] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [expandedLaw, setExpandedLaw] = useState(null);
 
-  const votingMatrices = [
-    { name: 'Ahora Nación', image: '/images/pro-crimen/Ahora_Nación_matrix.png' },
-    { name: 'Alianza Electoral Venceremos', image: '/images/pro-crimen/ALIANZA_ELECTORAL_VENCEREMOS_matrix.png' },
-    { name: 'Alianza para el Progreso (APP)', image: '/images/pro-crimen/Alianza_para_el_Progreso_(APP)_matrix.png' },
-    { name: 'Avanza País', image: '/images/pro-crimen/Avanza_País_–_Partido_de_Integración_Social_matrix.png' },
-    { name: 'Fuerza Popular', image: '/images/pro-crimen/FUERZA_POPULAR_matrix.png' },
-    { name: 'Juntos por el Perú', image: '/images/pro-crimen/Juntos_por_el_Perú_matrix.png' },
-    { name: 'Partido Democrático Somos Perú', image: '/images/pro-crimen/Partido_Democrático_Somos_Perú_matrix.png' },
-    { name: 'Partido País para Todos', image: '/images/pro-crimen/Partido_País_para_Todos_matrix.png' },
-    { name: 'Partido Político Cooperación Popular', image: '/images/pro-crimen/Partido_Político_Cooperación_Popular_matrix.png' },
-    { name: 'Partido Político Nacional Perú Libre', image: '/images/pro-crimen/Partido_Político_Nacional_Perú_Libre_matrix.png' },
-    { name: 'Partido Político Perú Primero', image: '/images/pro-crimen/Partido_Político_Perú_Primero_matrix.png' },
-    { name: 'Partido SíCreo', image: '/images/pro-crimen/Partido_SíCreo_matrix.png' },
-    { name: 'Podemos Perú', image: '/images/pro-crimen/Podemos_Perú_matrix.png' },
-    { name: 'Progresemos', image: '/images/pro-crimen/PROGRESEMOS_matrix.png' },
-    { name: 'Renovación Popular', image: '/images/pro-crimen/Renovación_Popular_matrix.png' },
-    { name: 'Unidad Nacional', image: '/images/pro-crimen/UNIDAD_NACIONAL_matrix.png' }
-  ];
-
   const goToNext = () => {
-    setSelectedMatrix((prev) => (prev + 1) % votingMatrices.length);
+    setSelectedMatrix((prev) => (prev + 1) % VOTING_MATRICES.length);
   };
 
   const goToPrevious = () => {
-    setSelectedMatrix((prev) => (prev - 1 + votingMatrices.length) % votingMatrices.length);
+    setSelectedMatrix((prev) => (prev - 1 + VOTING_MATRICES.length) % VOTING_MATRICES.length);
   };
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % votingMatrices.length);
+    setCurrentSlide((prev) => (prev + 1) % VOTING_MATRICES.length);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + votingMatrices.length) % votingMatrices.length);
+    setCurrentSlide((prev) => (prev - 1 + VOTING_MATRICES.length) % VOTING_MATRICES.length);
   };
 
   const toggleLaw = (lawNumber) => {
@@ -369,11 +370,11 @@ function LeyesProCrimenPage() {
             </button>
             <div className="carousel-slide">
               <img
-                src={votingMatrices[currentSlide].image}
-                alt={`Matriz de votación ${votingMatrices[currentSlide].name}`}
+                src={VOTING_MATRICES[currentSlide].image}
+                alt={`Matriz de votación ${VOTING_MATRICES[currentSlide].name}`}
                 onClick={() => setSelectedMatrix(currentSlide)}
               />
-              <p className="carousel-caption">{votingMatrices[currentSlide].name}</p>
+              <p className="carousel-caption">{VOTING_MATRICES[currentSlide].name}</p>
             </div>
             <button className="carousel-arrow carousel-arrow-right" onClick={nextSlide}>
               &#10095;
@@ -381,7 +382,7 @@ function LeyesProCrimenPage() {
           </div>
 
           <div className="carousel-dots">
-            {votingMatrices.map((_, index) => (
+            {VOTING_MATRICES.map((_, index) => (
               <span
                 key={index}
                 className={`carousel-dot ${currentSlide === index ? 'active' : ''}`}
@@ -441,10 +442,10 @@ function LeyesProCrimenPage() {
           <div className="modal-content-wrapper" onClick={(e) => e.stopPropagation()}>
             <img
               className="gallery-modal-content"
-              src={votingMatrices[selectedMatrix].image}
-              alt={`Matriz ${votingMatrices[selectedMatrix].name}`}
+              src={VOTING_MATRICES[selectedMatrix].image}
+              alt={`Matriz ${VOTING_MATRICES[selectedMatrix].name}`}
             />
-            <p className="modal-matrix-name">{votingMatrices[selectedMatrix].name}</p>
+            <p className="modal-matrix-name">{VOTING_MATRICES[selectedMatrix].name}</p>
           </div>
           <button
             className="gallery-modal-arrow gallery-modal-arrow-right"

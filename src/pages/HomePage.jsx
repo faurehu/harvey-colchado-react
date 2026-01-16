@@ -1,9 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import Header from '../components/layout/Header';
 import CasoCard from '../components/shared/CasoCard';
+import AnimatedXMark from '../components/shared/AnimatedXMark';
+import AnimatedNumber from '../components/shared/AnimatedNumber';
+
+// Static data hoisted to module level to avoid recreation on every render
+const HERO_IMAGES = [
+  {
+    name: "harvey-portrait-transparente",
+    png: "/images/inicio/harvey-portrait-transparente.png",
+    webp: {
+      mobile: "/images/inicio/optimized/harvey-portrait-transparente-mobile.webp",
+      tablet: "/images/inicio/optimized/harvey-portrait-transparente-tablet.webp",
+      desktop: "/images/inicio/optimized/harvey-portrait-transparente-desktop.webp"
+    }
+  },
+  {
+    name: "HC_SOLO",
+    png: "/images/inicio/HC_SOLO.png",
+    webp: {
+      mobile: "/images/inicio/optimized/HC_SOLO-mobile.webp",
+      tablet: "/images/inicio/optimized/HC_SOLO-tablet.webp",
+      desktop: "/images/inicio/optimized/HC_SOLO-desktop.webp"
+    }
+  },
+  {
+    name: "TORITO PORTADA",
+    png: "/images/inicio/TORITO PORTADA.png",
+    webp: {
+      mobile: "/images/inicio/optimized/TORITO PORTADA-mobile.webp",
+      tablet: "/images/inicio/optimized/TORITO PORTADA-tablet.webp",
+      desktop: "/images/inicio/optimized/TORITO PORTADA-desktop.webp"
+    }
+  }
+];
 
 function HomePage() {
   const [showX, setShowX] = useState(false);
@@ -12,39 +44,9 @@ function HomePage() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
-  const heroImages = [
-    {
-      name: "harvey-portrait-transparente",
-      png: "/images/inicio/harvey-portrait-transparente.png",
-      webp: {
-        mobile: "/images/inicio/optimized/harvey-portrait-transparente-mobile.webp",
-        tablet: "/images/inicio/optimized/harvey-portrait-transparente-tablet.webp",
-        desktop: "/images/inicio/optimized/harvey-portrait-transparente-desktop.webp"
-      }
-    },
-    {
-      name: "HC_SOLO",
-      png: "/images/inicio/HC_SOLO.png",
-      webp: {
-        mobile: "/images/inicio/optimized/HC_SOLO-mobile.webp",
-        tablet: "/images/inicio/optimized/HC_SOLO-tablet.webp",
-        desktop: "/images/inicio/optimized/HC_SOLO-desktop.webp"
-      }
-    },
-    {
-      name: "TORITO PORTADA",
-      png: "/images/inicio/TORITO PORTADA.png",
-      webp: {
-        mobile: "/images/inicio/optimized/TORITO PORTADA-mobile.webp",
-        tablet: "/images/inicio/optimized/TORITO PORTADA-tablet.webp",
-        desktop: "/images/inicio/optimized/TORITO PORTADA-desktop.webp"
-      }
-    }
-  ];
-
   // Random initial image for mobile, sequential for desktop
   const [currentImageIndex] = useState(() => {
-    const randomIndex = Math.floor(Math.random() * heroImages.length);
+    const randomIndex = Math.floor(Math.random() * HERO_IMAGES.length);
     return randomIndex;
   });
   const [desktopImageIndex, setDesktopImageIndex] = useState(1); // Start with HC_SOLO
@@ -56,7 +58,7 @@ function HomePage() {
 
     // Preload the appropriate size for current screen
     const imagesToPreload = [
-      ...heroImages.map(img => img.webp[sizeKey]),
+      ...HERO_IMAGES.map(img => img.webp[sizeKey]),
       `/images/inicio/optimized/CASCO-${sizeKey}.webp`,
       `/images/inicio/optimized/NÚMERO 1-${sizeKey}.webp`
     ];
@@ -117,11 +119,11 @@ function HomePage() {
   // Image rotation effect (desktop only)
   useEffect(() => {
     const interval = setInterval(() => {
-      setDesktopImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+      setDesktopImageIndex((prevIndex) => (prevIndex + 1) % HERO_IMAGES.length);
     }, 4000); // Rotate every 4 seconds
 
     return () => clearInterval(interval);
-  }, [heroImages.length]);
+  }, []);
 
   // Track window resize for mobile detection
   useEffect(() => {
@@ -196,49 +198,17 @@ function HomePage() {
 
       {/* Hero Section */}
       <section className="hero hero-prueba">
-        <motion.div
-          className="hero-content"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={imagesLoaded ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+        <div
+          className={`hero-content ${imagesLoaded ? 'animate-fade-in-scale' : 'animate-hidden'}`}
         >
           <div className={`hero-logo hero-logo-mobile ${!showX ? 'pulse-attention' : ''}`} onClick={() => setShowX(true)} style={{ cursor: 'pointer' }}>
             <img src="/images/inicio/logo-campanha.svg" alt="Logo Campaña Harvey Colchado" className="logo-campanha logo-desktop" />
             <img src="/images/inicio/LOGO-AHORA-NACIÓN.png" alt="Logo Ahora Nación" className="logo-campanha logo-mobile" />
-            {showX && (
-              <svg className="x-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <motion.path
-                  d="M 15,12 Q 20,18 30,30 Q 50,52 70,72 Q 80,83 88,90"
-                  stroke="black"
-                  strokeWidth="5"
-                  fill="none"
-                  strokeLinecap="round"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                />
-                <motion.path
-                  d="M 88,12 Q 80,20 70,30 Q 50,50 30,70 Q 20,81 12,88"
-                  stroke="black"
-                  strokeWidth="5"
-                  fill="none"
-                  strokeLinecap="round"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{
-                    pathLength: { duration: 0.5, ease: "easeInOut", delay: 0.5 },
-                    opacity: { duration: 0, delay: 0.5 }
-                  }}
-                />
-              </svg>
-            )}
+            {showX && <AnimatedXMark className="x-mark" />}
           </div>
           <div className="hero-main-content">
-            <motion.div
-              className="hero-text"
-              initial={{ opacity: 0, x: -30 }}
-              animate={imagesLoaded ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-              transition={{ duration: 0.6 }}
+            <div
+              className={`hero-text ${imagesLoaded ? 'animate-fade-in-left' : 'animate-hidden'}`}
             >
               <div className="hero-logo hero-logo-desktop">
                 <img src="/images/inicio/logo-campanha.svg" alt="Logo Campaña Harvey Colchado" className="logo-campanha" />
@@ -247,22 +217,19 @@ function HomePage() {
               <div className="cta-container">
                 <Link to="/propuestas" className="cta-button">CONOCE EL MÉTODO COLCHADO</Link>
               </div>
-            </motion.div>
-            <motion.div
-              className="hero-image-container"
-              initial={{ opacity: 0, x: 30 }}
-              animate={imagesLoaded ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
-              transition={{ duration: 0.6 }}
+            </div>
+            <div
+              className={`hero-image-container ${imagesLoaded ? 'animate-fade-in-right' : 'animate-hidden'}`}
             >
               {!isMobile ? (
                 // Desktop: rotating images with helmet and number
                 <div className="hero-images-desktop">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={desktopImageIndex}
-                      className={`hero-image-part hero-image-person ${!imagesLoaded ? 'hero-image-loading' : ''}`}
-                      style={
-                        heroImages[desktopImageIndex].name === 'TORITO PORTADA'
+                  {HERO_IMAGES.map((image, index) => (
+                    <div
+                      key={image.name}
+                      className={`hero-image-part hero-image-person hero-image-crossfade ${!imagesLoaded ? 'hero-image-loading' : ''} ${index === desktopImageIndex ? 'fade-in' : 'fade-out'}`}
+                      style={{
+                        ...(image.name === 'TORITO PORTADA'
                           ? {
                               width: '80%',
                               maxWidth: '700px',
@@ -272,7 +239,7 @@ function HomePage() {
                               left: '50%',
                               transform: 'translateX(-45%)'
                             }
-                          : heroImages[desktopImageIndex].name === 'HC_SOLO'
+                          : image.name === 'HC_SOLO'
                           ? {
                               width: '100%',
                               maxWidth: '900px',
@@ -282,7 +249,7 @@ function HomePage() {
                               left: '50%',
                               transform: 'translateX(-50%) scale(1.1)'
                             }
-                          : heroImages[desktopImageIndex].name === 'harvey-portrait-transparente'
+                          : image.name === 'harvey-portrait-transparente'
                           ? {
                               width: '100%',
                               maxWidth: '850px',
@@ -292,39 +259,33 @@ function HomePage() {
                               left: '50%',
                               transform: 'translateX(-50%)'
                             }
-                          : { position: 'absolute', bottom: 0 }
-                      }
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{
-                        duration: 0.6,
-                        ease: "easeInOut"
+                          : { position: 'absolute', bottom: 0 }),
+                        pointerEvents: index === desktopImageIndex ? 'auto' : 'none'
                       }}
                     >
                       <picture>
                         <source
                           media="(min-width: 1200px)"
-                          srcSet={heroImages[desktopImageIndex].webp.desktop}
+                          srcSet={image.webp.desktop}
                           type="image/webp"
                         />
                         <source
                           media="(min-width: 768px)"
-                          srcSet={heroImages[desktopImageIndex].webp.tablet}
+                          srcSet={image.webp.tablet}
                           type="image/webp"
                         />
                         <source
-                          srcSet={heroImages[desktopImageIndex].webp.mobile}
+                          srcSet={image.webp.mobile}
                           type="image/webp"
                         />
                         <img
-                          src={heroImages[desktopImageIndex].png}
+                          src={image.png}
                           alt="Harvey Colchado"
                           style={{ width: '100%', height: 'auto', objectFit: 'contain', objectPosition: 'bottom' }}
                         />
                       </picture>
-                    </motion.div>
-                  </AnimatePresence>
+                    </div>
+                  ))}
                   <picture>
                     <source
                       media="(min-width: 1200px)"
@@ -369,147 +330,60 @@ function HomePage() {
                   </picture>
                 </div>
               ) : (
-                // Mobile: random static image
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentImageIndex}
-                    className={`hero-image hero-image-mobile ${!imagesLoaded ? 'hero-image-loading' : ''}`}
-                    style={
-                      heroImages[currentImageIndex].name === 'TORITO PORTADA'
-                        ? { transform: 'translate(15px, 50px)' }
-                        : heroImages[currentImageIndex].name === 'HC_SOLO'
-                        ? { transform: 'translateY(-10px) scale(1.6)' }
-                        : { transform: 'translate(0px, 50px) scale(1.2)' }
-                    }
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{
-                      duration: 0.6,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    <picture>
-                      <source
-                        media="(min-width: 1200px)"
-                        srcSet={heroImages[currentImageIndex].webp.desktop}
-                        type="image/webp"
-                      />
-                      <source
-                        media="(min-width: 768px)"
-                        srcSet={heroImages[currentImageIndex].webp.tablet}
-                        type="image/webp"
-                      />
-                      <source
-                        srcSet={heroImages[currentImageIndex].webp.mobile}
-                        type="image/webp"
-                      />
-                      <img
-                        src={heroImages[currentImageIndex].png}
-                        alt="Harvey Colchado"
-                        style={{ width: '100%', height: 'auto' }}
-                      />
-                    </picture>
-                  </motion.div>
-                </AnimatePresence>
+                // Mobile: random static image (no animation needed, static on load)
+                <div
+                  className={`hero-image hero-image-mobile animate-fade-in ${!imagesLoaded ? 'hero-image-loading' : ''}`}
+                  style={
+                    HERO_IMAGES[currentImageIndex].name === 'TORITO PORTADA'
+                      ? { transform: 'translate(15px, 50px)' }
+                      : HERO_IMAGES[currentImageIndex].name === 'HC_SOLO'
+                      ? { transform: 'translateY(-10px) scale(1.6)' }
+                      : { transform: 'translate(0px, 50px) scale(1.2)' }
+                  }
+                >
+                  <picture>
+                    <source
+                      media="(min-width: 1200px)"
+                      srcSet={HERO_IMAGES[currentImageIndex].webp.desktop}
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcSet={HERO_IMAGES[currentImageIndex].webp.tablet}
+                      type="image/webp"
+                    />
+                    <source
+                      srcSet={HERO_IMAGES[currentImageIndex].webp.mobile}
+                      type="image/webp"
+                    />
+                    <img
+                      src={HERO_IMAGES[currentImageIndex].png}
+                      alt="Harvey Colchado"
+                      style={{ width: '100%', height: 'auto' }}
+                    />
+                  </picture>
+                </div>
               )}
 
               {/* Voting Instructions - Desktop Only */}
-              <motion.div
-                className="voting-instructions"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              >
+              <div className="voting-instructions animate-fade-in-bottom">
                 <div className="voting-box" onClick={() => setShowDesktopX(true)} style={{ cursor: 'pointer' }}>
                   <div className={`voting-square ${!showDesktopX ? 'pulse-attention' : ''}`}>
                     <img src="/images/inicio/LOGO-AHORA-NACIÓN.png" alt="Logo Ahora Nación" className="voting-logo" />
-                    {showDesktopX && (
-                      <svg className="voting-x-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <motion.path
-                          d="M 15,12 Q 20,18 30,30 Q 50,52 70,72 Q 80,83 88,90"
-                          stroke="black"
-                          strokeWidth="5"
-                          fill="none"
-                          strokeLinecap="round"
-                          initial={{ pathLength: 0 }}
-                          animate={{ pathLength: 1 }}
-                          transition={{ duration: 0.5, ease: "easeInOut" }}
-                        />
-                        <motion.path
-                          d="M 88,12 Q 80,20 70,30 Q 50,50 30,70 Q 20,81 12,88"
-                          stroke="black"
-                          strokeWidth="5"
-                          fill="none"
-                          strokeLinecap="round"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          animate={{ pathLength: 1, opacity: 1 }}
-                          transition={{
-                            pathLength: { duration: 0.5, ease: "easeInOut", delay: 0.5 },
-                            opacity: { duration: 0, delay: 0.5 }
-                          }}
-                        />
-                      </svg>
-                    )}
+                    {showDesktopX && <AnimatedXMark className="voting-x-mark" />}
                   </div>
                   <p className="voting-label">MARCA</p>
                 </div>
                 <div className="voting-box" onClick={() => setNumberKey(prev => prev + 1)} style={{ cursor: 'pointer' }}>
                   <div className="voting-square voting-number">
-                    <svg key={numberKey} className="voting-number-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
-                      {/* Diagonal top stroke */}
-                      <motion.path
-                        d="M 30,30 L 50,15"
-                        stroke="var(--gris-oscuro)"
-                        strokeWidth="18"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        animate={{ pathLength: 1, opacity: 1 }}
-                        transition={{
-                          pathLength: { duration: 0.3, ease: "easeInOut", delay: numberKey === 0 ? 1.2 : 0 },
-                          opacity: { duration: 0, delay: numberKey === 0 ? 1.2 : 0 }
-                        }}
-                      />
-                      {/* Vertical main line */}
-                      <motion.path
-                        d="M 50,15 L 50,105"
-                        stroke="var(--gris-oscuro)"
-                        strokeWidth="18"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        animate={{ pathLength: 1, opacity: 1 }}
-                        transition={{
-                          pathLength: { duration: 0.5, ease: "easeInOut", delay: numberKey === 0 ? 1.5 : 0.3 },
-                          opacity: { duration: 0, delay: numberKey === 0 ? 1.5 : 0.3 }
-                        }}
-                      />
-                      {/* Horizontal base line */}
-                      <motion.path
-                        d="M 20,105 L 80,105"
-                        stroke="var(--gris-oscuro)"
-                        strokeWidth="18"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        animate={{ pathLength: 1, opacity: 1 }}
-                        transition={{
-                          pathLength: { duration: 0.4, ease: "easeInOut", delay: numberKey === 0 ? 2.0 : 0.8 },
-                          opacity: { duration: 0, delay: numberKey === 0 ? 2.0 : 0.8 }
-                        }}
-                      />
-                    </svg>
+                    <AnimatedNumber numberKey={numberKey} />
                   </div>
                   <p className="voting-label">ESCRIBE</p>
                 </div>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Header - comes after hero on home page */}

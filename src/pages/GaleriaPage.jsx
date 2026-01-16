@@ -2,32 +2,33 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
 import './GaleriaPage.css';
 
+// Static data hoisted to module level to avoid recreation on every render
+const GALLERY_IMAGES = [
+  '/images/gallery/IMG_2565.jpeg',
+  '/images/gallery/IMG_2566.jpeg',
+  '/images/gallery/IMG_2567.jpeg',
+  '/images/gallery/IMG_2568.jpeg',
+  '/images/gallery/IMG_2569.jpeg',
+  '/images/gallery/IMG_2582.jpeg',
+  '/images/gallery/IMG_2571.jpeg',
+  '/images/gallery/IMG_2572.jpeg',
+  '/images/gallery/IMG_2573.jpeg'
+];
+
+const MIN_SWIPE_DISTANCE = 50;
+
 function GaleriaPage() {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
 
-  const images = [
-    '/images/gallery/IMG_2565.jpeg',
-    '/images/gallery/IMG_2566.jpeg',
-    '/images/gallery/IMG_2567.jpeg',
-    '/images/gallery/IMG_2568.jpeg',
-    '/images/gallery/IMG_2569.jpeg',
-    '/images/gallery/IMG_2582.jpeg',
-    '/images/gallery/IMG_2571.jpeg',
-    '/images/gallery/IMG_2572.jpeg',
-    '/images/gallery/IMG_2573.jpeg'
-  ];
-
-  const minSwipeDistance = 50;
-
   const goToNext = useCallback(() => {
-    setSelectedIndex((prevIndex) => (prevIndex + 1) % images.length);
-  }, [images.length]);
+    setSelectedIndex((prevIndex) => (prevIndex + 1) % GALLERY_IMAGES.length);
+  }, []);
 
   const goToPrevious = useCallback(() => {
-    setSelectedIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-  }, [images.length]);
+    setSelectedIndex((prevIndex) => (prevIndex - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length);
+  }, []);
 
   const onTouchStart = (e) => {
     setTouchEnd(null);
@@ -42,8 +43,8 @@ function GaleriaPage() {
     if (!touchStart || !touchEnd) return;
 
     const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
+    const isLeftSwipe = distance > MIN_SWIPE_DISTANCE;
+    const isRightSwipe = distance < -MIN_SWIPE_DISTANCE;
 
     if (isLeftSwipe) {
       goToNext();
@@ -110,7 +111,7 @@ function GaleriaPage() {
       <section className="apoyo-section apoyo-azul gallery-section-tight">
         <div className="container">
           <div className="gallery-grid">
-            {images.map((image, index) => (
+            {GALLERY_IMAGES.map((image, index) => (
               <div
                 key={index}
                 className="gallery-item"
@@ -144,7 +145,7 @@ function GaleriaPage() {
           </button>
           <img
             className="gallery-modal-content"
-            src={images[selectedIndex]}
+            src={GALLERY_IMAGES[selectedIndex]}
             alt="Imagen ampliada"
             onClick={(e) => e.stopPropagation()}
           />

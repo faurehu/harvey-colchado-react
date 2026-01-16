@@ -3301,3 +3301,106 @@ video {
         /* margin-top: 40px; */
     }
 }
+
+/* =====================================================
+   CSS Animations - Replacing Framer Motion for performance
+   ===================================================== */
+
+/* Fade in and scale animation for hero content */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Fade in and slide from left */
+@keyframes fadeInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Fade in and slide from right */
+@keyframes fadeInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Fade in and slide from bottom */
+@keyframes fadeInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Simple fade in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animation utility classes */
+.animate-fade-in-scale {
+    animation: fadeInScale 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.animate-fade-in-left {
+    animation: fadeInFromLeft 0.6s ease-out forwards;
+}
+
+.animate-fade-in-right {
+    animation: fadeInFromRight 0.6s ease-out forwards;
+}
+
+.animate-fade-in-bottom {
+    animation: fadeInFromBottom 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+/* Hidden state before animation */
+.animate-hidden {
+    opacity: 0;
+}
+
+/* Image crossfade for hero carousel */
+.hero-image-crossfade {
+    transition: opacity 0.6s ease-in-out;
+}
+
+.hero-image-crossfade.fade-out {
+    opacity: 0;
+}
+
+.hero-image-crossfade.fade-in {
+    opacity: 1;
+}

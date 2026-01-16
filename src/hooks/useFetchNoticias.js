@@ -1,22 +1,18 @@
-import { useState, useEffect } from 'react';
+import useSWR from 'swr';
+
+// Fetcher function for SWR
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export const useFetchNoticias = () => {
-  const [noticias, setNoticias] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { data, error, isLoading } = useSWR('/noticias-data.json', fetcher, {
+    revalidateOnFocus: false, // Don't refetch on window focus (static data)
+    revalidateOnReconnect: false, // Don't refetch on reconnect (static data)
+    dedupingInterval: 60000, // Deduplicate requests within 1 minute
+  });
 
-  useEffect(() => {
-    fetch('/noticias-data.json')
-      .then(response => response.json())
-      .then(data => {
-        setNoticias(data.noticias);
-        setLoading(false);
-      })
-      .catch(err => {
-        setError(err);
-        setLoading(false);
-      });
-  }, []);
-
-  return { noticias, loading, error };
+  return {
+    noticias: data?.noticias || [],
+    loading: isLoading,
+    error: error || null,
+  };
 };

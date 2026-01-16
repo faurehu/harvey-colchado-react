@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 
-function PropuestasPage() {
-  const [expandedPropuesta, setExpandedPropuesta] = useState(null);
-
-  const propuestas = [
+// Static data hoisted to module level to avoid recreation on every render
+const PROPUESTAS = [
     {
       id: 1,
       icon: '/images/propuestas/icons/policia.svg',
@@ -121,7 +119,10 @@ function PropuestasPage() {
         }
       ]
     }
-  ];
+];
+
+function PropuestasPage() {
+  const [expandedPropuesta, setExpandedPropuesta] = useState(null);
 
   const toggleDetalle = (index) => {
     setExpandedPropuesta(expandedPropuesta === index ? null : index);
@@ -197,7 +198,7 @@ function PropuestasPage() {
         </div>
 
         <div className="propuestas-grid">
-          {propuestas.map((propuesta, index) => (
+          {PROPUESTAS.map((propuesta, index) => (
             <React.Fragment key={propuesta.id}>
               <div className="propuesta-card">
                 <div className="propuesta-card-content">

@@ -2,28 +2,29 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
-function ConocimientoPage() {
-  const blogPosts = [
-    {
-      id: 1,
-      title: 'Las Leyes Pro Crimen',
-      description: 'Análisis de las leyes que favorecen la impunidad y el crimen organizado en el Perú.',
-      url: '/conocimiento/leyes-pro-crimen'
-    },
-    {
-      id: 2,
-      title: 'Biografía',
-      description: 'La historia y trayectoria del Coronel Harvey Colchado en su lucha contra la corrupción.',
-      url: '/conocimiento/biografia'
-    },
-    {
-      id: 3,
-      title: 'Tésis de Maestría en Gobierno y Políticas Públicas',
-      description: 'Investigación académica sobre seguridad nacional y lucha contra el crimen organizado.',
-      url: '/conocimiento/tesis-maestria'
-    }
-  ];
+// Static data hoisted to module level to avoid recreation on every render
+const BLOG_POSTS = [
+  {
+    id: 1,
+    title: 'Las Leyes Pro Crimen',
+    description: 'Análisis de las leyes que favorecen la impunidad y el crimen organizado en el Perú.',
+    url: '/conocimiento/leyes-pro-crimen'
+  },
+  {
+    id: 2,
+    title: 'Biografía',
+    description: 'La historia y trayectoria del Coronel Harvey Colchado en su lucha contra la corrupción.',
+    url: '/conocimiento/biografia'
+  },
+  {
+    id: 3,
+    title: 'Tésis de Maestría en Gobierno y Políticas Públicas',
+    description: 'Investigación académica sobre seguridad nacional y lucha contra el crimen organizado.',
+    url: '/conocimiento/tesis-maestria'
+  }
+];
 
+function ConocimientoPage() {
   return (
     <div className="conocimiento-page">
       <Helmet>
@@ -62,7 +63,7 @@ function ConocimientoPage() {
       <section className="apoyo-section apoyo-azul">
         <div className="container">
           <div className="blog-posts-grid">
-            {blogPosts.map((post) => (
+            {BLOG_POSTS.map((post) => (
               <article key={post.id} className="blog-post-card">
                 <h3>{post.title}</h3>
                 <p className="blog-post-description">{post.description}</p>

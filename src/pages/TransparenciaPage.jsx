@@ -2,13 +2,14 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Carousel from '../components/shared/Carousel';
 
-function TransparenciaPage() {
-  const slides = [
-    '/images/propuestas/carrusell/carrusel_8.png',
-    '/images/propuestas/carrusell/carrusel_9.png',
-    '/images/propuestas/carrusell/carrusel_10.png'
-  ];
+// Static data hoisted to module level to avoid recreation on every render
+const CAROUSEL_SLIDES = [
+  '/images/propuestas/carrusell/carrusel_8.png',
+  '/images/propuestas/carrusell/carrusel_9.png',
+  '/images/propuestas/carrusell/carrusel_10.png'
+];
 
+function TransparenciaPage() {
   return (
     <>
       <Helmet>
@@ -34,7 +35,7 @@ function TransparenciaPage() {
 
       {/* Carousel Section */}
       <section className="metodo-hero metodo-hero-transparencia">
-        <Carousel slides={slides} />
+        <Carousel slides={CAROUSEL_SLIDES} />
       </section>
 
       {/* Título de la página */}

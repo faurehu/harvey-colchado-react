@@ -2,27 +2,19 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
-function ApoyanosForm() {
-  const [expandedPropuesta, setExpandedPropuesta] = useState(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [volunteerType, setVolunteerType] = useState('');
-  const [otrosDescription, setOtrosDescription] = useState('');
-  const [distrito, setDistrito] = useState('');
-  const { executeRecaptcha } = useGoogleReCaptcha();
+// Static data hoisted to module level to avoid recreation on every render
+const DISTRITOS_LIMA = [
+  'Ancón', 'Ate', 'Barranco', 'Breña', 'Carabayllo', 'Chaclacayo', 'Chorrillos',
+  'Cieneguilla', 'Comas', 'El Agustino', 'Independencia', 'Jesús María', 'La Molina',
+  'La Victoria', 'Lima', 'Lince', 'Los Olivos', 'Lurigancho', 'Lurín', 'Magdalena del Mar',
+  'Miraflores', 'Pachacámac', 'Pucusana', 'Pueblo Libre', 'Puente Piedra', 'Punta Hermosa',
+  'Punta Negra', 'Rímac', 'San Bartolo', 'San Borja', 'San Isidro', 'San Juan de Lurigancho',
+  'San Juan de Miraflores', 'San Luis', 'San Martín de Porres', 'San Miguel', 'Santa Anita',
+  'Santa María del Mar', 'Santa Rosa', 'Santiago de Surco', 'Surquillo', 'Villa El Salvador',
+  'Villa María del Triunfo'
+];
 
-  const distritosLima = [
-    'Ancón', 'Ate', 'Barranco', 'Breña', 'Carabayllo', 'Chaclacayo', 'Chorrillos',
-    'Cieneguilla', 'Comas', 'El Agustino', 'Independencia', 'Jesús María', 'La Molina',
-    'La Victoria', 'Lima', 'Lince', 'Los Olivos', 'Lurigancho', 'Lurín', 'Magdalena del Mar',
-    'Miraflores', 'Pachacámac', 'Pucusana', 'Pueblo Libre', 'Puente Piedra', 'Punta Hermosa',
-    'Punta Negra', 'Rímac', 'San Bartolo', 'San Borja', 'San Isidro', 'San Juan de Lurigancho',
-    'San Juan de Miraflores', 'San Luis', 'San Martín de Porres', 'San Miguel', 'Santa Anita',
-    'Santa María del Mar', 'Santa Rosa', 'Santiago de Surco', 'Surquillo', 'Villa El Salvador',
-    'Villa María del Triunfo'
-  ];
-
-  const propuestas = [
+const VOLUNTEER_OPTIONS = [
     {
       id: 1,
       icon: '/images/apoyanos/editor.png',
@@ -111,7 +103,16 @@ function ApoyanosForm() {
         }
       ]
     }
-  ];
+];
+
+function ApoyanosForm() {
+  const [expandedPropuesta, setExpandedPropuesta] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [volunteerType, setVolunteerType] = useState('');
+  const [otrosDescription, setOtrosDescription] = useState('');
+  const [distrito, setDistrito] = useState('');
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const toggleDetalle = (index) => {
     setExpandedPropuesta(expandedPropuesta === index ? null : index);
@@ -266,7 +267,7 @@ function ApoyanosForm() {
             <p>Aquí te contamos en qué perfiles puedes sumarte. Pero si ninguno de estos calza exactamente contigo, ¡igual regístrate y cuéntanos cómo quieres ayudar!</p>
 
             <div className="propuestas-grid" style={{ marginBottom: '40px' }}>
-              {propuestas.map((propuesta, index) => (
+              {VOLUNTEER_OPTIONS.map((propuesta, index) => (
                 <React.Fragment key={propuesta.id}>
                   <div className="propuesta-card">
                     <div className="propuesta-card-content">
@@ -414,7 +415,7 @@ function ApoyanosForm() {
                     }}
                   >
                     <option value="" disabled>DISTRITO DE LIMA DONDE VIVES</option>
-                    {distritosLima.map((dist) => (
+                    {DISTRITOS_LIMA.map((dist) => (
                       <option key={dist} value={dist}>{dist}</option>
                     ))}
                   </select>

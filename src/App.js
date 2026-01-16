@@ -36,12 +36,13 @@ function AppContent() {
       if (elementId) elementDescription += `#${elementId}`;
       if (elementText) elementDescription += `: ${elementText}`;
 
-      logClick(elementDescription, location.pathname);
+      // Read pathname at click time instead of capturing from closure
+      logClick(elementDescription, window.location.pathname);
     };
 
     document.addEventListener('click', handleClick);
     return () => document.removeEventListener('click', handleClick);
-  }, [location]);
+  }, []); // No dependencies - listener is stable, reads pathname on demand
 
   return (
     <>
