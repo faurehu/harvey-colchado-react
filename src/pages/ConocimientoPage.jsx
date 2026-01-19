@@ -65,7 +65,7 @@ function ConocimientoPage() {
           <div className="blog-posts-grid">
             {BLOG_POSTS.map((post) => (
               <article key={post.id} className="blog-post-card">
-                <h3>{post.title}</h3>
+                <h3><Link to={post.url}>{post.title}</Link></h3>
                 <p className="blog-post-description">{post.description}</p>
                 <div className="blog-post-meta">
                   <Link to={post.url} className="blog-post-link">Leer más →</Link>

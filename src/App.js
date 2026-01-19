@@ -16,6 +16,8 @@ const LeyesProCrimenPage = lazy(() => import('./pages/LeyesProCrimenPage'));
 const BiografiaPage = lazy(() => import('./pages/BiografiaPage'));
 const TesisMaestriaPage = lazy(() => import('./pages/TesisMaestriaPage'));
 const TransparenciaPage = lazy(() => import('./pages/TransparenciaPage'));
+const NotasDePrensaPage = lazy(() => import('./pages/NotasDePrensaPage'));
+const NotaDePrensaDetailPage = lazy(() => import('./pages/NotaDePrensaDetailPage'));
 
 function AppContent() {
   const location = useLocation();
@@ -59,6 +61,8 @@ function AppContent() {
           <Route path="/conocimiento/tesis-maestria" element={<TesisMaestriaPage />} />
           <Route path="/galeria" element={<GaleriaPage />} />
           <Route path="/transparencia" element={<TransparenciaPage />} />
+          <Route path="/notas-de-prensa" element={<NotasDePrensaPage />} />
+          <Route path="/notas-de-prensa/:slug" element={<NotaDePrensaDetailPage />} />
         </Routes>
       </Suspense>
       <Footer />

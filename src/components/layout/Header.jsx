@@ -40,6 +40,12 @@ function Header() {
             Conocimiento
           </NavLink>
           <NavLink
+            to="/notas-de-prensa"
+            className={({ isActive }) => isActive ? 'nav-active' : ''}
+          >
+            Notas de prensa
+          </NavLink>
+          <NavLink
             to="/galeria"
             className={({ isActive }) => isActive ? 'nav-active' : ''}
           >
