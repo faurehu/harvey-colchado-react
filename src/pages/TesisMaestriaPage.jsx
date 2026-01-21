@@ -12,17 +12,17 @@ function TesisMaestriaPage() {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://harveycolchado.com.pe/conocimiento/tesis-maestria" />
+        <meta property="og:url" content="https://harveycolchado.pe/conocimiento/tesis-maestria" />
         <meta property="og:title" content="Tesis de Maestría - Harvey Colchado" />
         <meta property="og:description" content="Tesis de maestría en Gobierno y Políticas Públicas de la PUCP sobre seguridad nacional." />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary" />
-        <meta property="twitter:url" content="https://harveycolchado.com.pe/conocimiento/tesis-maestria" />
+        <meta property="twitter:url" content="https://harveycolchado.pe/conocimiento/tesis-maestria" />
         <meta property="twitter:title" content="Tesis de Maestría - Harvey Colchado" />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://harveycolchado.com.pe/conocimiento/tesis-maestria" />
+        <link rel="canonical" href="https://harveycolchado.pe/conocimiento/tesis-maestria" />
       </Helmet>
 
       {/* Header Section */}

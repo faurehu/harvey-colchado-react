@@ -2,4 +2,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://harveycolchado.com.pe/sitemap.xml
+Sitemap: https://harveycolchado.pe/sitemap.xml

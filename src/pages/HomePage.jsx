@@ -145,20 +145,20 @@ function HomePage() {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://harveycolchado.com.pe/" />
+        <meta property="og:url" content="https://harveycolchado.pe/" />
         <meta property="og:title" content="Harvey Colchado - Candidato a Diputado por Lima 2026" />
         <meta property="og:description" content="Harvey Colchado, candidato a diputado por Lima 2026. Con tu voto tumbamos el crimen y la corrupción." />
-        <meta property="og:image" content="https://harveycolchado.com.pe/images/inicio/harvey-portrait-transparente.png" />
+        <meta property="og:image" content="https://harveycolchado.pe/images/inicio/harvey-portrait-transparente.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://harveycolchado.com.pe/" />
+        <meta property="twitter:url" content="https://harveycolchado.pe/" />
         <meta property="twitter:title" content="Harvey Colchado - Candidato a Diputado por Lima 2026" />
         <meta property="twitter:description" content="Harvey Colchado, candidato a diputado por Lima 2026. Con tu voto tumbamos el crimen y la corrupción." />
-        <meta property="twitter:image" content="https://harveycolchado.com.pe/images/inicio/harvey-portrait-transparente.png" />
+        <meta property="twitter:image" content="https://harveycolchado.pe/images/inicio/harvey-portrait-transparente.png" />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://harveycolchado.com.pe/" />
+        <link rel="canonical" href="https://harveycolchado.pe/" />
 
         {/* Structured Data - Person Schema */}
         <script type="application/ld+json">
@@ -166,8 +166,8 @@ function HomePage() {
             "@context": "https://schema.org",
             "@type": "Person",
             "name": "Harvey Colchado Huamaní",
-            "url": "https://harveycolchado.com.pe",
-            "image": "https://harveycolchado.com.pe/images/inicio/harvey-portrait-transparente.png",
+            "url": "https://harveycolchado.pe",
+            "image": "https://harveycolchado.pe/images/inicio/harvey-portrait-transparente.png",
             "jobTitle": "Candidato a Diputado por Lima",
             "description": "Candidato a diputado por Lima en las elecciones 2026, ex coronel de la Policía Nacional del Perú",
             "sameAs": [
@@ -184,8 +184,8 @@ function HomePage() {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Harvey Colchado - Campaña al Congreso 2026",
-            "url": "https://harveycolchado.com.pe",
-            "logo": "https://harveycolchado.com.pe/images/inicio/logo-campanha.svg",
+            "url": "https://harveycolchado.pe",
+            "logo": "https://harveycolchado.pe/images/inicio/logo-campanha.svg",
             "description": "Campaña de Harvey Colchado para diputado por Lima en las elecciones del Perú 2026",
             "foundingDate": "2025",
             "sameAs": [

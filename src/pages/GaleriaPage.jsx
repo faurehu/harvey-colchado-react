@@ -79,19 +79,19 @@ function GaleriaPage() {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://harveycolchado.com.pe/galeria" />
+        <meta property="og:url" content="https://harveycolchado.pe/galeria" />
         <meta property="og:title" content="Galería - Harvey Colchado" />
         <meta property="og:description" content="Galería de imágenes de Harvey Colchado y sus apariciones en medios de comunicación." />
-        <meta property="og:image" content="https://harveycolchado.com.pe/images/gallery/IMG_2565.jpeg" />
+        <meta property="og:image" content="https://harveycolchado.pe/images/gallery/IMG_2565.jpeg" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://harveycolchado.com.pe/galeria" />
+        <meta property="twitter:url" content="https://harveycolchado.pe/galeria" />
         <meta property="twitter:title" content="Galería - Harvey Colchado" />
         <meta property="twitter:description" content="Galería de imágenes de Harvey Colchado y sus apariciones en medios." />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://harveycolchado.com.pe/galeria" />
+        <link rel="canonical" href="https://harveycolchado.pe/galeria" />
       </Helmet>
 
       {/* Sección Principal de Galería */}

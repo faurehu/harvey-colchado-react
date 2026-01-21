@@ -19,18 +19,18 @@ function TransparenciaPage() {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://harveycolchado.com.pe/transparencia" />
+        <meta property="og:url" content="https://harveycolchado.pe/transparencia" />
         <meta property="og:title" content="Transparencia - Harvey Colchado 2026" />
         <meta property="og:description" content="Transparencia en el financiamiento de la campaña con rendición de cuentas a la ciudadanía." />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary" />
-        <meta property="twitter:url" content="https://harveycolchado.com.pe/transparencia" />
+        <meta property="twitter:url" content="https://harveycolchado.pe/transparencia" />
         <meta property="twitter:title" content="Transparencia - Harvey Colchado 2026" />
         <meta property="twitter:description" content="Información transparente sobre el financiamiento de la campaña." />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://harveycolchado.com.pe/transparencia" />
+        <link rel="canonical" href="https://harveycolchado.pe/transparencia" />
       </Helmet>
 
       {/* Carousel Section */}

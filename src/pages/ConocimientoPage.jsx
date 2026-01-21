@@ -34,17 +34,17 @@ function ConocimientoPage() {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://harveycolchado.com.pe/conocimiento" />
+        <meta property="og:url" content="https://harveycolchado.pe/conocimiento" />
         <meta property="og:title" content="Conocimiento - Harvey Colchado" />
         <meta property="og:description" content="Artículos y análisis sobre seguridad, justicia y políticas públicas en el Perú." />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary" />
-        <meta property="twitter:url" content="https://harveycolchado.com.pe/conocimiento" />
+        <meta property="twitter:url" content="https://harveycolchado.pe/conocimiento" />
         <meta property="twitter:title" content="Conocimiento - Harvey Colchado" />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://harveycolchado.com.pe/conocimiento" />
+        <link rel="canonical" href="https://harveycolchado.pe/conocimiento" />
       </Helmet>
 
       {/* Hero Section */}

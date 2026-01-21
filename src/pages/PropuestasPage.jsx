@@ -137,19 +137,19 @@ function PropuestasPage() {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://harveycolchado.com.pe/propuestas" />
+        <meta property="og:url" content="https://harveycolchado.pe/propuestas" />
         <meta property="og:title" content="Propuestas - Harvey Colchado 2026 | El Método Colchado" />
         <meta property="og:description" content="Conoce las propuestas de Harvey Colchado: reforma policial, lucha contra el crimen y corrupción, inteligencia y congreso sin blindaje." />
-        <meta property="og:image" content="https://harveycolchado.com.pe/images/propuestas/propuestas_fondo.png" />
+        <meta property="og:image" content="https://harveycolchado.pe/images/propuestas/propuestas_fondo.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://harveycolchado.com.pe/propuestas" />
+        <meta property="twitter:url" content="https://harveycolchado.pe/propuestas" />
         <meta property="twitter:title" content="Propuestas - Harvey Colchado 2026" />
         <meta property="twitter:description" content="Conoce las propuestas de Harvey Colchado para reformar la policía y luchar contra el crimen y la corrupción." />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://harveycolchado.com.pe/propuestas" />
+        <link rel="canonical" href="https://harveycolchado.pe/propuestas" />
       </Helmet>
 
       {/* Video Hero Section */}

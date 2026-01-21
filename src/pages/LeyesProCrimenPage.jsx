@@ -277,17 +277,17 @@ function LeyesProCrimenPage() {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://harveycolchado.com.pe/conocimiento/leyes-pro-crimen" />
+        <meta property="og:url" content="https://harveycolchado.pe/conocimiento/leyes-pro-crimen" />
         <meta property="og:title" content="Leyes Pro Crimen - Harvey Colchado" />
         <meta property="og:description" content="Análisis de las leyes que favorecen la impunidad y el crimen organizado en el Perú." />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary" />
-        <meta property="twitter:url" content="https://harveycolchado.com.pe/conocimiento/leyes-pro-crimen" />
+        <meta property="twitter:url" content="https://harveycolchado.pe/conocimiento/leyes-pro-crimen" />
         <meta property="twitter:title" content="Leyes Pro Crimen - Harvey Colchado" />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://harveycolchado.com.pe/conocimiento/leyes-pro-crimen" />
+        <link rel="canonical" href="https://harveycolchado.pe/conocimiento/leyes-pro-crimen" />
       </Helmet>
 
       {/* Header Section */}

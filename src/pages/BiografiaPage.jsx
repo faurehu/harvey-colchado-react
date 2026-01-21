@@ -12,19 +12,19 @@ function BiografiaPage() {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://harveycolchado.com.pe/conocimiento/biografia" />
+        <meta property="og:url" content="https://harveycolchado.pe/conocimiento/biografia" />
         <meta property="og:title" content="Biografía - Harvey Colchado | Coronel PNP" />
         <meta property="og:description" content="Conoce la historia de Harvey Colchado, coronel de la PNP con 28 años combatiendo el crimen y la corrupción." />
-        <meta property="og:image" content="https://harveycolchado.com.pe/images/inicio/harvey-portrait-transparente.png" />
+        <meta property="og:image" content="https://harveycolchado.pe/images/inicio/harvey-portrait-transparente.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://harveycolchado.com.pe/conocimiento/biografia" />
+        <meta property="twitter:url" content="https://harveycolchado.pe/conocimiento/biografia" />
         <meta property="twitter:title" content="Biografía - Harvey Colchado" />
         <meta property="twitter:description" content="Conoce la historia de Harvey Colchado, coronel de la PNP dedicado a combatir el crimen y la corrupción." />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://harveycolchado.com.pe/conocimiento/biografia" />
+        <link rel="canonical" href="https://harveycolchado.pe/conocimiento/biografia" />
 
         {/* Breadcrumb Schema */}
         <script type="application/ld+json">
@@ -36,19 +36,19 @@ function BiografiaPage() {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Inicio",
-                "item": "https://harveycolchado.com.pe"
+                "item": "https://harveycolchado.pe"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Conocimiento",
-                "item": "https://harveycolchado.com.pe/conocimiento"
+                "item": "https://harveycolchado.pe/conocimiento"
               },
               {
                 "@type": "ListItem",
                 "position": 3,
                 "name": "Biografía",
-                "item": "https://harveycolchado.com.pe/conocimiento/biografia"
+                "item": "https://harveycolchado.pe/conocimiento/biografia"
               }
             ]
           })}

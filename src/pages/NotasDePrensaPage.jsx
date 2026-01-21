@@ -15,17 +15,17 @@ function NotasDePrensaPage() {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://harveycolchado.com.pe/notas-de-prensa" />
+        <meta property="og:url" content="https://harveycolchado.pe/notas-de-prensa" />
         <meta property="og:title" content="Notas de Prensa - Harvey Colchado" />
         <meta property="og:description" content="Notas de prensa y comunicados oficiales de Harvey Colchado." />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary" />
-        <meta property="twitter:url" content="https://harveycolchado.com.pe/notas-de-prensa" />
+        <meta property="twitter:url" content="https://harveycolchado.pe/notas-de-prensa" />
         <meta property="twitter:title" content="Notas de Prensa - Harvey Colchado" />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://harveycolchado.com.pe/notas-de-prensa" />
+        <link rel="canonical" href="https://harveycolchado.pe/notas-de-prensa" />
       </Helmet>
 
       {/* Hero Section */}

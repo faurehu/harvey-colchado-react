@@ -11,18 +11,18 @@ function VerdadOMitoPage() {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://harveycolchado.com.pe/verdad-o-mito" />
+        <meta property="og:url" content="https://harveycolchado.pe/verdad-o-mito" />
         <meta property="og:title" content="Verdad o Mito - Harvey Colchado | Tumbando Mitos" />
         <meta property="og:description" content="Desmintiendo mitos y desinformación sobre Harvey Colchado con hechos verificables." />
-        <meta property="og:image" content="https://harveycolchado.com.pe/images/verdadomito/portada-mitos.png" />
+        <meta property="og:image" content="https://harveycolchado.pe/images/verdadomito/portada-mitos.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://harveycolchado.com.pe/verdad-o-mito" />
+        <meta property="twitter:url" content="https://harveycolchado.pe/verdad-o-mito" />
         <meta property="twitter:title" content="Verdad o Mito - Harvey Colchado" />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://harveycolchado.com.pe/verdad-o-mito" />
+        <link rel="canonical" href="https://harveycolchado.pe/verdad-o-mito" />
       </Helmet>
 
       {/* Hero Section con Imagen */}

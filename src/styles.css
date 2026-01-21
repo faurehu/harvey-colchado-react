@@ -1416,7 +1416,11 @@ article.caso-card .caso-enlace:hover {
     .mitos-hero p {
         font-size: 14px;
     }
-    
+
+    .mitos-hero .hero-image {
+        width: 100% !important;
+    }
+
     .hero h1 {
         font-size: 32px;
     }

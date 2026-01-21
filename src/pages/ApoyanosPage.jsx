@@ -205,19 +205,19 @@ function ApoyanosForm() {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://harveycolchado.com.pe/apoyanos" />
+        <meta property="og:url" content="https://harveycolchado.pe/apoyanos" />
         <meta property="og:title" content="Únete a la Campaña - Harvey Colchado 2026" />
         <meta property="og:description" content="Sé parte del cambio. Únete como voluntario a la campaña de Harvey Colchado para un Perú más seguro." />
-        <meta property="og:image" content="https://harveycolchado.com.pe/images/apoyanos/harvey-short.mp4" />
+        <meta property="og:image" content="https://harveycolchado.pe/images/apoyanos/harvey-short.mp4" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://harveycolchado.com.pe/apoyanos" />
+        <meta property="twitter:url" content="https://harveycolchado.pe/apoyanos" />
         <meta property="twitter:title" content="Únete a la Campaña - Harvey Colchado 2026" />
         <meta property="twitter:description" content="Sé parte del cambio. Únete como voluntario a la campaña de Harvey Colchado." />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://harveycolchado.com.pe/apoyanos" />
+        <link rel="canonical" href="https://harveycolchado.pe/apoyanos" />
       </Helmet>
 
       {/* Video Hero Section - Únete a la campaña */}
