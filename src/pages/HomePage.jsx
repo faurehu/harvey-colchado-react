@@ -85,36 +85,6 @@ function HomePage() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    const container = document.getElementById('juicer-container');
-    if (!container) return;
-
-    // Create the feed element
-    const feedElement = document.createElement('ul');
-    feedElement.className = 'juicer-feed';
-    feedElement.setAttribute('data-feed-id', 'harveycolchadoficial');
-    container.appendChild(feedElement);
-
-    // Check if script is already loaded
-    let existingScript = document.querySelector('script[src*="juicer.io"]');
-
-    if (!existingScript) {
-      const script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = 'https://www.juicer.io/embed/harveycolchadoficial/embed-code.js';
-      script.async = true;
-      script.defer = true;
-      document.body.appendChild(script);
-      existingScript = script;
-    }
-
-    return () => {
-      // Clean up the feed element
-      if (container && feedElement.parentNode === container) {
-        container.removeChild(feedElement);
-      }
-    };
-  }, []);
 
   // Image rotation effect (desktop only)
   useEffect(() => {
@@ -447,10 +417,6 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Social Media Feed */}
-      <section className="social-feed">
-        <div className="container" id="juicer-container"></div>
-      </section>
     </>
   );
 }
