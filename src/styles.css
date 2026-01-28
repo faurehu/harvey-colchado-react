@@ -705,6 +705,29 @@ article.caso-card .caso-enlace:hover {
     transform: scale(1.1);
 }
 
+/* Large tablet / small desktop - narrower nav buttons */
+@media (max-width: 1400px) and (min-width: 1025px) {
+    .nav {
+        gap: 12px;
+    }
+
+    .nav a {
+        width: 130px;
+        font-size: 15px;
+        padding: 8px 10px;
+    }
+
+    .nav a[href="/apoyanos/"],
+    .nav .apoyanos-btn {
+        width: 130px !important;
+        font-size: 15px !important;
+    }
+
+    .header .container {
+        gap: 30px;
+    }
+}
+
 /* Tablet specific - keep desktop hero but mobile nav */
 @media (max-width: 1024px) and (min-width: 769px) {
     .header .container {
@@ -2148,6 +2171,35 @@ article.caso-card .caso-enlace:hover {
     color: var(--azul-principal);
 }
 
+/* Propuestas CTA Button */
+.propuestas-cta {
+    text-align: center;
+    margin-top: 40px;
+    padding: 0 20px 40px;
+}
+
+.btn-plan-gobierno {
+    display: inline-block;
+    background: var(--amarillo-principal);
+    color: var(--azul-principal);
+    padding: 18px 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-plan-gobierno:hover {
+    background: var(--azul-principal);
+    color: var(--blanco);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
 /* Responsive Propuestas */
 @media (max-width: 768px) {
     .metodo-hero {
@@ -2247,6 +2299,16 @@ article.caso-card .caso-enlace:hover {
     
     .propuesta-detalle-content p {
         font-size: 13px;
+    }
+
+    .propuestas-cta {
+        margin-top: 30px;
+        padding: 0 15px 30px;
+    }
+
+    .btn-plan-gobierno {
+        padding: 15px 25px;
+        font-size: 16px;
     }
 }
 
@@ -2937,7 +2999,7 @@ video {
 
 .biografia-intro {
     margin-bottom: 60px;
-    text-align: left;
+    text-align: justify;
 }
 
 .biografia-intro h3 {
@@ -2987,7 +3049,7 @@ video {
     font-size: 16px;
     line-height: 1.8;
     margin-bottom: 25px;
-    text-align: left;
+    text-align: justify;
 }
 
 .biografia-image {
@@ -2996,6 +3058,20 @@ video {
     border-radius: 8px;
     flex-shrink: 0;
     object-fit: cover;
+}
+
+.biografia-image-clickable {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.biografia-image-clickable:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.biografia-image-clickable:hover .biografia-image {
+    opacity: 0.95;
 }
 
 /* Big Photo Hero Section */
@@ -3041,7 +3117,7 @@ video {
     font-size: 17px;
     line-height: 1.8;
     margin-bottom: 25px;
-    text-align: left;
+    text-align: justify;
 }
 
 .biografia-hero-image {

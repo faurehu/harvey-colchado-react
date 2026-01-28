@@ -42,7 +42,8 @@ const VOLUNTEER_OPTIONS = [
             'Ganas de aprender, proponer ideas y trabajar en equipo.',
             'Buena redacción y sensibilidad para contar historias en formatos digitales.',
             'Experiencia previa en creación de contenidos (deseable, no excluyente).',
-            'Conocimientos en marketing digital o redes sociales (deseable).'
+            'Conocimientos en marketing digital o redes sociales (deseable).',
+            'Conocimientos en generación de imágenes y videos con inteligencia artificial.'
           ]
         },
         {
@@ -70,10 +71,9 @@ const VOLUNTEER_OPTIONS = [
             'Apoyar en la organización de eventos, actividades y encuentros comunitarios en tu distrito o zona.',
             'Prospectar y proponer lugares estratégicos para visitas, charlas o actividades de la campaña.',
             'Construir y fortalecer redes locales con líderes vecinales, organizaciones comunitarias y ciudadanos comprometidos.',
-            'Aplicar encuestas presenciales a ciudadanos en diferentes distritos y sectores.',
             'Recoger de forma objetiva las opiniones, preocupaciones y expectativas de la población.',
             'Registrar información de manera clara y ordenada para su posterior análisis.',
-            'Coordinarte con el equipo de campo para cumplir los objetivos de la campaña en territorio.',
+            'Coordinar con el equipo de campo para cumplir los objetivos de la campaña en territorio.',
             'Representar los valores de la campaña con respeto, ética y profesionalismo.'
           ]
         },
@@ -97,7 +97,6 @@ const VOLUNTEER_OPTIONS = [
             'La oportunidad de ser parte activa del proceso real de una campaña política nacional.',
             'Contacto directo con la ciudadanía y experiencia práctica en organización de eventos y construcción de redes.',
             'Desarrollo de habilidades en liderazgo comunitario, comunicación política y trabajo en equipo.',
-            'Certificado de participación como voluntario/a en la campaña Harvey Colchado 2026.',
             'Un espacio de aprendizaje, crecimiento personal y compromiso cívico.'
           ]
         }

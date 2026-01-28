@@ -234,6 +234,17 @@ function PropuestasPage() {
             </React.Fragment>
           ))}
         </div>
+
+        <div className="propuestas-cta">
+          <a
+            href="/Plan de Gobierno Ahora Nación.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-plan-gobierno"
+          >
+            Lee el plan de gobierno del partido Ahora Nación
+          </a>
+        </div>
       </section>
     </>
   );

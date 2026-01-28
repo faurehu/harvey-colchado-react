@@ -1,8 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import './GaleriaPage.css';
+
+// Images data for lightbox
+const BIOGRAFIA_IMAGES = [
+  { src: '/images/biografia/bio3.png', alt: 'Harvey Colchado en sus primeros años' },
+  { src: '/images/biografia/bio4.png', alt: 'Harvey Colchado en formación policial' },
+  { src: '/images/biografia/bio1.png', alt: 'Harvey Colchado en capacitación internacional' },
+  { src: '/images/biografia/bio7.jpg', alt: 'Harvey Colchado durante la captura de Artemio' },
+  { src: '/images/biografia/bio8.jpg', alt: 'Harvey Colchado en la DIVIAC' },
+];
 
 function BiografiaPage() {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (selectedImage === null) return;
+      if (e.key === 'Escape') {
+        setSelectedImage(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImage]);
+
+  const openImage = (index) => {
+    setSelectedImage(index);
+  };
+
   return (
     <div className="conocimiento-page biografia-page">
       <Helmet>
@@ -81,7 +109,7 @@ function BiografiaPage() {
           <div className="biografia-section">
             <h3>Mis primeros años</h3>
             <div className="biografia-section-content">
-              <picture>
+              <picture onClick={() => openImage(0)} className="biografia-image-clickable">
                 <source media="(min-width: 1200px)" srcSet="/images/biografia/optimized/bio3-desktop.webp" type="image/webp" />
                 <source media="(min-width: 768px)" srcSet="/images/biografia/optimized/bio3-tablet.webp" type="image/webp" />
                 <source srcSet="/images/biografia/optimized/bio3-mobile.webp" type="image/webp" />
@@ -102,7 +130,7 @@ function BiografiaPage() {
           <div className="biografia-section">
             <h3>Mi formación policial</h3>
             <div className="biografia-section-content image-right">
-              <picture>
+              <picture onClick={() => openImage(1)} className="biografia-image-clickable">
                 <source media="(min-width: 1200px)" srcSet="/images/biografia/optimized/bio4-desktop.webp" type="image/webp" />
                 <source media="(min-width: 768px)" srcSet="/images/biografia/optimized/bio4-tablet.webp" type="image/webp" />
                 <source srcSet="/images/biografia/optimized/bio4-mobile.webp" type="image/webp" />
@@ -134,7 +162,7 @@ function BiografiaPage() {
           <div className="biografia-section">
             <h3>Preparación dentro y fuera del país</h3>
             <div className="biografia-section-content">
-              <picture>
+              <picture onClick={() => openImage(2)} className="biografia-image-clickable">
                 <source media="(min-width: 1200px)" srcSet="/images/biografia/optimized/bio1-desktop.webp" type="image/webp" />
                 <source media="(min-width: 768px)" srcSet="/images/biografia/optimized/bio1-tablet.webp" type="image/webp" />
                 <source srcSet="/images/biografia/optimized/bio1-mobile.webp" type="image/webp" />
@@ -155,7 +183,7 @@ function BiografiaPage() {
           <div className="biografia-section">
             <h3>La captura de camarada Artemio</h3>
             <div className="biografia-section-content image-right">
-              <picture>
+              <picture onClick={() => openImage(3)} className="biografia-image-clickable">
                 <source media="(min-width: 1200px)" srcSet="/images/biografia/optimized/bio7-desktop.webp" type="image/webp" />
                 <source media="(min-width: 768px)" srcSet="/images/biografia/optimized/bio7-tablet.webp" type="image/webp" />
                 <source srcSet="/images/biografia/optimized/bio7-mobile.webp" type="image/webp" />
@@ -176,7 +204,7 @@ function BiografiaPage() {
           <div className="biografia-section">
             <h3>La DIVIAC y la lucha contra la corrupción</h3>
             <div className="biografia-section-content">
-              <picture>
+              <picture onClick={() => openImage(4)} className="biografia-image-clickable">
                 <source media="(min-width: 1200px)" srcSet="/images/biografia/optimized/bio8-desktop.webp" type="image/webp" />
                 <source media="(min-width: 768px)" srcSet="/images/biografia/optimized/bio8-tablet.webp" type="image/webp" />
                 <source srcSet="/images/biografia/optimized/bio8-mobile.webp" type="image/webp" />
@@ -234,6 +262,22 @@ function BiografiaPage() {
           </div>
         </div>
       </section>
+
+      {/* Image Lightbox Modal */}
+      {selectedImage !== null && (
+        <div
+          className="gallery-modal"
+          onClick={() => setSelectedImage(null)}
+        >
+          <span className="gallery-modal-close">&times;</span>
+          <img
+            className="gallery-modal-content"
+            src={BIOGRAFIA_IMAGES[selectedImage].src}
+            alt={BIOGRAFIA_IMAGES[selectedImage].alt}
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   );
 }
