@@ -442,6 +442,7 @@ body {
     color: var(--gris-oscuro);
     line-height: 1.7;
     font-size: 16px;
+    text-align: justify;
 }
 
 .quien-soy-text p:first-of-type {

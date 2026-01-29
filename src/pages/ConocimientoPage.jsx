@@ -21,6 +21,12 @@ const BLOG_POSTS = [
     title: 'Tésis de Maestría en Gobierno y Políticas Públicas',
     description: 'Investigación académica sobre seguridad nacional y lucha contra el crimen organizado.',
     url: '/conocimiento/tesis-maestria'
+  },
+  {
+    id: 4,
+    title: 'Gestión del monitoreo y evaluación del desempeño de Depincri en Lima',
+    description: 'Estudio sobre la gestión del monitoreo y evaluación del desempeño en los Departamentos de Investigación Criminal (Depincri) de Lima Metropolitana.',
+    url: '/conocimiento/monitoreo-depincri'
   }
 ];
 

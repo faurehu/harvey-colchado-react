@@ -5,6 +5,7 @@ import Header from '../components/layout/Header';
 import CasoCard from '../components/shared/CasoCard';
 import AnimatedXMark from '../components/shared/AnimatedXMark';
 import AnimatedNumber from '../components/shared/AnimatedNumber';
+import './GaleriaPage.css';
 
 // Static data hoisted to module level to avoid recreation on every render
 const HERO_IMAGES = [
@@ -43,6 +44,7 @@ function HomePage() {
   const [numberKey, setNumberKey] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [bioImageOpen, setBioImageOpen] = useState(false);
 
   // Random initial image for mobile, sequential for desktop
   const [currentImageIndex] = useState(() => {
@@ -364,7 +366,10 @@ function HomePage() {
         <div className="container">
           <h2>¿Quién soy?</h2>
           <div className="quien-soy-content">
-            <img src="/images/inicio/harvey-hero-photo.jpg" alt="Harvey Colchado Portrait" className="portrait" loading="lazy" />
+            <div style={{ textAlign: 'center' }}>
+              <img src="/images/inicio/harvey-hero-photo.jpg" alt="Harvey Colchado Portrait" className="portrait" loading="lazy" onClick={() => setBioImageOpen(true)} style={{ cursor: 'pointer' }} />
+              <p style={{ fontSize: '12px', color: '#888', marginTop: '8px', fontStyle: 'italic' }}>Fuente: <a href="https://elpais.com/america/2025-02-16/harvey-colchado-capturo-terroristas-y-criminales-allano-la-casa-de-boluarte-en-peru-ahora-le-quieren-quitar-el-grado-de-coronel.html" target="_blank" rel="noopener noreferrer" style={{ color: '#888', textDecoration: 'underline' }}>El País</a>. Foto tomada por Carolina Ugarte</p>
+            </div>
             <div className="quien-soy-text">
               <h3>Si hay crimen y corrupción, ¡la tumbamos!</h3>
               <p>Harvey Colchado nació el 11 de abril de 1974 en Lima y desde joven mostró una vocación de servicio público. En 1993 ingresó a la Escuela de Oficiales de la Policía Nacional del Perú, graduándose en el tercer puesto de su promoción. Su carrera policial comenzó en 1997 en la Dirección Contra el Terrorismo (DIRCOTE). y a lo largo de los años ha sido asignado a misiones especializadas en investigación criminal, combatiendo el terrorismo, narcotráfico y crimen organizado en todo el país. Paralelamente, cursó estudios de Derecho y recibió capacitación de la DEA en Estados Unidos, participando como exponente en conferencias internacionales sobre investigación criminal.</p>
@@ -417,6 +422,21 @@ function HomePage() {
         </div>
       </section>
 
+      {/* Bio Image Lightbox */}
+      {bioImageOpen && (
+        <div
+          className="gallery-modal"
+          onClick={() => setBioImageOpen(false)}
+        >
+          <span className="gallery-modal-close">&times;</span>
+          <img
+            className="gallery-modal-content"
+            src="/images/inicio/harvey-hero-photo.jpg"
+            alt="Harvey Colchado Portrait"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </>
   );
 }
