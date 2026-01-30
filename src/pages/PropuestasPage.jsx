@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { logEvent, logClick } from '../utils/analytics';
 
 // Static data hoisted to module level to avoid recreation on every render
 const PROPUESTAS = [
@@ -125,6 +126,7 @@ function PropuestasPage() {
   const [expandedPropuesta, setExpandedPropuesta] = useState(null);
 
   const toggleDetalle = (index) => {
+    logEvent('Accordion', 'toggle', PROPUESTAS[index].titulo);
     setExpandedPropuesta(expandedPropuesta === index ? null : index);
   };
 
@@ -241,6 +243,7 @@ function PropuestasPage() {
             target="_blank"
             rel="noopener noreferrer"
             className="btn-plan-gobierno"
+            onClick={() => logClick('Download Plan de Gobierno', 'Propuestas')}
           >
             Lee el plan de gobierno del partido Ahora Nación
           </a>

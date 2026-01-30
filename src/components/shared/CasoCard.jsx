@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { logClick } from '../../utils/analytics';
 
 function CasoCard({ titulo, imagen, descripcion, enlace, enlaceTexto = 'LINK DE NOTICIA' }) {
   const [expanded, setExpanded] = useState(false);
@@ -47,6 +48,7 @@ function CasoCard({ titulo, imagen, descripcion, enlace, enlaceTexto = 'LINK DE 
           href={enlace}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => logClick('External Link', titulo)}
         >
           {enlaceTexto}
         </a>

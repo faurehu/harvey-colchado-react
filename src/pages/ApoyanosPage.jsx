@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { logEvent } from '../utils/analytics';
 
 // Static data hoisted to module level to avoid recreation on every render
 const DISTRITOS_LIMA = [
@@ -114,6 +115,7 @@ function ApoyanosForm() {
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const toggleDetalle = (index) => {
+    logEvent('Accordion', 'toggle', VOLUNTEER_OPTIONS[index].titulo);
     setExpandedPropuesta(expandedPropuesta === index ? null : index);
   };
 
@@ -136,6 +138,7 @@ function ApoyanosForm() {
     if (process.env.NODE_ENV === 'development') {
       setTimeout(() => {
         setSubmitSuccess(true);
+        logEvent('Form', 'submit_success', 'Volunteer');
         e.target.reset();
         setVolunteerType('');
         setOtrosDescription('');
@@ -178,6 +181,7 @@ function ApoyanosForm() {
 
       if (response.ok) {
         setSubmitSuccess(true);
+        logEvent('Form', 'submit_success', 'Volunteer');
         e.target.reset();
         setVolunteerType('');
         setOtrosDescription('');

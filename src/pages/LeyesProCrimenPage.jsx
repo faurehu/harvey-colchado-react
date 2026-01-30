@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { logEvent } from '../utils/analytics';
 
 // Static data hoisted to module level to avoid recreation on every render
 const VOTING_MATRICES = [
@@ -44,6 +45,8 @@ function LeyesProCrimenPage() {
   };
 
   const toggleLaw = (lawNumber) => {
+    const law = laws.find((l) => l.number === lawNumber);
+    if (law) logEvent('Accordion', 'toggle', law.title);
     setExpandedLaw(expandedLaw === lawNumber ? null : lawNumber);
   };
 

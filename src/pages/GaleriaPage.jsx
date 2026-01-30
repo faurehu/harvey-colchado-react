@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { logEvent } from '../utils/analytics';
 import './GaleriaPage.css';
 
 // Static data hoisted to module level to avoid recreation on every render
@@ -115,7 +116,7 @@ function GaleriaPage() {
               <div
                 key={index}
                 className="gallery-item"
-                onClick={() => setSelectedIndex(index)}
+                onClick={() => { logEvent('Gallery', 'image_open', `${index}`); setSelectedIndex(index); }}
               >
                 <img src={image} alt={`Galería \${index + 1}`} loading="lazy" />
               </div>
