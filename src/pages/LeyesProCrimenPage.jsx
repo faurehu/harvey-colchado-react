@@ -4,6 +4,25 @@ import { Helmet } from 'react-helmet-async';
 import { logEvent } from '../utils/analytics';
 
 // Static data hoisted to module level to avoid recreation on every render
+const VOTING_MATRICES_DETENCION = [
+  { name: 'Ahora Nación', image: '/images/pro-crimen/Ahora_Nación_ley32181_32255_matrix.png' },
+  { name: 'Alianza Electoral Venceremos', image: '/images/pro-crimen/Alianza_Electoral_Venceremos_ley32181_32255_matrix.png' },
+  { name: 'Alianza para el Progreso (APP)', image: '/images/pro-crimen/Alianza_para_el_Progreso_(APP)_ley32181_32255_matrix.png' },
+  { name: 'Avanza País', image: '/images/pro-crimen/Avanza_País_–_Partido_de_Integración_Social_ley32181_32255_matrix.png' },
+  { name: 'Fuerza Popular', image: '/images/pro-crimen/Fuerza_Popular_ley32181_32255_matrix.png' },
+  { name: 'Juntos por el Perú', image: '/images/pro-crimen/Juntos_por_el_Perú_ley32181_32255_matrix.png' },
+  { name: 'Partido Democrático Somos Perú', image: '/images/pro-crimen/Partido_Democrático_Somos_Perú_ley32181_32255_matrix.png' },
+  { name: 'Partido País para Todos', image: '/images/pro-crimen/Partido_País_para_Todos_ley32181_32255_matrix.png' },
+  { name: 'Partido Político Cooperación Popular', image: '/images/pro-crimen/Partido_Político_Cooperación_Popular_ley32181_32255_matrix.png' },
+  { name: 'Partido Político Nacional Perú Libre', image: '/images/pro-crimen/Partido_Político_Nacional_Perú_Libre_ley32181_32255_matrix.png' },
+  { name: 'Partido Político Perú Primero', image: '/images/pro-crimen/Partido_Político_Perú_Primero_ley32181_32255_matrix.png' },
+  { name: 'Partido SíCreo', image: '/images/pro-crimen/Partido_SíCreo_ley32181_32255_matrix.png' },
+  { name: 'Podemos Perú', image: '/images/pro-crimen/Podemos_Perú_ley32181_32255_matrix.png' },
+  { name: 'Progresemos', image: '/images/pro-crimen/Progresemos_ley32181_32255_matrix.png' },
+  { name: 'Renovación Popular', image: '/images/pro-crimen/Renovación_Popular_ley32181_32255_matrix.png' },
+  { name: 'Unidad Nacional', image: '/images/pro-crimen/Unidad_Nacional_ley32181_32255_matrix.png' }
+];
+
 const VOTING_MATRICES = [
   { name: 'Ahora Nación', image: '/images/pro-crimen/Ahora_Nación_matrix.png' },
   { name: 'Alianza Electoral Venceremos', image: '/images/pro-crimen/ALIANZA_ELECTORAL_VENCEREMOS_matrix.png' },
@@ -26,6 +45,8 @@ const VOTING_MATRICES = [
 function LeyesProCrimenPage() {
   const [selectedMatrix, setSelectedMatrix] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedMatrixDetencion, setSelectedMatrixDetencion] = useState(null);
+  const [currentSlideDetencion, setCurrentSlideDetencion] = useState(0);
   const [expandedLaw, setExpandedLaw] = useState(null);
 
   const goToNext = () => {
@@ -42,6 +63,22 @@ function LeyesProCrimenPage() {
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + VOTING_MATRICES.length) % VOTING_MATRICES.length);
+  };
+
+  const nextSlideDetencion = () => {
+    setCurrentSlideDetencion((prev) => (prev + 1) % VOTING_MATRICES_DETENCION.length);
+  };
+
+  const prevSlideDetencion = () => {
+    setCurrentSlideDetencion((prev) => (prev - 1 + VOTING_MATRICES_DETENCION.length) % VOTING_MATRICES_DETENCION.length);
+  };
+
+  const goToNextDetencion = () => {
+    setSelectedMatrixDetencion((prev) => (prev + 1) % VOTING_MATRICES_DETENCION.length);
+  };
+
+  const goToPreviousDetencion = () => {
+    setSelectedMatrixDetencion((prev) => (prev - 1 + VOTING_MATRICES_DETENCION.length) % VOTING_MATRICES_DETENCION.length);
   };
 
   const toggleLaw = (lawNumber) => {
@@ -268,6 +305,38 @@ function LeyesProCrimenPage() {
           </p>
         </>
       )
+    },
+    {
+      number: 9,
+      title: "Ley 32181 - Sin Flagrancia, Sin Detención: Destruye la Evidencia y Huye",
+      content: (
+        <>
+          <p>
+            <strong>¿Qué hace esta ley?</strong> Modificó el Código Procesal Penal eliminando la posibilidad de dictar
+            detención preliminar judicial en casos donde no haya flagrancia. Antes, un juez podía ordenar detención
+            preliminar —hasta 10 días o más en casos complejos— aunque no hubiera flagrancia, si existían indicios
+            razonables de delito grave y riesgo de fuga u obstaculización. Con esta ley, solo procede la detención
+            preliminar en flagrancia; en los demás casos, la Fiscalía debe investigar sin esa herramienta coercitiva inicial.
+          </p>
+          <p>
+            <strong>¿Por qué es pro-crimen?</strong> La detención preliminar sin flagrancia era una herramienta esencial
+            para actuar con rapidez en delitos complejos como corrupción y crimen organizado, donde los sospechosos raramente
+            son capturados en el acto. Al eliminarla, la ley dificulta detener a sospechosos antes de que destruyan evidencia
+            o se den a la fuga. La única vía coercitiva fuerte que queda es la prisión preventiva, que exige estándares
+            probatorios más altos y demora considerablemente más, otorgando a los investigados una ventana de tiempo crítica
+            para obstaculizar la justicia. El Congreso legisló esta modificación en un contexto en que varios de sus propios
+            integrantes enfrentaban investigaciones activas.
+          </p>
+          <p>
+            <strong>Impacto:</strong> Esta ley benefició directamente a investigados en casos complejos como el caso Orellana
+            y Waykis en la Sombra, así como a otros sospechosos en investigaciones por tráfico de influencias, corrupción de
+            funcionarios y crimen organizado. Redes que por su naturaleza nunca actúan en flagrancia ganaron tiempo libre para
+            mover activos, alinear versiones y destruir evidencia antes de que el sistema penal pueda reaccionar. El Estado
+            pierde su capacidad de coerción preventiva en la fase más crítica de una investigación, convirtiendo la persecución
+            penal en una carrera que el sospechoso siempre tiene ventaja de ganar.
+          </p>
+        </>
+      )
     }
   ];
 
@@ -328,7 +397,7 @@ function LeyesProCrimenPage() {
       <section className="apoyo-section apoyo-amarillo">
         <div className="container">
           <div className="blog-post-content">
-            <h3>Las 8 Leyes Pro Crimen</h3>
+            <h3>Las 9 Leyes Pro Crimen</h3>
             <p>
               Haz clic en cada ley para ver qué hace, por qué favorece al crimen organizado y a la corrupción,
               y cuál es su impacto en la seguridad del país.
@@ -395,6 +464,96 @@ function LeyesProCrimenPage() {
           </div>
         </div>
       </section>
+
+      {/* La Detención Preliminar */}
+      <section className="apoyo-section apoyo-amarillo" style={{ marginBottom: '40px' }}>
+        <div className="container">
+          <div className="blog-post-content">
+            <h3>La Detención Preliminar: Derogada y Restituida</h3>
+            <p>
+              La <strong>detención preliminar sin flagrancia</strong> es una herramienta procesal que permite a un juez
+              ordenar la detención de un sospechoso por hasta 10 días —o más en casos complejos— aun cuando no hubiera sido
+              capturado en flagrancia, siempre que existieran indicios razonables de delito grave y riesgo de fuga u
+              obstaculización de la investigación.
+            </p>
+            <p>
+              En 2024, el Congreso aprobó la <strong>Ley 32181</strong>, que eliminó esta posibilidad: a partir de ese
+              momento, la detención preliminar solo procedía en casos de flagrancia. El efecto fue inmediato: investigados
+              en casos complejos de corrupción, tráfico de influencias y crimen organizado —como el caso Orellana y Waykis
+              en la Sombra— quedaron protegidos de una medida coercitiva inicial mientras la Fiscalía debía reunir
+              estándares mucho más altos para solicitar prisión preventiva, ganando tiempo para destruir evidencia, coordinar
+              versiones o huir.
+            </p>
+            <p>
+              Ante la presión ciudadana y el rechazo de la comunidad jurídica, el Congreso se vio obligado a dar marcha
+              atrás con la <strong>Ley 32255</strong>, que restituyó la detención preliminar sin flagrancia. Sin embargo,
+              el daño ya estaba hecho: durante el período en que la Ley 32181 estuvo vigente, múltiples investigaciones
+              vieron comprometida su eficacia. Las matrices a continuación muestran cómo votaron los legisladores actuales
+              que se postulan a la reelección en ambas votaciones.
+            </p>
+          </div>
+
+          <div className="voting-carousel">
+            <button className="carousel-arrow carousel-arrow-left" onClick={prevSlideDetencion}>
+              &#10094;
+            </button>
+            <div className="carousel-slide">
+              <img
+                src={VOTING_MATRICES_DETENCION[currentSlideDetencion].image}
+                alt={`Matriz de votación ${VOTING_MATRICES_DETENCION[currentSlideDetencion].name}`}
+                onClick={() => setSelectedMatrixDetencion(currentSlideDetencion)}
+              />
+              <p className="carousel-caption">{VOTING_MATRICES_DETENCION[currentSlideDetencion].name}</p>
+            </div>
+            <button className="carousel-arrow carousel-arrow-right" onClick={nextSlideDetencion}>
+              &#10095;
+            </button>
+          </div>
+
+          <div className="carousel-dots">
+            {VOTING_MATRICES_DETENCION.map((_, index) => (
+              <span
+                key={index}
+                className={`carousel-dot ${currentSlideDetencion === index ? 'active' : ''}`}
+                onClick={() => setCurrentSlideDetencion(index)}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Modal detención preliminar */}
+      {selectedMatrixDetencion !== null && (
+        <div className="gallery-modal" onClick={() => setSelectedMatrixDetencion(null)}>
+          <span className="gallery-modal-close">&times;</span>
+          <button
+            className="gallery-modal-arrow gallery-modal-arrow-left"
+            onClick={(e) => {
+              e.stopPropagation();
+              goToPreviousDetencion();
+            }}
+          >
+            &#10094;
+          </button>
+          <div className="modal-content-wrapper" onClick={(e) => e.stopPropagation()}>
+            <img
+              className="gallery-modal-content"
+              src={VOTING_MATRICES_DETENCION[selectedMatrixDetencion].image}
+              alt={`Matriz ${VOTING_MATRICES_DETENCION[selectedMatrixDetencion].name}`}
+            />
+            <p className="modal-matrix-name">{VOTING_MATRICES_DETENCION[selectedMatrixDetencion].name}</p>
+          </div>
+          <button
+            className="gallery-modal-arrow gallery-modal-arrow-right"
+            onClick={(e) => {
+              e.stopPropagation();
+              goToNextDetencion();
+            }}
+          >
+            &#10095;
+          </button>
+        </div>
+      )}
 
       {/* Conclusión */}
       <section className="apoyo-section apoyo-amarillo">

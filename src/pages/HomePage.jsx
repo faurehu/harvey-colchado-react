@@ -5,6 +5,7 @@ import Header from '../components/layout/Header';
 import CasoCard from '../components/shared/CasoCard';
 import AnimatedXMark from '../components/shared/AnimatedXMark';
 import AnimatedNumber from '../components/shared/AnimatedNumber';
+import { logClick } from '../utils/analytics';
 import './GaleriaPage.css';
 
 // Static data hoisted to module level to avoid recreation on every render
@@ -187,7 +188,7 @@ function HomePage() {
               </div>
               <p>Con tu voto tumbamos el crimen y la corrupción!</p>
               <div className="cta-container">
-                <Link to="/propuestas" className="cta-button">CONOCE EL MÉTODO COLCHADO</Link>
+                <Link to="/propuestas" className="cta-button" onClick={() => logClick('Conoce el Método Colchado', 'Hero')}>CONOCE EL MÉTODO COLCHADO</Link>
               </div>
             </div>
             <div
