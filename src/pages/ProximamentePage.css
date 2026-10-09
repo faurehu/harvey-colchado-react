@@ -11,6 +11,9 @@
     font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
     text-align: center;
     box-shadow: inset 0 6px 0 #E30613; /* Filete rojo superior */
+    -webkit-user-select: none; /* El texto del letrero no se puede seleccionar */
+    user-select: none;
+    cursor: default;
 }
 
 .proximamente-letrero {
